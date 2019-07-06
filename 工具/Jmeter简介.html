@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>Jmeter简介</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,10 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="notes" class="md-header-anchor"></a><span>notes</span></h1><ul><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='%E5%B7%A5%E5%85%B7/index.html'><span>工具</span></a></li></ul><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="jmeter%E7%AE%80%E4%BB%8B" class="md-header-anchor"></a><span>Jmeter简介</span></h1><p><span>Jmeter需要JRE才能运行。</span><br/><span>Jmeter是绿色软件，解压后，直接双击bin/jmeter.bat即可运行。</span><br/><span>Jmeter的options菜单中可以设置界面语言、界面风格和字体大小。</span><br/><span>Jmeter响应消息中文乱码，在bin/jmeter.properties文件中添加 sampleresult.default.encoding=utf-8。  </span></p><h2><a name="%E5%85%83%E4%BB%B6%E4%BB%8B%E7%BB%8D" class="md-header-anchor"></a><span>元件介绍</span></h2><p><strong><span>测试计划</span></strong><span>：描述一次测试，即所有测试内容都基于测试计划，测试计划是其他所有元件的最顶层。</span></p><p><strong><span>线程组</span></strong><span>：</span>
+<span>可以理解为用户组，每一个线程就是一个虚拟用户。多个线程组是同时启动的，不会等一个线程组结束后再去启动另一个。</span></p><ol start='' ><li><span>线程数：设置用来执行当前线程组里面的测试的线程数量。</span></li><li><span>ramp-up时间：线程启动的间隔时间，默认1秒，即每隔1秒启动线程组中的一个线程。</span></li><li><span>循环次数：每个线程循环执行的次数。</span></li><li><span>延迟创建线程直到需要：线程被需要时才会被创建，不选中这个的话，一开始就创建所有线程，当然不一定启动。</span></li></ol><p><strong><span>取样器</span></strong><span>：像服务器发送的请求。</span></p><p><strong><span>监听器</span></strong><span>：对数据结果做可视化的展示。</span></p><p><strong><span>定时器</span></strong><span>：</span>
+<span>同步定时器：在规定时间内（小于timeout的数值）等待线程到达一定数量后，执行这些线程，否则这些线程会处于等待状态。如果到达时间后（等于timeout的值），线程数量不足，那也执行这些线程。</span></p><p><strong><span>断言</span></strong><span>：</span>
+<span>有的时候取样器虽然执行成功了，但是得到的结果却不是我想要的，这个时候可以给取样器添加断言来判断取得的数据是否正确。</span>
+<span>对于一些不可忽视的错误，还可以在线程组总设置取样器失败后，停止线程。</span></p><p><strong><span>前置处理器</span></strong><span>：这里可以设置仅供当前取样器使用的一些参数，或者是设置当前取样器的超时时间。</span></p><p><strong><span>后置处理器</span></strong><span>：从取样器的结果中取出需要的数据。</span></p><h2><a name="%E5%85%83%E4%BB%B6%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F" class="md-header-anchor"></a><span>元件执行顺序</span></h2><ol start='' ><li><span>配置元件（config elements ）</span></li><li><span>前置处理程序（Per-processors）</span></li><li><span>定时器（timers ）</span></li><li><span>取样器（Sampler）</span></li><li><span>后置处理程序（Post-processors） （除非Sampler 得到的返回结果为空）</span></li><li><span>断言（Assertions）（除非Sampler 得到的返回结果为空）</span></li><li><span>监听器（Listeners）（除非Sampler 得到的返回结果为空）</span></li></ol></div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>loadrunner</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="notes" class="md-header-anchor"></a><span>notes</span></h1><ul><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='%E5%B7%A5%E5%85%B7/index.html'><span>工具</span></a></li></ul><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="loadrunner" class="md-header-anchor"></a><span>loadrunner</span></h1><h2><a name="%E5%AE%89%E8%A3%85" class="md-header-anchor"></a><span>安装</span></h2><p><span>需要在控制面板的【启用或关闭Windows功能】中打开framework 3.5。</span><br/><span>如果安装程序意外关闭（比如电脑没开启framework 3.5的情况下），可以手动打开loadrunner安装程序，位置大概是：C:\Temp\HP LoadRunner 12.02 Community Edition\DVD\lrunner\En\setup.exe。</span><br/><span>安装过程中需要去掉【指定loadrunner代理将要使用的证书】的勾。</span></p><h2><a name="%E8%84%9A%E6%9C%AC%E5%BD%95%E5%88%B6" class="md-header-anchor"></a><span>脚本录制</span></h2><p><span>loadrunner兼容性最好的是ie，其次是火狐，然后才是Chrome，只要ie能正常使用，就不考虑其他浏览器。</span><br/><span>最好不要用Chrome，因为Chrome启动时会去连接Google，而墙内连不上Google，导致录制时Chrome一直打不开网页。</span><br/><span>多装几个浏览器是有必要的，最好使用旧版的，blink内核的可以使用国产浏览器代替。</span></p><p><span>录制前必须确保LoadRunner Agent Process是开启的，它的作用是将录制的脚本转换成代码。</span></p><p><span>录制时会弹出【There is no internet Connection】的弹框，因为loadrunner会ping Google来判断网络是否畅通，所以这个弹框是不用管的。</span></p><p><span>http录制方式</span><br/><span>HTML-base：loadrunner会对每一个HTML页面创建一条语句，然后解析该HTML页面中的其他元素。</span><br/><span>URL-base：loadrunner会对所有的http请求都创建一条语句。</span></p></div>
 </body>
 </html>

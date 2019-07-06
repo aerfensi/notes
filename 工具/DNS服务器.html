@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>DNS服务器</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="notes" class="md-header-anchor"></a><span>notes</span></h1><ul><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='%E5%B7%A5%E5%85%B7/index.html'><span>工具</span></a></li></ul><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="dns%E6%9C%8D%E5%8A%A1%E5%99%A8" class="md-header-anchor"></a><span>DNS服务器</span></h1><p><a href='https://blog.csdn.net/kamroselee/article/details/79270513'><span>Windows Server 2012R2 DNS服务介绍及搭建</span></a></p><p><strong><span>DNS服务器上没有必要创建反向查找区域！</span></strong><span></span><br/><span>反向查找域是通过ip查找主机的域名，普通用户根本用不到这个功能，一般是服务器管理员在使用。域名一般能反映出该主机提供的服务类型，比如mail.163.com，当一个人管理了很多台主机时，他需要知道某一个ip的主机提供了哪种服务的话，就需要在DNS上配置反向查找域。</span></p><p><strong><span>nslookup</span></strong><span></span><br/><span>这是用来定位DNS定位问题的命令，Windows和Linux上都有。</span><br/><code>nslookup -qt = type domain [dns-server]</code><span>，type默认是主机，domain默认是系统设置的DNS服务器，所以最简单的用法如下：</span><br/><code>nslookup www.baidu.com</code><span>：解析</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span></span><br/><code>nslookup www.baidu.com 8.8.8.8</code><span>：用8.8.8.8这个DNS服务器来解析</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span>  </span></p></div>
 </body>
 </html>
