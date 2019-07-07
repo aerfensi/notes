@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>21_协程asyncio-2：常用API</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -149,6 +149,79 @@ iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 
 
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
 html { font-size: 16px; }
 body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
 #write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
@@ -251,6 +324,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="notes" class="md-header-anchor"></a><span>notes</span></h1><ul><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='Python/index.html'><span>Python</span></a></li><li><a href='Python/%E7%AE%97%E6%B3%95%E3%80%81%E6%A8%A1%E5%BC%8F%E7%AD%89/index.html'><span>Python/算法、模式等</span></a></li><li><a href='Python/%E8%87%AA%E5%B8%A6%E6%A8%A1%E5%9D%97/index.html'><span>Python/自带模块</span></a></li><li><a href='Python/%E9%9D%9E%E8%87%AA%E5%B8%A6%E6%A8%A1%E5%9D%97/index.html'><span>Python/非自带模块</span></a></li><li><a href='%E5%B7%A5%E5%85%B7/index.html'><span>工具</span></a></li></ul></div>
+<div  id='write'  class = 'is-node'><h1><a name="21.%E5%8D%8F%E7%A8%8Basyncio-2%EF%BC%9A%E5%B8%B8%E7%94%A8api" class="md-header-anchor"></a><span>21.协程asyncio-2：常用API</span></h1><h2><a name="loop" class="md-header-anchor"></a><span>loop</span></h2><ul><li><strong><code>asyncio.get_event_loop()</code></strong><span>：获得当前context的loop</span></li><li><code>asyncio.new_event_loop()</code><span>：创建一个新的loop对象</span></li><li><code>asyncio.set_event_loop(loop)</code><span>：为当前context设置loop</span></li></ul><p><span>关于context，</span><strong><span>推测为当前线程的上下文环境</span></strong><span>。如果asyncio的loop和android中的handler相似，那每条线程都可以有一个loop。不过一般也都只用</span><code>get_event_loop()</code><span>就行了</span></p><h3><a name="loop%E7%9A%84%E5%B8%B8%E7%94%A8api" class="md-header-anchor"></a><span>loop的常用API</span></h3><ul><li><code>run_until_complete(future)</code><span>：运行future，并阻塞当前线程直到future运行完毕</span></li><li><code>run_forever()</code><span>：运行future，并阻塞当前线程，直到该loop的stop()方法被调用</span></li></ul><p><span>由于</span><code>run_forever()</code><span>会一直阻塞当前线程，故只能在future中调用loop的stop()方法  </span></p><p><strong><code>run_forever()</code><span>stop前未完成的future将在下次执行</span><code>run_forever()</code><span>后继续执行</span></strong><span>。具体的策略我还没搞清楚</span></p><ul><li><span>stop()：停止loop</span></li><li><span>is_running()</span></li><li><span>close()：关闭loop，所有Pending状态的future和callback函数都将被丢失，且之后不能再运行这个loop</span></li><li><span>is_close()</span></li><li><code>call_soon(callback,*args)</code><span>：安排一个函数被尽快执行</span></li><li><code>call_soon_threadsafe(callback, *args)</code><span>：同上，但是线程安全</span></li><li><code>call_later(delay, callback, *args)</code><span>：delay的单位是秒</span></li><li><code>call_at(when, callback, *args)</code><span>：when是一个时间戳</span></li></ul><p><code>call_soon</code><span>依旧需要调用loop的</span><code>run_until_complete</code><span>或者</span><code>run_forever</code><span>才会去执行callback函数，callback就是一个</span><strong><span>普通函数</span></strong><span></span><br/><code>call_soon</code><span>不能把关键字参数传递给callback，如果希望这么做，可以结合functools.partial</span><br/><code>loop.call_soon(functools.partial(print, &quot;Hello&quot;, flush=True))</code><span>  </span></p><p><span>大多数asyncio的对象都不是线程安全的，如果需要访问event loop中的对象，就需要使用</span><code>call_soon_threadsafe</code><span>方法。比如希望取消一个future，不能直接使用</span><code>future.cancel</code><span>，而需要</span><code>loop.call_soon_threadsafe(future.cancel)</code></p><p><span>loop的call相关的方法都会返回一个Handle对象，该对象的cancel方法可以用来取消callback函数的执行。如果callback已经被执行或取消，则cancel不起作用</span></p><ul><li><code>run_coroutine_threadsafe(coro_func,loop)</code><span>：loop必须在主线程中运行，如果希望其他线程去执行协程，需要调用该方法，该方法返回一个Future对象</span></li><li><code>run_in_executor(executor, func, *args)</code><span>：用ThreadPoolExecutor来执行函数，executor为None，则使用默认的executor</span></li><li><code>set_default_executor(executor)</code></li></ul><p><span>如果希望在coroutine中执行异步IO，可以使用</span><code>run_in_executor</code><span>方法</span></p><h2><a name="future%E5%92%8Ctask" class="md-header-anchor"></a><span>Future和Task</span></h2><p><span>几乎兼容concurrent.futures.Future，它包含的方法也几乎等同于concurrent.futures.Future</span></p><p><span>future有四种状态：Pending、Running、Done、Cancelled</span></p><p><span>coroutine是协程</span><br/><span>future是协程运行的结果</span><br/><span>Task是Future的子类，是loop真正执行的任务  </span></p><p><span>应该可以这么理解coroutine被包装成一个task给loop调度执行，而coroutine的await/yield from返回一个future作为其异步操作的执行结果</span></p><p><span>future可以用</span><code>add_done_callback</code><span>设置回调函数，该回调函数会被传入一个参数，参数的值就是当前的future对象</span></p><h2><a name="asyncio%E6%A8%A1%E5%9D%97%E7%9A%84%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0" class="md-header-anchor"></a><span>asyncio模块的其他函数</span></h2><ul><li><code>ensure_future(coro_or_future, *, loop=None)</code><span>：安排coroutine对象的执行，返回一个task，该task将在下次</span><code>loop.run_until_complete</code><span>或</span><code>loop.run_forever</code><span>后被执行；如果loop已经在执行了，那该coroutine会被安排到本次loop的执行中，而不是下一次；如果参数不是coroutine，而是future，则直接返回</span></li><li><code>gather(*coros_or_futures, loop=None, return_exceptions=False)</code><span>：聚合多个coroutine或者future，返回一个future，直到所有任务都完成后，该future才返回</span></li><li><code>wait(futures, *, loop=None, timeout=None, return_when=ALL_COMPLETED)</code><span>：类似于gather，聚合future，当然它有其他两种返回时机（</span><code>FIRST_COMPLETED</code><span>/</span><code>FIRST_EXCEPTION</code><span>）</span></li></ul><p><strong><span>wait和gather的第一个参数是有很大不同的！</span></strong><span></span><br/><span>wait接收的是一个future的序列，而gather接收的是任意数量的coroutine或gather对象，也就是说如果有一个</span><code>coro_seq</code><span>希望传递给gather，则需要使用</span><code>*coro_seq</code><span></span><br/><span>wait返回的是一个generator；而gather返回的是一个future，可以设置callback函数哦</span></p><ul><li><code>as_completed(fs, *, loop=None, timeout=None)</code><span>：和concurrent.future.as_completed有很大不同。  </span></li></ul><p><span>对于concurrent.future，是执行完一个future，就返回该future，然后即可通过future的result方法来回去结果</span><br/><span>对于asyncio，as_completed返回的是一个元素为coroutine的iterator，因为它接收的参数也可以是一个元素为coroutine/future的iterator，感觉像是它对传入的coroutine做了包装？</span><br/><span>使用</span><code>result = await coroutine</code><span>可以获得原coroutine的返回结果</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">async</span> <span class="cm-keyword">def</span> <span class="cm-def">coro_func</span>():</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">f</span> <span class="cm-keyword">in</span> <span class="cm-variable">as_completed</span>(<span class="cm-variable">fs</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">result</span> = <span class="cm-keyword">await</span> <span class="cm-variable">f</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 60px;"></div><div class="CodeMirror-gutters" style="height: 60px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>从现象上来看，上述代码的for循环中第一次await的时候就会执行完fs中所有的future，后续的await就是直接从future中拿结果，几乎不耗时</span><br/><strong><span>可以理解为：as_completed并发执行完所有fs中的coroutine，同时也保持了coroutine的执行顺序</span></strong><span></span><br/><span>虽然所有coroutine也是并发执行的，但是当前线程却要等到所有coroutine都执行完毕后才能继续，感觉没concurrent.future的as_completed快</span></p><p><span>多说一句，很容易想当如果直接用for循环迭代fs，而不加as_completed函数的话，就不能达到多个coroutine并发的效果了</span></p><hr /><p><strong><span>asyncio模块提供API来创建子进程以执行shell命令，就像subprocess模块！</span></strong><span></span><br/><strong><span>asyncio模块提供同步相关的API，lock、event、condition、semaphore等</span></strong><span></span><br/><strong><span>asyncio也提供普通队列，LIFO队列，优先级队列等API</span></strong></p><p><span>协程提供了一些与线程的API相对应的API，我觉得协程可以理解为一种线程，这种线程可以指定何时让出CPU</span></p></div>
 </body>
 </html>

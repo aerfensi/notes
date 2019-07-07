@@ -1,8 +1,8 @@
 if [ $# = 0 ]
 then
-    for dir_path in $(ls -F | grep "/$") 
+    for dir_path in $(find -mindepth 1 ! -path "./.git/*" ! -path "./.git"  -type d ! -regex ".*images$") 
     do
-        echo "- [${dir_path%/}](${dir_path}index.html)"
+        echo "- [${dir_path:2}](${dir_path:2}/index.html)"
     done
 elif [ $# = 1 ]
 then

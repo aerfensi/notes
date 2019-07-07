@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>时间</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="notes" class="md-header-anchor"></a><span>notes</span></h1><ul><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='Python/index.html'><span>Python</span></a></li><li><a href='Python/%E7%AE%97%E6%B3%95%E3%80%81%E6%A8%A1%E5%BC%8F%E7%AD%89/index.html'><span>Python/算法、模式等</span></a></li><li><a href='Python/%E8%87%AA%E5%B8%A6%E6%A8%A1%E5%9D%97/index.html'><span>Python/自带模块</span></a></li><li><a href='Python/%E9%9D%9E%E8%87%AA%E5%B8%A6%E6%A8%A1%E5%9D%97/index.html'><span>Python/非自带模块</span></a></li><li><a href='%E5%B7%A5%E5%85%B7/index.html'><span>工具</span></a></li></ul></div>
+<div  id='write'  class = 'is-node'><h1><a name="python-%E6%97%B6%E9%97%B4" class="md-header-anchor"></a><span>Python 时间</span></h1><p><span>具体可以查询Python API文档。</span></p><h2><a name="time%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" class="md-header-anchor"></a><span>time使用场景</span></h2><ol start='' ><li><span>获取当前时间戳：</span><code>time.time() -&gt; float</code></li><li><span>获取当前完整时间：</span><code>time.ctime() -&gt; str</code></li><li><span>获取当前年份、月份、月份名、星期名等信息：</span><code>time.strftime(foramt) -&gt; str</code></li><li><span>时间暂停：</span><code>time.sleep(secs)</code></li></ol><h2><a name="datetime%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" class="md-header-anchor"></a><span>datetime使用场景</span></h2><ol start='' ><li><span>获取指定日期的年份、月份、月份名、星期名等信息：</span><code>datetime.datetime(2019,1,31).strftime(%A)</code></li><li><span>时间的大小比较，加减运算等</span></li></ol><p><span>date、datetime、timedelta支持运算，且支持负数，但是time不支持！</span><br/><span>运算结果为timedelta类型对象</span><br/><code>timedelta_obj.total_seconds()</code><span>：可以获取timedelta表示的秒数</span></p></div>
 </body>
 </html>
