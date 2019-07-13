@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>接口简介</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+html { font-size: 16px; }
+body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
+#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
+h1 { font-size: 2em; line-height: 1.2em; }
+h2 { font-size: 1.5em; line-height: 1.225em; }
+h3 { font-size: 1.3em; line-height: 1.43em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(153, 153, 153); }
+hr { border: 1px solid rgb(221, 221, 221); }
+a { text-decoration: none; color: rgb(37, 143, 184); }
+a:hover, a:active { text-decoration: underline; }
+ul, ol { padding-left: 2em; }
+.task-list { padding-left: 2em; }
+.task-list-item { padding-left: 1.6em; }
+.task-list-item input { top: 3px; left: 8px; }
+table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
+table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
+table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
+blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
+blockquote blockquote { padding-right: 0px; }
+.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
+.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
+.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
+.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
+.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
+.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
+.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
+.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
+.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
+.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
+.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
+.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
+.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
+.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
+.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
+.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
+.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
+.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
+.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
+.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
+.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
+.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
+.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
+.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
+.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
+.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
+.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
+.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
+.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
+.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
+.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
+.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
+.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
+.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
+.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
+.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
+.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
+.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
+.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
+.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
+.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
+.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
+.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
+.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
+.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
+.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
+.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
+#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
+.md-image > .md-meta { color: inherit; }
+header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { overflow-wrap: break-word; }
+}
+header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
+.md-diagram-panel-preview { color: rgb(38, 50, 56); }
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="%E6%8E%A5%E5%8F%A3%E4%BB%8B%E7%BB%8D" class="md-header-anchor"></a><span>接口介绍</span></h1><p><span>接口测试一般都是指web接口的测试。</span></p><h2><a name="restful-http" class="md-header-anchor"></a><span>restful http</span></h2><p><span>rest风格的HTTP接口，就是使用http协议的http接口，没有增加额外的东西，restful仅仅是一种接口设计的风格。简单的归纳特点如下：</span></p><ol start='' ><li><span>URL用来定位资源。</span></li><li><span>http的请求方法用来操作资源。</span></li></ol><p><span>http的get（获取）、post（新增）、put（更新）、delete（删除）等方法可以用来操作url中定位的资源，而不是在url中带有操作资源的方式，比如 </span><a href='http://www.test.com/update' target='_blank' class='url'>http://www.test.com/update</a><span> 这种。</span></p><h2><a name="webservice-%E6%8E%A5%E5%8F%A3" class="md-header-anchor"></a><span>webservice 接口</span></h2><p><span>webservice API简单的说就是soap+http，soap是一种基于xml的协议，可以简单理解为一种特定格式的xml，基本格式如下：</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="xml" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="xml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>17</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">&lt;?xml</span> <span class="cm-meta">version="1.0"?&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">soap:Envelope</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">xmlns:soap</span>=<span class="cm-string">"http://www.w3.org/2001/12/soap-envelope"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-attribute">soap:encodingStyle</span>=<span class="cm-string">"http://www.w3.org/2001/12/soap-encoding"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">soap:Header</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">...</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">soap:Header</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">soap:Body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">...</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">soap:Fault</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">..</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">soap:Fault</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">soap:Body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">soap:Envelope</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 340px;"></div><div class="CodeMirror-gutters" style="height: 340px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span>一个soap请求就是http请求+soap的消息体，当然http的请求头中需要表明这是一个soap请求，使用</span><code>Content-Type: application/soap+xml</code><span>或者</span><code>SOAPAction: &quot;url&quot;</code><span>。</span><br/><span>webservice只能通过http POST的方式传输数据。</span><br/><span>webservice接口的测试可以使用soapUI。  </span></p><p><span>WSDL是服务端的文件，用xml编写，用来描述webservice提供的方法，接受的参数，返回的数据等。</span></p><p><span>为什么不直接使用http，而是要使用webservice？</span><br/><span>我的理解是webservice更加规范和易用。因为webservice规定了消息体的格式，自然更加规范。易用是指更加方便客户端调用，比如Java有好多种调用webservice的方式，其中一种是使用wsdl2java（或者是wximport）工具，直接根据webservice的WSDL生成webservice的代理类，Java直接调用这些代理类就行了，就像调用本地的普通类一样，不需要编写http的访问的代码了。</span></p><h2><a name="rpc" class="md-header-anchor"></a><span>RPC</span></h2><p><span>远程过程调用，就是客户端去调用服务端中的方法。REST和webservice都是RPC。</span><br/><span>http常作为RPC的传输数据的协议，也有的RPC框架使用自定义的数据传输协议。</span><br/><span>RPC是编程语言无关的，客户端和服务端可以使用不同的编程语言。  </span></p><p><span>RMI是Java中的实现RPC的应用程序编程接口，只支持Java，好处是它可以直接传输Java对象。</span></p><h2><a name="url%E7%BB%93%E6%9E%84" class="md-header-anchor"></a><span>URL结构</span></h2><p><code>[scheme:][//authority][path][?query][#fragment]</code><span></span><br/><code>[scheme:][//host:port][path][?query][#fragment]</code></p><p><span>path可以有多个，每个用/连接，比如</span><code>scheme://authority/path1/path2/path3?query#fragment</code><span>。</span></p><p><span>query参数可以带有对应的值，也可以不带，如果带对应的值用=表示，如：</span><code>scheme://authority/path1/path2/path3?id=1#fragment</code><span>，这里有一个参数id，它的值是1。</span><br/><span>query参数可以有多个，每个用&amp;连接。</span><br/><code>scheme://authority/path1/path2/path3?id=1&amp;name=mingming&amp;old#fragment</code><span></span><br/><span>这里有三个参数：id，其值是:1；name，其值是:mingming； old，没有对它赋值，所以它的值是null。</span></p><p><span>在android中，除了scheme、authority是必须要有的，其它的几个path、query、fragment，它们每一个可以选择性的要或不要，但顺序不能变，比如：</span><br/><span>其中&quot;path&quot;可不要：</span><code>scheme://authority?query#fragment</code><span>。</span><br/><span>其中&quot;path&quot;和&quot;query&quot;可都不要：</span><code>scheme://authority#fragment</code><span>。</span><br/><span>其中&quot;query&quot;和&quot;fragment&quot;可都不要：</span><code>scheme://authority/path</code><span>。</span><br/><span>&quot;path&quot;,&quot;query&quot;,&quot;fragment&quot;都不要：</span><code>scheme://authority</code><span>。</span></p><ol start='' ><li><code>#</code><span>：书签，快速跳转到网页的某一个地方。</span></li><li><span>?：参数。</span></li><li><span>&amp;：联合多个参数，与。</span></li><li><span>@：缩放原始图片，@320w_440h_1e_1c，e、c不知道是什么意思，目前只见过1e_1c。</span></li></ol><h2><a name="http%E5%8D%8F%E8%AE%AE" class="md-header-anchor"></a><span>http协议</span></h2><p><span>请求行：请求方法、URL、HTTP版本。</span><br/><span>请求头：一些字段。</span><br/><span>空行。</span>
+<span>请求体：get请求为空，post请求为需要上传的数据，但也可能为空。  </span></p><h3><a name="%E5%B8%B8%E8%A7%81%E5%A4%B4%E9%83%A8%E5%AD%97%E6%AE%B5" class="md-header-anchor"></a><span>常见头部字段</span></h3><p><span>响应：</span><br/><span>content-encoding：服务器返回的数据很可能是压缩过的，这个指的就是压缩格式。python的requests能自动解压响应，但是urllib不能，需要手动解压。</span><br/><span>set-cookie：客户端应该设置那些cooke。</span></p><p><span>请求：</span><br/><span>accept-encoding：客户端支持的压缩格式。</span><br/><span>cookie：客户端请求时带的cookie。</span>
+<span>keep-alive：不要让http连接立刻断掉，保持一段时间。</span></p><h3><a name="post%E6%B6%88%E6%81%AF%E4%BD%93%E7%BC%96%E7%A0%81" class="md-header-anchor"></a><span>post消息体编码</span></h3><p><code>Content-Type:application/x-www-form-urlencoded</code><span>：消息体做URL编码。</span><br/><code>Content-Type:multipart/form-data</code><span></span><br/><code>Content-Type:application/octet-stream</code><span></span><br/><code>Content-Type:application/json</code><span></span><br/><code>Content-Type:application/xml</code><span></span><br/><code>Content-Type:text/xml</code><span>  </span></p><p><strong><span>text/xml和application/xml的区别</span></strong><span></span><br/><span>text/xml默认使用us-ascii编码，除非在请求头中设置字符集，比如</span><code>Content-Type: text/xml; charset=&quot;utf-8&quot;</code><span>。 </span><br/><span>application/xml（</span><strong><span>首选</span></strong><span>）默认使用utf-8编码，并且在请求头和xml文件中设置的字符集都可以生效，</span><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</code><span>，我猜测在xml文件中设置的话，优先级应该更高一些。</span></p><h3><a name="get%E4%B8%8Epost%E7%9A%84%E5%8C%BA%E5%88%AB" class="md-header-anchor"></a><span>get与post的区别</span></h3><p><span>get传递的参数放在url中，而post传递的参数放在请求体中。</span><br/><span>post比get更安全，因为参数不会被保留在浏览器历史记录里。</span><br/><span>get的url可以被浏览器收藏为书签，post不可以。</span><br/><span>get只能使用url编码，post可以使用url编码、multipart编码等。</span><br/><span>get对传输的数据长度有限制，而post则没有。</span></p><h3><a name="%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%97%A0%E7%8A%B6%E6%80%81" class="md-header-anchor"></a><span>无连接无状态</span></h3><p><strong><span>无连接</span></strong><span>：服务器每次只处理一个http的请求，当请求处理完成后就断开连接。客户端再次发起请求后，需要重新建立连接。在请求头中使用Keep-Alive可以让连接长期有效，但是过了keep-alive的时间后，连接还是会断开。</span></p><p><strong><span>无状态</span></strong><span>：服务器对客户端的请求处理没有记忆功能，不知道当前客户端是什么状态。后面的http请求如果需要用到前面的http请求产生的信息，那这些信息需要被重传。</span></p><h3><a name="cookie-session-token" class="md-header-anchor"></a><span>cookie session token</span></h3><p><span>cookie是服务端要求客户端设置的属性，下次客户端再发起请求时会带上这些属性。服务器和客户端之间只传输cookie的名称和值，但是在客户端中还存储有cookie的一些属性，比如domain，指定了访问哪个网站时，才会带上这个cookie，这样就可以避免访问任意网站时都带上了所有cookie。</span></p><p><span>session是服务器中用来保存客户端状态的，毕竟http是【无状态】的，如果这些属性都在客户端中用cookie的方式存储，则请求会变的非常臃肿。所以一般cookie会携带session id，然后与用户相关的状态都放在服务器的session中。</span></p><p><span>token是一个令牌，有点类似session id，就是给服务端验证客户端身份用的。token可以保存在请求头的Authorization中，也可以保存在cookie。token可以做到服务器无状态（将token过期时间等信息直接保存在token中），也可以做到服务器有状态（服务器可以继续使用session来保存客户端状态）。</span><br/><span>token相对于session（或者说session id）的优势，我还是没看明白，暂时不管。  </span></p><h3><a name="http%E8%AE%A4%E8%AF%81%E6%96%B9%E5%BC%8F" class="md-header-anchor"></a><span>http认证方式</span></h3><p><span>基本认证：在请求头中携带账号密码加密后的字符串，Authorization: username:password。账号密码自然是加密的，加密的方式可以自己选，比如先用以中算法加密password，再与username拼接后，再用另一种算法加密整个字符串。</span><br/><span>摘要认证（digest）是用来替代基本认证的另一种方式，也是在请求头的Authorization属性中加入账号密码及其他信息，没见过，先不管。</span><br/><span>表单认证，将用户名密码放到post请求的消息体中。</span></p><p><span>OAuth认证：用户访问服务提供商（比如知乎这种能用微信登陆的网站），服务提供商将用户引导到数据提供商（比如微信），用户在数据提供商那里登陆后，数据提供商创建用户的令牌给服务提供商，服务提供商根据这个令牌就可以访问该用户再数据提供商那边的一些数据，比如用户再数据提供商那边注册时用的用户名和头像。</span><br/><span>这里使用token，大概是因为token可以做到服务器无状态，服务提供商可以通过直接校验token来验证用户是否合法。</span></p></div>
+</body>
+</html>

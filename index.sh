@@ -7,10 +7,10 @@ then
 elif [ $# = 1 ]
 then
     cd $1
-    for html_path in $(ls *.html | sort -h)
+    for html_path in $(ls *.{html,html.lnk} | sort -h)
     do
         [ "$html_path" = 'index.html' ] && continue
-        file_name=$(echo $html_path | sed 's$.*/$$;s$\.html$$')
-        echo "- [$file_name](${file_name}.html)"
+        file_name=$(echo $html_path | sed 's/\.html//;s/\.lnk//')
+        echo "- [$file_name](${html_path})"
     done
 fi

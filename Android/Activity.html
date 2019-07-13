@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Activity</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+html { font-size: 16px; }
+body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
+#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
+h1 { font-size: 2em; line-height: 1.2em; }
+h2 { font-size: 1.5em; line-height: 1.225em; }
+h3 { font-size: 1.3em; line-height: 1.43em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(153, 153, 153); }
+hr { border: 1px solid rgb(221, 221, 221); }
+a { text-decoration: none; color: rgb(37, 143, 184); }
+a:hover, a:active { text-decoration: underline; }
+ul, ol { padding-left: 2em; }
+.task-list { padding-left: 2em; }
+.task-list-item { padding-left: 1.6em; }
+.task-list-item input { top: 3px; left: 8px; }
+table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
+table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
+table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
+blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
+blockquote blockquote { padding-right: 0px; }
+.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
+.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
+.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
+.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
+.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
+.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
+.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
+.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
+.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
+.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
+.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
+.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
+.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
+.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
+.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
+.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
+.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
+.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
+.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
+.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
+.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
+.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
+.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
+.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
+.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
+.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
+.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
+.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
+.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
+.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
+.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
+.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
+.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
+.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
+.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
+.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
+.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
+.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
+.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
+.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
+.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
+.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
+.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
+.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
+.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
+.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
+.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
+.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
+.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
+.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
+.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
+#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
+.md-image > .md-meta { color: inherit; }
+header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { overflow-wrap: break-word; }
+}
+header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
+.md-diagram-panel-preview { color: rgb(38, 50, 56); }
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1><a name="activity" class="md-header-anchor"></a><span>Activity</span></h1><h2><a name="1.-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F" class="md-header-anchor"></a><span>1. 生命周期</span></h2><p><img src='images/Activity_64019c6aef8ff5192055b3c6881518dd.jpg' alt='Activity_64019c6aef8ff5192055b3c6881518dd' referrerPolicy='no-referrer' /></p><p><span>多个Activity生命周期的交互  </span></p><ol start='' ><li><span>一个Activity的启动顺序： onCreate()——&gt;onStart()——&gt;onResume()</span></li><li><span>当另一个Activity启动时:：第一个Activity onPause()——&gt;第二个Activity onCreate()——&gt;onStart()——&gt;onResume()——&gt;第一个Activity onStop()</span></li><li><span>当返回到第一个Activity时： 第二个Activity onPause()——&gt;第一个Activity onRestart()——&gt;onStart()——&gt;onResume()——&gt;第二个Activity onStop()——&gt;onDestroy()</span></li></ol><h3><a name="2.-%E5%AD%98%E5%82%A8activity%E7%8A%B6%E6%80%81" class="md-header-anchor"></a><span>2. 存储activity状态</span></h3><p><span>除了用户退出activity和在activity中调用finish()方法外，activity会因为一些特殊情况而被destroy（比如内存不足、横竖屏切换），这个时候就需要保存一些信息，供activity下次启动时使用。  </span></p><p><code>onSaveInstanceState()</code><span>方法会在activity被意外关闭（如横竖屏切换）或者有可能被意外关闭（如被其他activity覆盖，这事如果内存不足，被覆盖的activity有被系统销毁的可能）时被调用，可以用它来保存一些有用的数据，这些数据保存在一个Bundle对象中。onSaveInstanceState()会在onStop()之前，或者onPause()之前被调用。</span><br/><span>onSaveInstanceState()默认会存储用户界面组件的所有信息，比如在用户EditText中输入的字符串。</span></p><p><code>onRestoreInstanceState()</code><span>方法可以用来取出onSaveInstanceState()方法保存的数据，只有再activity意外destroy之后重新create，这个方法才会被调用。</span><br/><span>当然也可以在onCreate()中取得onSaveInstanceState()保存的数据，但是取出前要加条件判断。因为activity被创建时，onCreate()一定会被调用，但Bundle对象不一定会被传进来</span></p><p><img src='images/Activity_61e58cf5903d933fc5e3efc1842c6d8c.jpg' alt='Activity_61e58cf5903d933fc5e3efc1842c6d8c' referrerPolicy='no-referrer' /></p><h2><a name="3.-%E5%A4%84%E7%90%86%E8%AE%BE%E5%AE%9A%E5%8F%98%E6%9B%B4" class="md-header-anchor"></a><span>3. 处理设定变更</span></h2><p><span>有些情况下，我不希望activity配置改变时onCreate()方法被调用，因为onCreate()方法中都是一些初始化的工作，重复执行onCreate就会重复初始化。比如我不希望横竖屏改变时去执行onCreate()方法，那我可以这样做：  </span></p><ol start='' ><li><span>在AndroidManifest.xml的</span><code>&lt;activity&gt;</code><span>标签中添加属性</span><code>android:configChanges=&quot;orientation|screenSize&quot;</code><span>（在Android 4以后，一定要加上screenSize）</span></li><li><span>在Activity中重写onConfigurationChanged()方法</span></li></ol><p><span>正常情况下，当配置改变时，activity会被销毁，然后重建，但是当添加上面这样的代码后，activity不会被销毁（不仅没有销毁，连onPause()方法都没执行），而是直接行onConfigurationChanged()方法，这样的话，自然不会有重复初始化的情况发生了。  </span></p><p><span>configChanges属性的表格如下：</span></p><figure><table><thead><tr><th><span>值</span></th><th><span>说明</span></th></tr></thead><tbody><tr><td><span>&quot;mcc&quot;</span></td><td><span>IMSI 移动国家代码（MCC）发生改变 — 检测到 SIM 卡并更新了 MCC。</span></td></tr><tr><td><span>&quot;mnc&quot;</span></td><td><span>IMSI移动网络代码（MNC）发生改变——检测到 SIM 卡并更新了 MNC。</span></td></tr><tr><td><span>&quot;locale&quot;</span></td><td><span>地区发生改变——用户选择了新的语言（用于文本显示）。</span></td></tr><tr><td><span>&quot;touchscreen&quot;</span></td><td><span>触摸屏发生改变（通常不可能发生）。</span></td></tr><tr><td><span>&quot;keyboard&quot;</span></td><td><span>键盘发生改变 — 比如用户插入了外接键盘。</span></td></tr><tr><td><span>&quot;keyboardHidden&quot;</span></td><td><span>键盘功能发生改变 — 比如用户让硬键盘显示出来。</span></td></tr><tr><td><span>&quot;navigation&quot;</span></td><td><span>导航手段（轨迹球/D-Pad）发生了改变（通常不可能发生)。</span></td></tr><tr><td><span>&quot;screenLayout&quot;</span></td><td><span>屏幕布局发生了改变 — 可能是由于激活了其他显示屏。</span></td></tr><tr><td><span>&quot;fontScale&quot;</span></td><td><span>字体缩放倍数发生了改变 — 用户选择了新的全局字体大小。</span></td></tr><tr><td><span>&quot;uiMode&quot;</span></td><td><span>用户界面模式发生了改变 — 可能是由于用户把设备放进桌面/车用底座里，或者是变成了夜间模式。请参阅 </span><a href='https://developer.android.com/reference/android/app/UiModeManager.html'><span>UiModeManager</span></a><span> 。自API 级别 8 开始加入。</span></td></tr><tr><td><span>&quot;orientation&quot;</span></td><td><span>屏幕方向发生了改变 — 用户旋转了设备。注意： 如果应用程序的目标版本是 API 级别 13 以上的话（由  minSdkVersion 和 targetSdkVersion 属性定义），且须同时声明“screenSize&quot; 参数，因为设备在横向/竖向切换时 screenSize 参数也会发生改变。</span></td></tr><tr><td><span>&quot;screenSize&quot;</span></td><td><span>当前可用的屏幕尺寸发生改变。这表示当前可用的屏幕大小发生了改变，与当前屏幕长宽比例有关，因此这会在用户改变了纵横方向时发生。不过，如果用户程序的目标版本是 API 级别 12 以下时， Activity 将总是自行处理本参数的变化（即使在 Android 3.2 以上版本中运行，本参数的变化也不会导致 Activity 的重启）。自 API 级别 13 开始加入。</span></td></tr><tr><td><span>&quot;smallestScreenSize&quot;</span></td><td><span>屏幕的物理尺寸发生了改变。这种变化与屏幕的方向无关，因此只会在屏幕真实的物理大小发生变化时才会发生，比如切换到外接显示器。本参数的变化和 smallestWidth 参数 的变化相呼应。不过，如果应用程序的目标版本是 API 级别 12 以下， 则 Activity 将总是自行处理本参数的变化（即使在 Android 3.2 以上版本中运行，本参数的变化也不会导致 Activity 的重启）。自 API 级别 13 开始加入。</span></td></tr><tr><td><span>&quot;layoutDirection&quot;</span></td><td><span>Layout 的方向放生了改变。 例如，从左到右（LTR）变成了从右到左（RTL）。 自 API 级别 17 开始加入。</span></td></tr></tbody></table></figure><h2><a name="4.-%E5%90%AF%E5%8A%A8activity%E7%9A%84%E6%96%B9%E6%B3%95" class="md-header-anchor"></a><span>4. 启动activity的方法</span></h2><p><span>发出intent后没有可以启动的Activity，那发出这个intent的应用程序会崩溃。</span><br/><span>但是使用AlarmManager和PendingIntent则不会，不知道因为AlarmManager还是因为PendingIntent</span></p><p><strong><span>显式</span></strong><span></span><br/><span>Intent(Context packageContext, Class&lt;?&gt; cls)</span><br/><span>Intent intent = new Intent();</span><br/><span>intent.setClass(Context packageContext, Class&lt;?&gt; cls)</span><br/><span>或intent.setClassName(Context packageContext, String className)</span><br/><span>或intent.setClassName(String packageName, String className)</span><br/><span>或intent.setComponent(ComponentName component)  </span></p><p><strong><span>隐式</span></strong><span></span><br/><span>Intent(String action)</span><br/><span>Intent intent = new Intent()</span><br/><span>intent.setAction(String action)  </span></p><h2><a name="5.-%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96activity%E5%B9%B6%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C" class="md-header-anchor"></a><span>5. 启动其他activity并返回结果</span></h2><p><strong><span>A启动B，B在结束时会返回信息给A</span></strong><span></span><br/><strong><span>这里不能使用startActivity()了，而是要使用startActivityForResult();</span></strong><span>  </span></p><ol start='' ><li><span>在A中启动B：</span><code>startActivity(Intent intent,int requestCode);</code><span>这个requestCode相当于A给B取的一个id</span></li><li><span>在B中设置需要回传的数据：</span><code>setResult(int resultCode,Intent intent)</code><span>这里resultCode一般使用</span><code>Activity.RESULT_OK</code><span>，</span><code>Activity.RESULT_CANCELED</code><span>等，当然也可以使用自定义的值</span></li><li><span>在A中设置如何处理B传回来的数据：</span><code>onActivityResult(int requestCode, int resultCode, Intent data);</code><span> 重写这个方法</span></li></ol><h2><a name="6.-activity%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F" class="md-header-anchor"></a><span>6. activity的四种启动模式</span></h2><ol start='' ><li><span>standard：同一个app的所有activity都在同一个栈中，每一次启动activity都会启动一个新的activity</span></li><li><span>singleTop：基本同上，只有一种情况例外，就是需要创建的activity正好在栈顶时（即可见），不创建一个新的，而是直接调用栈顶的activity</span></li><li><span>singleTask：同一个app的所有activity都在同一个栈中，当要创建的Activiy已经存在于栈中时，不创建新的activity，而是杀过此activity之前的所有activity，使其到达栈顶</span></li><li><span>singleInstance：启动的activity在一个独立的栈中，此栈中只有这一个activity，每次创建新的activity时，都调用他，而不是创建新的</span></li></ol><hr /><h2><a name="activity%E7%9A%84task%E4%B8%8Eaffinity" class="md-header-anchor"></a><span>Activity的Task与Affinity</span></h2><p><a href='http://blog.csdn.net/kebelzc24/article/details/53747506'><span>ActivityRecord、TaskRecord、ActivityStack</span></a></p><p><span>一个task就是一个任务，这是一个Activity的集合，可以使用Android下面的多任务切换按钮来切换最近的任务。回退栈只有一个，用来管理task。  </span></p><h3><a name="activity%E5%9C%A8back-stack%E4%B8%AD%E7%9A%84%E9%80%BB%E8%BE%91" class="md-header-anchor"></a><span>Activity在back stack中的逻辑</span></h3><ol start='' ><li><span>当用户点击home screen的app图标时, 通常会新建一个task, 并将该app的&quot;main activity&quot;作为back stack中的root元素. 如果当前activity启动了另一个activity, 新的activity会被压入back stack中并获得焦点. 前一个activity仍然在back stack栈中, 但处于stopped状态. 一个处于stopped状态的activity在内存中存有它的状态数据.</span></li><li><span>如果用户点击back键, 当前activity将从back stack中弹出并被系统销毁(调用了onDestroy()方法), 栈中的前一个activity成为新的栈顶元素并获得焦点(它的状态数据不会丢失).</span><br/><span>栈中的activity不会有重新排序的机会, back stack只是简单的压入或弹出activity——当前activity启动了新的activity时将新的activity压入栈中, 当用户点击back键时弹出当前的activity, 仅此而已.</span></li><li><span>如果用户不停的点击back键, back stack中的activity将不断从栈中弹出, 直到回到home screen. 当栈中所有的activity都已出栈时, 这个back stack和task将不复存在.</span></li><li><span>当我们点击桌面图标时，如果task不存在，则新建task，并且新建根activity；如果存在，直接把task带到前台</span></li></ol><h3><a name="activity%E5%9C%A8%E5%93%AA%E4%B8%AAtask%E4%B8%AD" class="md-header-anchor"></a><span>Activity在哪个Task中</span></h3><p><strong><span>默认情况下，一个activity在哪个task中启动，这个activity就在哪个task中，并且在这个task中走完自己的生命周期</span></strong><span></span><br/><span>每个Activity都有taskAffinity属性（自然是在manifest中设置），这个属性指出了它希望进入的Task。</span><em><span>注：仅仅设置了taskAffinity属性的话，这个属性不会起到作用，activity还是进入启动它的task中</span></em><span></span><br/><span>如果一个Activity没有显式的指明该Activity的taskAffinity，那么它的这个属性就等于Application指明的taskAffinity，如果Application也没有指明，那么该taskAffinity的值就等于包名。而Task也有自己的affinity属性，它的值等于它的根Activity的taskAffinity的值。</span>
+<span>想要activity进入其他task，首先要在</span><code>&lt;activity&gt;</code><span>中设置taskAffinity属性，表明它希望进入的task，然后在</span><code>&lt;activity&gt;</code><span>中设置其他属性（或在启动它的intent中设置flag）</span></p><p><strong><span>这个看看就好，具体还是要看源码，毕竟有的activity会监听返回键，所以不能只凭activity的具体表现来得出结论</span></strong>
+<span>在一个app中启动另一个app，比如在便笺中把所选文字发送短信，此时便笺app会启动短信app。此时按下返回键，则回到便笺app。从activity的切换动画中可以看到这两个activity属于同一个task</span></p><h4><a name="%E4%B8%BE%E4%B8%80%E4%B8%AA%E8%AE%A9activity%E8%BF%9B%E5%85%A5%E5%85%B6%E4%BB%96task%E7%9A%84%E4%BE%8B%E5%AD%90" class="md-header-anchor"></a><span>举一个让activity进入其他task的例子</span></h4><p><span>设置的</span><code>&lt;activity&gt;</code><span>属性如下  </span></p><figure><table><thead><tr><th><span>Application</span></th><th><span>Activity</span></th><th><span>taskAffinity</span></th><th><span>allowTaskReparenting</span></th></tr></thead><tbody><tr><td><span>application1</span></td><td><span>Activity1</span></td><td><span>com.winuxxan.affinity</span></td><td><span>true</span></td></tr><tr><td><span>application2</span></td><td><span>Activity2</span></td><td><span>com.winuxxan.affinity</span></td><td><span>false</span></td></tr></tbody></table></figure><ol start='' ><li><span>我们创建两个工程，application1和application2，分别含有Activity1和Activity2，它们的taskAffinity相同，Activity1的allowTaskReparenting为true。</span></li><li><span>首先，我们启动application1,加载Activity1，然后按Home键，使该task（假设为task1）进入后台。然后启动application2，默认加载Activity2。</span></li></ol><p><span>我们看到了什么现象？没错，本来应该是显示Activity2，但是我们却看到了Activity1。实际上Activity2也被加载了，只是Activity1重新宿主，所以看到了Activity1。按下返回键就能看到activity2  </span></p><p><span>附录：</span><a href='http://www.cnblogs.com/ghj1976/archive/2011/04/29/2032573.html'><span>与task有关的一些属性</span></a></p><p><strong><span>taskAffinity属性只在两种情况下起作用</span></strong><span></span><br/><span>第一种就是上面说到的，当一个 activity 的 allowTaskReparenting 属性设为 &quot;true&quot;。</span><br/><span>第二种是当启动 activity 的 intent 包含了 FLAG_ACTIVITY_NEW_TASK 标志。</span></p><h3><a name="%E6%B8%85%E7%90%86back-stack" class="md-header-anchor"></a><span>清理back stack</span></h3><p><span>如果用户长时间离开某个 task，系统将会仅保留一个根 activity，而把其它 activity 都清除掉。 当用户返回 task 时，只有根 activity 会被恢复。 系统之所以这么处理，是因为经过了很长时间后，用户是要放弃之前进行的工作，返回 task 是为了开始新的工作。</span><br/><span>你可以利用 activity 的某些属性来改变这种方式：</span><br/><code>alwaysRetainTaskState</code><span></span><br/><span>如果 task 中根 activity 的此属性设为 &quot;true&quot; ，则默认的清理方式不会进行。 即使过了很长时间，task 中所有的 activity 也都会保留在栈中。</span><br/><code>clearTaskOnLaunch</code><span></span><br/><span>如果 task 中根 activity 的此属性设为 &quot;true&quot;，则只要用户离开并再次返回该 task，栈就会被清理至根 activity。 也就是说，正好与 alwaysRetainTaskState 相反。用户每次返回 task 时看到的都是初始状态，即使只是离开一会儿。</span><br/><code>finishOnTaskLaunch</code>
+<span>此属性类似于 clearTaskOnLaunch ，只是它只对一个 activity 有效，不是整个 task。 这能让任何一个 activity 消失，包括 根 activity。 如果 activity 的此属性设为 &quot;true&quot;，则只会保留 task 中当前 session 所涉及的内容。 如果用户离开后再返回 task，它就不存在了。</span></p><hr /><h2><a name="activity-api" class="md-header-anchor"></a><span>Activity API</span></h2><p><code>getCallingPackage()</code><span>和</span><code>getCallingActivity</code><span>：可以获得启动这个 Activity 的程序包名，或者是 Activity 名。前提是必须使用</span><code>startActivityForResult()</code><span>来启动</span></p><h2><a name="xml-%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7" class="md-header-anchor"></a><span>xml 标签属性</span></h2><figure><table><thead><tr><th><span>属性</span></th><th><span>取值</span></th><th><span>作用</span></th></tr></thead><tbody><tr><td><span>screenOrientation</span></td><td><span>portrait；landscape</span></td><td><span>Activity 方向</span></td></tr><tr><td><span>label</span></td><td><span>字符串</span></td><td><span>Activity 自定义的名字</span></td></tr></tbody></table></figure></div>
+</body>
+</html>
