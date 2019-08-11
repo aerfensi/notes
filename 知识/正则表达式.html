@@ -251,9 +251,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="md-header-anchor"></a><span>正则表达式</span></h1><h2><a name="%E8%AF%AD%E6%B3%95" class="md-header-anchor"></a><span>语法</span></h2><p><span>“{m,n}”、“{m,}”、“?”、“</span><code>*</code><span>”和“+”，这几个符号是贪婪的，其后加上“?”就变成非贪婪的。</span></p><p><span>(?=re) : 正向肯定预查。</span>
-<span>(?!re) : 正向否定预查。(?!str) 表示非 str 字符串，而 </span><span>[^str]</span><span> 表示非 str 字符串中的任意一个字符。</span>
-<span>\1~\9 : 表示第n组，一般用在替换中。没有第0组，第一个括号就是第1组，没有括号就是没有组</span></p><h2><a name="%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="md-header-anchor"></a><span>常用的正则表达式</span></h2><p><code>^((?!str).)*$</code><span>: 匹配不存在某个字符串的字符串。这个正则的意思是：某个字符前面不能是某个字符串，重复符合条件的字符从开头到结尾。</span>
-<code>[^a]+</code><span> : 一个以上的非a的字符。</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="md-header-anchor"></a><span>正则表达式</span></h1><h2><a name="%E8%AF%AD%E6%B3%95" class="md-header-anchor"></a><span>语法</span></h2><p><span>“{m,n}”、“{m,}”、“?”、“</span><code>*</code><span>”和“+”，这几个符号是贪婪的，其后加上“?”就变成非贪婪的。</span></p><p><span>(?=re) : 正向肯定预查。</span><br/><span>(?!re) : 正向否定预查。(?!str) 表示非 str 字符串，而 </span><span>[^str]</span><span> 表示非 str 字符串中的任意一个字符。</span><br/><span>\1~\9 : 表示第n组，一般用在替换中。没有第0组，第一个括号就是第1组，没有括号就是没有组。  </span></p><h2><a name="%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="md-header-anchor"></a><span>常用的正则表达式</span></h2><p><code>^((?!str).)*$</code><span>: 匹配不存在某个字符串的字符串。这个正则的意思是：某个字符前面不能是某个字符串，重复符合条件的字符从开头到结尾。</span><br/><code>[^a]+</code><span> : 一个以上的非a的字符。  </span></p></div>
 </body>
 </html>
