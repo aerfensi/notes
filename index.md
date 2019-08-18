@@ -1,4 +1,4 @@
-# notes
+# 笔记
 
 - [Android](Android/index.html)
 - [Java](Java/index.html)

@@ -1,4 +1,4 @@
-# 数据库
+# SQL
 
 - [SQL函数与聚合](SQL函数与聚合.html)
 - [SQL增删改和where](SQL增删改和where.html)
