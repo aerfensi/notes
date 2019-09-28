@@ -9,6 +9,7 @@
 - [oracle](oracle.html)
 - [mysql索引与键](mysql索引与键.html)
 - [mysql事务与锁](mysql事务与锁.html)
+- [sqlite事务与锁](sqlite事务与锁.html)
 - [数据库字符集](数据库字符集.html)
 - [数据库安装，启动，配置](数据库安装，启动，配置.html)
 - [数据库常用命令](数据库常用命令.html)

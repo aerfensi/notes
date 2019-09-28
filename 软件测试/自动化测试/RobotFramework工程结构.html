@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>RobotFramework工程结构</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -149,6 +149,79 @@ iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
 
 
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
 html { font-size: 16px; }
 body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
 #write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
@@ -251,6 +324,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="sql" class="md-header-anchor"></a><span>SQL</span></h1><ul><li><a href='SQL函数与聚合.html'><span>SQL函数与聚合</span></a></li><li><a href='SQL增删改和where.html'><span>SQL增删改和where</span></a></li><li><a href='SQL子查询.html'><span>SQL子查询</span></a></li><li><a href='SQL查询.html'><span>SQL查询</span></a></li><li><a href='SQL表格.html'><span>SQL表格</span></a></li><li><a href='SQL连接查询.html'><span>SQL连接查询</span></a></li><li><a href='oracle.html'><span>oracle</span></a></li><li><a href='mysql索引与键.html'><span>mysql索引与键</span></a></li><li><a href='mysql事务与锁.html'><span>mysql事务与锁</span></a></li><li><a href='sqlite事务与锁.html'><span>sqlite事务与锁</span></a></li><li><a href='数据库字符集.html'><span>数据库字符集</span></a></li><li><a href='数据库安装，启动，配置.html'><span>数据库安装，启动，配置</span></a></li><li><a href='数据库常用命令.html'><span>数据库常用命令</span></a></li><li><a href='数据库支持的数据类型.html'><span>数据库支持的数据类型</span></a></li><li><a href='数据库连接.html'><span>数据库连接</span></a></li></ul></div>
+<div  id='write'  class = 'is-node'><h1><a name="robotframework工程结构" class="md-header-anchor"></a><span>RobotFramework工程结构</span></h1><h2><a name="定位器" class="md-header-anchor"></a><span>定位器</span></h2><p><span>根据页面划分，给每个页面创建资源文件，在资源文件中定义定位器的变量。</span><br/><span>对话框需要单独的资源文件，对话框不能和页面的定位器放在一起，因为多个页面中可能弹出同一个对话框，这样就不知道对话框该放在哪个页面了，所以给他一个单独的资源文件。</span></p><h2><a name="交互层（基础关键字）" class="md-header-anchor"></a><span>交互层（基础关键字）</span></h2><p><span>存放基本的关键字，比如对单选框、多选框、下拉菜单等的操作。举例如下：</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="robot"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="robot"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">*** Keywords ***</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  选择单选框</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  [Argument] &nbsp;  ${index}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  Run Keyword If &nbsp;  ${index} == 1 &nbsp;  Click Element &nbsp;  id:first_radio</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ... &nbsp;  ELSE IF &nbsp;  ${index} == 2 &nbsp;  Click Element &nbsp;  id:second_radio</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 100px;"></div><div class="CodeMirror-gutters" style="height: 100px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h2><a name="为什么要分离定位器和交互层" class="md-header-anchor"></a><span>为什么要分离定位器和交互层</span></h2><p><span>我本来是想不要定位器的，直接把xpath写在交互层中，做法是对所有操作都写1个基础的关键字，比如点击按钮</span><code>Click Element    id:first_radio</code><span>。</span><br/><span>当时的想法是对于1个元素，我想做的操作可能只有1个，比如对于按钮，我一般的做法都是点击。既然如此，我把这些基础的操作都写成关键字，不就可以不需要把定位器写在单独的资源文件中了吗？</span><br/><span>实际上对于1个元素，我要做的操作可能不止1个。我可能想等待它出现、等待它的属性发生变化、获取它属性的值、点击它、删除它等等。难道我要给这些操作都定义一个关键字？这些操作往往只需要一行代码，而且用的还是相同的定位器。</span><br/><span>最终我决定分离出定位器这一层。</span></p><h2><a name="页面层（功能关键字）" class="md-header-anchor"></a><span>页面层（功能关键字）</span></h2><p><span>将多个交互层的关键字组合成一个当前页面的功能。</span></p><h2><a name="流程层（业务关键字）" class="md-header-anchor"></a><span>流程层（业务关键字）</span></h2><p><span>需要多个功能关键字组成的完整的流程。这些关键字可能是同一个页面内的，也可能来自不同的页面。</span></p><h2><a name="为什么要分离页面层和流程层？" class="md-header-anchor"></a><span>为什么要分离页面层和流程层？</span></h2><p><span>举一个例子来说明。比如将外部用户数据源导入到本地的操作。</span><br/><span>创建本地部门→设置外部数据源→外部数据源与本地部门关联→开始同步</span><br/><span>页面层做的是【创建本地部门】、【设置外部数据源】这种单一的功能，流程层做的是串联这些功能完成统一的流程。</span></p><h2><a name="测试用例" class="md-header-anchor"></a><span>测试用例</span></h2><p><span>只有测试用例层能向下传入自定义的参数，交互层、页面层、流程层都是定义的关键字，他们需要使用数据时，只能使用配置文件中的参数，或者是接受外部传入的参数。不能在关键字中把数据写死。</span></p><h2><a name="其他" class="md-header-anchor"></a><span>其他</span></h2><p><span>config.robot：配置文件，主要时一些变量。比如测试网站的url，用户名、密码什么的。</span><br/><span>debug目录：用来调试关键字或测试用例</span></p></div>
 </body>
 </html>
