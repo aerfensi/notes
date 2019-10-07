@@ -16,4 +16,4 @@
 - [软件测试/自动化测试](软件测试/自动化测试/index.html)
 - [知识](知识/index.html)
 
-[.](测试/求职/index.html)
+[.](软件测试/求职/index.html)

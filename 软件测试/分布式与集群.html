@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>网络</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>分布式与集群</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,8 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="网络" class="md-header-anchor"></a><span>网络</span></h1><h2><a name="http与https的区别？" class="md-header-anchor"></a><span>http与https的区别？</span></h2><p><span>http是明文传输的。</span><br/><span>https是http+ssl协议，可以进行身份认证和加密传输。</span><br/><span>http的默认端口是80，https的默认端口是。</span></p><h2><a name="http的get与post的区别" class="md-header-anchor"></a><span>http的get与post的区别</span></h2><p><span>get传递的参数放在url中，而post传递的参数放在请求体中。</span><br/><span>post比get更安全，因为参数不会被保留在浏览器历史记录里。</span><br/><span>get的url可以被浏览器收藏为书签，post不可以。</span><br/><span>get只能使用url编码，post可以使用url编码、multipart编码等。</span><br/><span>get对传输的数据长度有限制，而post则没有。  </span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="分布式与集群" class="md-header-anchor"></a><span>分布式与集群</span></h1><p><span>分布式是软件系统的一种工作方式，与其对应的是集中式。</span><br/><span>集中式就是将所有的服务都由同一台计算机来提供，一般常见于银行等传统行业。</span><br/><span>分布式的概念网上众说纷纭，比较流行的说法是将同一个软件系统拆分成不同的模块，部署在不同的计算机上。我比较认同另一种说法，分布式是多台计算机通过网络通信组成一个完整的系统，至于这些计算机上是否部署的是相同的模块，并没有关系。比如git就是一个分布式的系统，各个节点做的都是相同的模块，相同的功能，同时通过远程仓库来通信。</span></p><p><span>分布式的有点如：</span></p><ol start='' ><li><span>降低系统各组件之间的耦合度，各组件可独立开发，独立部署，独立测试。</span></li><li><span>增强了系统的可扩展性。比如要增加某个服务的数量，多部署几台跑该服务的计算机即可。</span></li><li><span>服务可复用。多个系统都需要同一个服务（比如用户管理服务）时，只需要都对接跑着该服务的计算机即可。</span></li></ol><p><span>集群是一个物理概念，多台提供相同服务的计算机就是一个集群。</span><br/><span>集群和分布式并不冲突，分布式中也可以有集群，比如我将分布式系统中的某个组件多部署几个，这几个跑着相同组件的计算机，就是一个集群。或者将一个分布式的系统多部署几个，如果我能统一管理这几个相同的分布式系统，那这些分布式系统也组成了一个集群。只不过这个集群的单元不是一台计算机，而是一个分布式系统。</span><br/><span>集群与分布式很大的不同是，各个组件之间不会相互通信。</span></p><p><span>集群是为了提升性能，减轻负载压力。因为它们干的是相同的活，当有任务时，需要有一台计算机来分配任务，即负载均衡器。</span></p><h2><a name="anyoffice后台的结构" class="md-header-anchor"></a><span>anyoffice后台的结构</span></h2><p><span>AE：可以部署多个，组成一个集群。可以添加负载均衡器，这需要客户自行部署，华为不提供服务，也不提供解决方案。</span><br/><span>SC（MDM、APP、COPE、radius）：可以部署多个，但是每个AE配置两个SC，一个主一个备。如果负载很大的话，AE使用相同的SC，SC的性能就会不足，可以让每个AE都使用不同的主SC。</span>
+<span>SM：可以有主备，只有主SM是工作的，主SM出问题后，需要手动切换主备。</span>
+<span>openservice：</span></p><p>&nbsp;</p></div>
 </body>
 </html>

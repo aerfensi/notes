@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>Jenkins</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -251,6 +251,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue"
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="笔记" class="md-header-anchor"></a><span>笔记</span></h1><ul><li><a href='Android/index.html'><span>Android</span></a></li><li><a href='Java/index.html'><span>Java</span></a></li><li><a href='JavaScript/index.html'><span>JavaScript</span></a></li><li><a href='Linux/index.html'><span>Linux</span></a></li><li><a href='Python/index.html'><span>Python</span></a></li><li><a href='Python/算法、模式等/index.html'><span>Python/算法、模式等</span></a></li><li><a href='Python/自带模块/index.html'><span>Python/自带模块</span></a></li><li><a href='Python/非自带模块/index.html'><span>Python/非自带模块</span></a></li><li><a href='工具/index.html'><span>工具</span></a></li><li><a href='SQL/index.html'><span>SQL</span></a></li><li><a href='MongoDB/index.html'><span>MongoDB</span></a></li><li><a href='软件测试/index.html'><span>软件测试</span></a></li><li><a href='软件测试/接口测试/index.html'><span>软件测试/接口测试</span></a></li><li><a href='软件测试/自动化测试/index.html'><span>软件测试/自动化测试</span></a></li><li><a href='知识/index.html'><span>知识</span></a></li></ul><p><a href='软件测试/求职/index.html'><span>.</span></a></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="jenkins" class="md-header-anchor"></a><span>Jenkins</span></h1><h2><a name="安装" class="md-header-anchor"></a><span>安装</span></h2><p><span>以Linux为例，说明一下安装过程中需要注意的点。</span></p><p><span>Jenkins有很多种安装方式，我使用web服务器+war包的形式。需要安装JDK、tomcat，然后使用Jenkins的war包。</span></p><ol start='' ><li><span>JDK选择Oracle JDK，除非是公司不允许，否则JDK都应该使用Oracle JDK，而不是openJDK</span></li><li><span>JDK安装方式选择压缩包，而不是deb/rpm包，压缩包更通用，而且配置环境变量的时候也方便</span></li><li><span>需要安装</span><code>apt install fontconfig</code><span>，否则运行Jenkins会报错，java.lang.NullPointerException at sun.awt.FontConfiguration.getVersion</span></li></ol><p>&nbsp;</p></div>
 </body>
 </html>
