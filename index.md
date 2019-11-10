@@ -1,5 +1,6 @@
 # 笔记
 
+- [网页收藏](./网页收藏.html)
 - [Android](Android/index.html)
 - [Java](Java/index.html)
 - [JavaScript](JavaScript/index.html)
@@ -15,5 +16,3 @@
 - [软件测试/接口测试](软件测试/接口测试/index.html)
 - [软件测试/自动化测试](软件测试/自动化测试/index.html)
 - [知识](知识/index.html)
-
-[.](软件测试/求职/index.html)
