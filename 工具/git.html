@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>git</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>git</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,6 +147,10 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
 .CodeMirror { height: auto; }
@@ -222,111 +226,360 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="git" class="md-header-anchor"></a><span>git</span></h1><h2><a name="%E9%85%8D%E7%BD%AEgit" class="md-header-anchor"></a><span>配置git</span></h2><p><span>git 的配置信息保存在 /etc/gitconfig、~/.gitconfig 和 .git/config 文件中，这几个配置文件的优先级递增。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>15</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.co checkout</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.br branch</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.ci commit</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.st status</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 查看git的全部配置信息</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--list</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 设置git使用的默认文本编辑器</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># --global：写入到 ~/.gitconfig --system：写入到 /etc/gitconfig 什么都不加：写入到 .git/config</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> core.editor emacs</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 解决中文文件名乱码</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> core.quotepath <span class="cm-atom">false</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> user.email <span class="cm-string">"you@example.com"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> user.name <span class="cm-string">"Your Name"</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 300px;"></div><div class="CodeMirror-gutters" style="height: 300px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h2><a name="%E4%BD%BF%E7%94%A8%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95" class="md-header-anchor"></a><span>使用远程仓库的方法</span></h2><p><span>情况1：把本地已经有一个项目了，希望把他放到远程仓库里去。  </span></p><ol start='' ><li><span>进入需要上传的项目文件夹，执行git init，这个目录就成为了master分支</span></li><li><span>添加远程仓库：git remote add origin </span><code>https://github.com/aerfensi/backup.git</code></li><li><span>第一次push：git push -u origin master 第一次push的时候用【-u】参数，这样他会关联本地master分支与远程仓库分支，以后只需要执行git push，git pull就行了，不用指定远程仓库和分支名。如果远程仓库中已经有些文件了，希望pull下来 git pull origin master</span></li></ol><p><span>情况2：clone远程仓库的项目。  </span></p><ol start='' ><li><span>直接：</span><code>git clone https://git.oschina.net/用户名/项目名</code></li><li><span>添加远程仓库：</span><code>git remote add origin git@git.oschina.net:用户名/项目名</code><span>。git remote -v 可以用来查看当前添加的远程仓库。如果是https开头的，每次pull，push都要输用户名和密码，git@开头的就不需要。</span></li><li><span>git remote rm 远程仓库别名</span></li></ol><h2><a name="git%E8%AE%B0%E4%BD%8F%E8%B4%A6%E5%8F%B7%E5%92%8C%E5%AF%86%E7%A0%81" class="md-header-anchor"></a><span>git记住账号和密码</span></h2><ol start='' ><li><span>在用户根目录新建文件.git-credentials</span></li><li><span>输入</span><code>https://${用户名}:${密码}@github.com</code><span>，比如</span><code>https://duanku:duanku12@github.com</code></li><li><span>进入需要使用这个账号密码的 git 工程目录，输入git config --global credential.helper store</span></li><li><span>在用户根目录的.gitconfig文件的最后有如下字样，即表示成功</span></li></ol><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="ini"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="ini"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>2</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-header">[credential]</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">helper </span>=<span class="cm-quote"> store</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 40px;"></div><div class="CodeMirror-gutters" style="height: 40px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h2><a name="%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%94%B9%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA" class="md-header-anchor"></a><span>添加更改到暂存区</span></h2><p><span>把文件添加到暂存区：git add file或git add .。</span><br/><span>commit之前多次add同一个文件，暂存区中保存的是最新版。</span><br/><span>删除暂存区中的文件：git rm file 或 git rm -r 递归删除（提交之后会同时删除工作区中的文件）。</span><br/><span>移动或重命名文件：git mv（提交之后会移动或重命名工作区中的文件）。</span><br/><span>将所有更改（包括add，rm，mv）都添加到暂存区：git add -A。</span></p><h2><a name="%E6%8F%90%E4%BA%A4%E5%88%B0%E7%89%88%E6%9C%AC%E5%BA%93" class="md-header-anchor"></a><span>提交到版本库</span></h2><p><span>简单提交：git commit -m &quot;提交信息&quot;</span>
+<div  id='write'  class = 'is-node'><h1><a name="git" class="md-header-anchor"></a><span>git</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#git">git</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#配置git">配置git</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#使用远程仓库的方法">使用远程仓库的方法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n22"><a class="md-toc-inner" href="#git记住账号和密码">git记住账号和密码</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n33"><a class="md-toc-inner" href="#添加更改到暂存区">添加更改到暂存区</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n35"><a class="md-toc-inner" href="#提交到版本库">提交到版本库</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n37"><a class="md-toc-inner" href="#撤销更改">撤销更改</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n43"><a class="md-toc-inner" href="#查看提交">查看提交</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n48"><a class="md-toc-inner" href="#查看更改">查看更改</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n51"><a class="md-toc-inner" href="#存储更改">存储更改</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n53"><a class="md-toc-inner" href="#分支管理">分支管理</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n64"><a class="md-toc-inner" href="#生成与应用patch">生成与应用patch</a></span></p></div><h2><a name="配置git" class="md-header-anchor"></a><span>配置git</span></h2><p><span>git 的配置信息保存在 /etc/gitconfig、~/.gitconfig 和 .git/config 文件中，这几个配置文件的优先级递增。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.co checkout</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.br branch</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.ci commit</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> alias.st status</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 查看git的全部配置信息</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--list</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 设置git使用的默认文本编辑器</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># --global：写入到 ~/.gitconfig --system：写入到 /etc/gitconfig 什么都不加：写入到 .git/config</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> core.editor emacs</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 解决中文文件名乱码</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> core.quotepath <span class="cm-atom">false</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> user.email <span class="cm-string">"you@example.com"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> config <span class="cm-attribute">--global</span> user.name <span class="cm-string">"Your Name"</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 345px;"></div><div class="CodeMirror-gutters" style="display: none; height: 345px;"></div></div></div></pre><h2><a name="使用远程仓库的方法" class="md-header-anchor"></a><span>使用远程仓库的方法</span></h2><p><span>情况1：把本地已经有一个项目了，希望把他放到远程仓库里去。  </span></p><ol start='' ><li><span>进入需要上传的项目文件夹，执行git init，这个目录就成为了master分支</span></li><li><span>添加远程仓库：git remote add origin </span><code>https://github.com/aerfensi/backup.git</code></li><li><span>第一次push：git push -u origin master 第一次push的时候用【-u】参数，这样他会关联本地master分支与远程仓库分支，以后只需要执行git push，git pull就行了，不用指定远程仓库和分支名。如果远程仓库中已经有些文件了，希望pull下来 git pull origin master</span></li></ol><p><span>情况2：clone远程仓库的项目。  </span></p><ol start='' ><li><span>直接：</span><code>git clone https://git.oschina.net/用户名/项目名</code></li><li><span>添加远程仓库：</span><code>git remote add origin git@git.oschina.net:用户名/项目名</code><span>。git remote -v 可以用来查看当前添加的远程仓库。如果是https开头的，每次pull，push都要输用户名和密码，git@开头的就不需要。</span></li><li><span>git remote rm 远程仓库别名</span></li></ol><h2><a name="git记住账号和密码" class="md-header-anchor"></a><span>git记住账号和密码</span></h2><ol start='' ><li><span>在用户根目录新建文件.git-credentials</span></li><li><span>输入</span><code>https://${用户名}:${密码}@github.com</code><span>，比如</span><code>https://duanku:duanku12@github.com</code></li><li><span>进入需要使用这个账号密码的 git 工程目录，输入git config --global credential.helper store</span></li><li><span>在用户根目录的.gitconfig文件的最后有如下字样，即表示成功</span></li></ol><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="ini"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="ini"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-header">[credential]</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">helper </span>=<span class="cm-quote"> store</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><h2><a name="添加更改到暂存区" class="md-header-anchor"></a><span>添加更改到暂存区</span></h2><p><span>把文件添加到暂存区：git add file或git add .。</span><br/><span>commit之前多次add同一个文件，暂存区中保存的是最新版。</span><br/><span>删除暂存区中的文件：git rm file 或 git rm -r 递归删除（提交之后会同时删除工作区中的文件）。</span><br/><span>移动或重命名文件：git mv（提交之后会移动或重命名工作区中的文件）。</span><br/><span>将所有更改（包括add，rm，mv）都添加到暂存区：git add -A。</span></p><h2><a name="提交到版本库" class="md-header-anchor"></a><span>提交到版本库</span></h2><p><span>简单提交：git commit -m &quot;提交信息&quot;</span>
 <span>工作提交：git commit .</span>
 <span>修改上一次的提交信息：git commit --amend</span>
-<strong><span>能修改提交的说明，同时如果暂存区里面有新增的修改文件，也会被追加到这笔提交中</span></strong><span>。</span></p><h2><a name="%E6%92%A4%E9%94%80%E6%9B%B4%E6%94%B9" class="md-header-anchor"></a><span>撤销更改</span></h2><p><span>撤销未添加到暂存区的更改：git checkout -- filename （ git checkout . ）表示撤销所有文件。</span><br/><span>撤销对暂存区的添加：</span><code>git reset HEAD [&lt;file&gt;...]</code><span>。</span><br/><span>撤销版本库中的：</span><code>git reset --soft HEAD^</code><span>。</span><br/><span>撤销工作区、暂存区、版本库里内容：</span><code>git reset --hard HEAD^</code><span>。</span></p><p><span>如果reset命令使用了 --soft 或者 --hard 参数，那就不能在后面加文件了，也就是说只能全部回退，而不能只回退指定的文件 HEAD指向最近一次提交，HEAD</span><sup><span>指向上一次提交，HEAD</span></sup><span>^上上次提交，HEAD~10，前10次提交；也可以直接使用commit id。</span></p><p><span>把工作区、暂存区、版本库回退到最近一次 git pull 之前：git reset --hard ORIG_HEAD。</span><br/><span>清除目录中新增的文件：git clean -df。</span></p><p><span>-d是指连同新建的目录一起删除，-f是指强制删除。</span></p><p><span>回退：git revert commit-id/HEAD，其实就是找出某一笔提交修改的文件和内容，然后删除这些内容，也就是再次修改了这些文件的内容，所以之后需要把这个修改提交，以完成内容回退。</span></p><h2><a name="%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4" class="md-header-anchor"></a><span>查看提交</span></h2><p><span>查看提交历史：git log [ HEAD或commit id或者 ]。</span><br/><span>列出前n次提交：-n。</span><br/><span>查看各文件的详细变更：-p。</span><br/><span>查看某个文件的历次提交：-- file。</span><br/><span>列出每次提交的变更文件：--stat。</span><br/><span>查看特定作者的提交：--author。</span><br/><span>查看特定提交者的提交（提交者和作者可能不是同一个人）--committer。</span><br/><span>查看提交说明中含有特定关键字的提交：--grep。</span><br/><span>查看某段时间内的提交：--after=&quot;2008-10-01&quot; --before=&quot;2008-11-01&quot;。</span><br/><span>除了使用具体的日期外，还有另一种表述方式：--after=3.days 三天内的提交；--before=3.days 三天以前的提交；除了用 day，还能使用 week。  </span></p><p><span>显示详细信息：git show。</span><br/><span>与log不一样的是，show不加别的参数就只显示最近一次提交的详细信息。  </span></p><p><span>显示变更内容：git diff 比较暂存区与工作区，git diff --cached 比较版本库与暂存区。  </span></p><p><span>git blame -L n +m file：从n行开始到m行，查看该文件的这几行的最后一次修改分别是哪一次提交。</span></p><h2><a name="%E6%9F%A5%E7%9C%8B%E6%9B%B4%E6%94%B9" class="md-header-anchor"></a><span>查看更改</span></h2><p><span>查看工作区与暂存区文件的区别：</span><code>git diff [-- &lt;file&gt;...]</code><span>（如果暂存区没文件，就是和版本库比）。</span><br/><span>查看暂存区与版本库文件的区别：</span><code>git diff --cached [-- &lt;file&gt;...]</code><span>。</span><br/><span>查看工作区与版本库文件的区别：</span><code>git diff &lt;commit&gt; [-- &lt;file&gt;...]</code><span>。  </span></p><p><span>查看两次历史提交中的变化：</span><code>git diff &lt;commit&gt; &lt;commit&gt; [-- &lt;file&gt;...]</code><span>。</span><br/><span>查看简略信息：可以使用 --stat 参数。  </span></p><h2><a name="%E5%AD%98%E5%82%A8%E6%9B%B4%E6%94%B9" class="md-header-anchor"></a><span>存储更改</span></h2><p><span>在本地有未提交的更改的情况下，git pull 成功下载新的文件（如果不使用 git pull --rebase 的话）。</span><br/><span>这种情况可以先把本地更改存储起来：git stash（没错，没有【.】），再 git pull。</span><br/><span>git stash list 查看所有存储，stash@{0}表示最近的一次存储，数字越大表示历史越久远。</span><br/><span>git stash apply stash@{0} 还原存储的内容，不指定是哪一次存储就会还原最近的一次 如果发生冲突，解决冲突后，add 再 commit 即可。</span><br/><span>git stash drop 删除某一个存储。  </span></p><h2><a name="%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86" class="md-header-anchor"></a><span>分支管理</span></h2><p><a href='http://chuansong.me/n/377054'><span>merge和rebase详解</span></a></p><p><span>不管是merge还是rebase都只会影响当前分支，其它分支不受影响。</span><br/><span>rebase是对原先做出的提交在变基之后重新提交，所以新的提交的commit id是和原先不同的。  </span></p><p><span>查看分支：git branch。</span><br/><span>列出各分支及其最后一次提交信息：-v。</span><br/><span>仅列出与当前分支合并的分支：--merged。</span><br/><span>仅列出未与当前分支合并的分支：--no-merged。</span><br/><span>查看远程分支：-a。  </span></p><p><span>新建分支：</span><code>git branch &lt;branch&gt;</code><span>。</span><br/><span>切换分支：</span><code>git checkout &lt;branch&gt;</code><span>。</span><br/><span>新建并切换分支：</span><code>git checkout -b &lt;branch&gt;</code><span>。</span><br/><span>新建分支并与远程分支关联：</span><code>git checkout &lt;remote_branch&gt; -b &lt;branch&gt;</code><span>。</span><br/><span>切换到远程分支，新建的本地分支直接使用远程分支名：</span><code>git checkout --track &lt;remote_branch&gt;</code><span>。  </span></p><p><span>删除分支：</span><code>git branch -d &lt;branch&gt;</code><span>。</span><br/><span>恢复分支：</span><code>git branch &lt;branch&gt; &lt;SHA1&gt;</code><span>（分支删除时会在屏幕上打印该分支的 SHA1 值）。  </span></p><p><span>合并分支：</span><code>git merge &lt;branch&gt;</code><span>。</span><br/><span>合并分支发生冲突时，手动解决冲突，再add，再commit。  </span></p><p><span>冲突的形式如下：  </span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="git"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="git"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>7</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;div id="footer"&gt;contact : email.support@github.com&lt;/div&gt;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">=======</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;div id="footer"&gt;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  please contact us at support@github.com</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;/div&gt;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 140px;"></div><div class="CodeMirror-gutters" style="height: 140px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>合并分支：</span><code>git rebase &lt;branch&gt;</code><span>。</span><br/><span>解决冲突后add，再使用git rebase --continue继续，或者使用git rebase --abort放弃。  </span></p><p><span>当前分支：master；需要合并的分支：dev。</span><br/><span>merge：把dev的最后一次提交合并过来。</span><br/><span>rebase：把dev和master分支的从分支节点到目前为止的所有提交都合并到master上来，所以rebase会产生更多的冲突。  </span></p><h2><a name="%E7%94%9F%E6%88%90%E4%B8%8E%E5%BA%94%E7%94%A8patch" class="md-header-anchor"></a><span>生成与应用patch</span></h2><p><span>patch 就是把 git diff 的内容输出到一个后缀名为 patch 的文件中，所以可以直接使用git diff &gt; file.patch这种形式来生成 patch，当然也可以使用以下命令。</span></p><ol start='' ><li><span>两个节点之间的提交：git format-patch 节点A 节点B</span></li><li><span>单个节点：git format-patch -1 节点A（-n就表示要生成几个节点的提交）</span></li><li><span>最近一次提交节点的patch：git format-patch HEAD^依次类推……</span></li></ol><p><span>git apply patch_file：凡是有冲突的，整个patch都不会合入，用--reject可以强制合入无冲突的部分，有冲突的部分会在目录下生成一个后缀名为rej的同名文件，该文件中保存有冲突的部分，根据需要手动合入。</span></p></div>
+<strong><span>能修改提交的说明，同时如果暂存区里面有新增的修改文件，也会被追加到这笔提交中</span></strong><span>。</span></p><h2><a name="撤销更改" class="md-header-anchor"></a><span>撤销更改</span></h2><p><span>撤销未添加到暂存区的更改：git checkout -- filename （ git checkout . ）表示撤销所有文件。</span><br/><span>撤销对暂存区的添加：</span><code>git reset HEAD [&lt;file&gt;...]</code><span>。</span><br/><span>撤销版本库中的：</span><code>git reset --soft HEAD^</code><span>。</span><br/><span>撤销工作区、暂存区、版本库里内容：</span><code>git reset --hard HEAD^</code><span>。</span></p><p><span>如果reset命令使用了 --soft 或者 --hard 参数，那就不能在后面加文件了，也就是说只能全部回退，而不能只回退指定的文件 HEAD指向最近一次提交，HEAD^指向上一次提交，HEAD^^上上次提交，HEAD~10，前10次提交；也可以直接使用commit id。</span></p><p><span>把工作区、暂存区、版本库回退到最近一次 git pull 之前：git reset --hard ORIG_HEAD。</span><br/><span>清除目录中新增的文件：git clean -df。</span></p><p><span>-d是指连同新建的目录一起删除，-f是指强制删除。</span></p><p><span>回退：git revert commit-id/HEAD，其实就是找出某一笔提交修改的文件和内容，然后删除这些内容，也就是再次修改了这些文件的内容，所以之后需要把这个修改提交，以完成内容回退。</span></p><h2><a name="查看提交" class="md-header-anchor"></a><span>查看提交</span></h2><p><span>查看提交历史：git log [ HEAD或commit id或者 ]。</span><br/><span>列出前n次提交：-n。</span><br/><span>查看各文件的详细变更：-p。</span><br/><span>查看某个文件的历次提交：-- file。</span><br/><span>列出每次提交的变更文件：--stat。</span><br/><span>查看特定作者的提交：--author。</span><br/><span>查看特定提交者的提交（提交者和作者可能不是同一个人）--committer。</span><br/><span>查看提交说明中含有特定关键字的提交：--grep。</span><br/><span>查看某段时间内的提交：--after=&quot;2008-10-01&quot; --before=&quot;2008-11-01&quot;。</span><br/><span>除了使用具体的日期外，还有另一种表述方式：--after=3.days 三天内的提交；--before=3.days 三天以前的提交；除了用 day，还能使用 week。  </span></p><p><span>显示详细信息：git show。</span><br/><span>与log不一样的是，show不加别的参数就只显示最近一次提交的详细信息。  </span></p><p><span>显示变更内容：git diff 比较暂存区与工作区，git diff --cached 比较版本库与暂存区。  </span></p><p><span>git blame -L n +m file：从n行开始到m行，查看该文件的这几行的最后一次修改分别是哪一次提交。</span></p><h2><a name="查看更改" class="md-header-anchor"></a><span>查看更改</span></h2><p><span>查看工作区与暂存区文件的区别：</span><code>git diff [-- &lt;file&gt;...]</code><span>（如果暂存区没文件，就是和版本库比）。</span><br/><span>查看暂存区与版本库文件的区别：</span><code>git diff --cached [-- &lt;file&gt;...]</code><span>。</span><br/><span>查看工作区与版本库文件的区别：</span><code>git diff &lt;commit&gt; [-- &lt;file&gt;...]</code><span>。  </span></p><p><span>查看两次历史提交中的变化：</span><code>git diff &lt;commit&gt; &lt;commit&gt; [-- &lt;file&gt;...]</code><span>。</span><br/><span>查看简略信息：可以使用 --stat 参数。  </span></p><h2><a name="存储更改" class="md-header-anchor"></a><span>存储更改</span></h2><p><span>在本地有未提交的更改的情况下，git pull 成功下载新的文件（如果不使用 git pull --rebase 的话）。</span><br/><span>这种情况可以先把本地更改存储起来：git stash（没错，没有【.】），再 git pull。</span><br/><span>git stash list 查看所有存储，stash@{0}表示最近的一次存储，数字越大表示历史越久远。</span><br/><span>git stash apply stash@{0} 还原存储的内容，不指定是哪一次存储就会还原最近的一次 如果发生冲突，解决冲突后，add 再 commit 即可。</span><br/><span>git stash drop 删除某一个存储。  </span></p><h2><a name="分支管理" class="md-header-anchor"></a><span>分支管理</span></h2><p><a href='http://chuansong.me/n/377054'><span>merge和rebase详解</span></a></p><p><span>不管是merge还是rebase都只会影响当前分支，其它分支不受影响。</span><br/><span>rebase是对原先做出的提交在变基之后重新提交，所以新的提交的commit id是和原先不同的。  </span></p><p><span>查看分支：git branch。</span><br/><span>列出各分支及其最后一次提交信息：-v。</span><br/><span>仅列出与当前分支合并的分支：--merged。</span><br/><span>仅列出未与当前分支合并的分支：--no-merged。</span><br/><span>查看远程分支：-a。  </span></p><p><span>新建分支：</span><code>git branch &lt;branch&gt;</code><span>。</span><br/><span>切换分支：</span><code>git checkout &lt;branch&gt;</code><span>。</span><br/><span>新建并切换分支：</span><code>git checkout -b &lt;branch&gt;</code><span>。</span><br/><span>新建分支并与远程分支关联：</span><code>git checkout &lt;remote_branch&gt; -b &lt;branch&gt;</code><span>。</span><br/><span>切换到远程分支，新建的本地分支直接使用远程分支名：</span><code>git checkout --track &lt;remote_branch&gt;</code><span>。  </span></p><p><span>删除分支：</span><code>git branch -d &lt;branch&gt;</code><span>。</span><br/><span>恢复分支：</span><code>git branch &lt;branch&gt; &lt;SHA1&gt;</code><span>（分支删除时会在屏幕上打印该分支的 SHA1 值）。  </span></p><p><span>合并分支：</span><code>git merge &lt;branch&gt;</code><span>。</span><br/><span>合并分支发生冲突时，手动解决冲突，再add，再commit。  </span></p><p><span>冲突的形式如下：  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="git"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="git"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;div id="footer"&gt;contact : email.support@github.com&lt;/div&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">=======</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;div id="footer"&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  please contact us at support@github.com</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;/div&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&gt;&gt;&gt;&gt;&gt;&gt;&gt; iss53</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 161px;"></div><div class="CodeMirror-gutters" style="display: none; height: 161px;"></div></div></div></pre><p><span>合并分支：</span><code>git rebase &lt;branch&gt;</code><span>。</span><br/><span>解决冲突后add，再使用git rebase --continue继续，或者使用git rebase --abort放弃。  </span></p><p><span>当前分支：master；需要合并的分支：dev。</span><br/><span>merge：把dev的最后一次提交合并过来。</span><br/><span>rebase：把dev和master分支的从分支节点到目前为止的所有提交都合并到master上来，所以rebase会产生更多的冲突。  </span></p><h2><a name="生成与应用patch" class="md-header-anchor"></a><span>生成与应用patch</span></h2><p><span>patch 就是把 git diff 的内容输出到一个后缀名为 patch 的文件中，所以可以直接使用git diff &gt; file.patch这种形式来生成 patch，当然也可以使用以下命令。</span></p><ol start='' ><li><span>两个节点之间的提交：git format-patch 节点A 节点B</span></li><li><span>单个节点：git format-patch -1 节点A（-n就表示要生成几个节点的提交）</span></li><li><span>最近一次提交节点的patch：git format-patch HEAD^依次类推……</span></li></ol><p><span>git apply patch_file：凡是有冲突的，整个patch都不会合入，用--reject可以强制合入无冲突的部分，有冲突的部分会在目录下生成一个后缀名为rej的同名文件，该文件中保存有冲突的部分，根据需要手动合入。</span></p></div>
 </body>
 </html>

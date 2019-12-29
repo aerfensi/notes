@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>测试工作以及对测试的理解</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>测试工作以及对测试的理解</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,84 +147,363 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-html { font-size: 16px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
-#write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
-a { color: rgb(65, 131, 196); }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
-p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
-li > ol, li > ul { margin: 0px; }
-hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
-li p.first { display: inline-block; }
-ul, ol { padding-left: 30px; }
-ul:first-child, ol:first-child { margin-top: 0px; }
-ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
-table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
-table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(223, 226, 229); margin: 0px; padding: 6px 13px; }
-table tr th:first-child, table tr td:first-child { margin-top: 0px; }
-table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-lines { padding-left: 4px; }
-.code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
-.md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
-code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
-.md-task-list-item > input { margin-left: -1.3em; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-.md-fences { background-color: rgb(248, 248, 248); }
-#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
-.mathjax-block > .code-tooltip { bottom: 0.375rem; }
-.md-mathjax-midline { background: rgb(250, 250, 250); }
-#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
-#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
-.md-tag { color: rgb(167, 167, 167); opacity: 1; }
-.md-toc { margin-top: 20px; padding-bottom: 20px; }
-.sidebar-tabs { border-bottom: none; }
-#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
-#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
-.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
-header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
-.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
-.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
-.md-lang { color: rgb(180, 101, 77); }
-.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
-#md-notification .btn { border: 0px; }
-.dropdown-menu .divider { border-color: rgb(229, 229, 229); }
-.ty-preferences .window-content { background-color: rgb(250, 250, 250); }
-.ty-preferences .nav-group-item.active { color: white; background: rgb(153, 153, 153); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="测试工作以及对测试的理解" class="md-header-anchor"></a><span>测试工作以及对测试的理解</span></h1><h2><a name="介绍一下anyoffice" class="md-header-anchor"></a><span>介绍一下anyoffice</span></h2><p><span>这是一套面向企业的移动办公系统，后台服务支持Linux和windows，手机客户端支持Android和IOS。</span><br/><span>当员工不在公司办公，但又有访问公司内网的需要的时候，他可以通过anyoffice的客户端来访问公司的内网。同时公司为了确保内部信息不被外出办公的员工泄露，可以通过anyoffice的后台来管理这些移动设备。</span><br/><span>另外我们还提供邮箱的移动客户端，方便客户接入企业邮箱。以及移动端的SDK，方便用户集成到自己的APP中。</span></p><h3><a name="后台" class="md-header-anchor"></a><span>后台</span></h3><p><span>功能测试、升级测试、文档测试</span></p><h4><a name="接口测试" class="md-header-anchor"></a><span>接口测试</span></h4><p><span>编写测试用例，然后根据接口文档，用Jmeter或postman实现测试用例，之后执行测试用例。如果没有接口的文档，则询问开发人员如何使用这些接口，并且自己抓包看看。</span></p><p><img src='images/测试工作以及对测试的理解_9d3eceeed64409868f71be69b11a0988.png' alt='测试工作以及对测试的理解_9d3eceeed64409868f71be69b11a0988' referrerPolicy='no-referrer' /></p><p><span>使用jmeter或postman测试提供给客户用的接口，不测试系统内部的接口，也不做接口自动化。我自己编写过一个接口测试的自动化工具，因为公司不让使用jmeter了，后续该工具使用的比较少，因为我开始使用postman了。</span></p><p><span>为什么我一开始用jmeter，后来用postman？</span><br/><span>因为Jmeter可以使用beanshell，兼容Java。我们的接口的认证需要用到用户名和密码，需要用SHA512算法，postmam没办法用SHA512。另外Jmeter可以访问数据库，我希望再测试删除相关的接口时，输入要删除的资源的名字，然后Jmeter查询到要删除的资源的ID，再访问接口执行删除。查询企业应用商店的APP的ID时，我用了beanshell+JDBC，而不是JDBC取样器，因为我们的APP可以属于某个部门，故要查询APP的ID不能仅通过名字，还要查询时哪个部门下的，而多个部门是可以重名的，只要他们不在同一个父部门下面即可，所以要查询部门的ID，要从顶级部门一级一级往下查，比较复杂，所以我使用Java。</span><br/><span>后来使用postman，一方面是因为jmeter不能用了，另一方面是因为我觉得把测试数据（比如用户名和密码的密文、要删除的APP的ID）提前准备好，供测试工具读取，也是一种不错的方法。</span><br/><span>新建资源的接口可以返回新建的资源的ID，后续删除资源的接口，可以使用这个返回的ID，但是不能完全依赖他。我要有手动查询的方法，当新建资源的接口出问题的时候，需要手动新建资源，然后查询它的ID。</span></p><p><span>http api test的相关功能：  </span></p><ol start='' ><li><span>excel中编写测试用例</span></li><li><span>执行测试用例、验证测试结果，保存需要的变量</span></li><li><span>输出测试报告和log</span></li><li><span>邮件发送测试报告和log</span></li></ol><p><span>遇到的问题有：</span><br/><span>如何设计这个工程，包括测试用例保存在那里，应该包含哪些字段，程序执行的入口怎么设计什么的。</span></p><p><span>postman和jmeter的区别：</span></p><ol start='' ><li><span>jmeter使用兼容Java的beanshell，postman使用JS</span></li><li><span>jmeter功能更强多，比如可以访问数据库</span></li><li><span>jmeter可以做压力测试，postman只做接口测试</span></li></ol><h4><a name="接口测试中遇到的bug" class="md-header-anchor"></a><span>接口测试中遇到的bug</span></h4><p><span>anyoffice后台提供一些接口给第三方客户端调用，让用户可以不登陆anyoffice的web页面，而是使用客户自己的客户端来使用相似的功能。</span><br/><span>web页面有修改上传的APP的名字的功能，但是APPupdate的接口没有这个功能。</span></p><h4><a name="抓包" class="md-header-anchor"></a><span>抓包</span></h4><p><span>当遇到问题的时候，用抓包工具查看发送的数据和返回的数据是不是有问题。</span><br/><span>需要分析web接口的时候，会抓包看看。比如我将mock服务替换成moco的时候，需要抓包看看后台请求的数据是什么，原先的mock服务返回的数据是什么。</span></p><p><span>抓包使用fiddler或wireshark。</span></p><h4><a name="自动化" class="md-header-anchor"></a><span>自动化</span></h4><p><span>自动化测试使用华为自己的框架，关键字驱动，我们只是使用关键字，而不参与代码的编写。</span></p><p><span>我自己学过selenium、RF，并且用RF搭建了一个测试环境。</span><br/><span>目的：希望将回归测试用例表格中的部分测试用例自动化，提高效率。</span><br/><span>为什么不用华为的框架：华为的自动化代码版本库已经丢失，只有原先某个员工的本地代码，他的代码好像不够新，编译出来后测试用例跑不过。我Java编码能力不强，加上领导不重视这个，所以我并不像去使用华为的框架。</span></p><h3><a name="自动化测试中遇到的bug" class="md-header-anchor"></a><span>自动化测试中遇到的bug</span></h3><p><span>anyoffice后台服务的安装界面中的单选框，点击已经被选中的单选框，单选框会变成不被选中的状态。</span><br/><span>比如有一个询问用户是否要新建数据库的单选框，只有两个选项——【是】和【否】，点击【是】选中后，再次点击【是】，就变成不选中了。此时这个单选框既没选中【是】，也没选中【否】</span></p><h3><a name="移动客户端" class="md-header-anchor"></a><span>移动客户端</span></h3><h4><a name="兼容性测试" class="md-header-anchor"></a><span>兼容性测试</span></h4><p><span>对Android6、7、8、9，IOS9、10、11、12这种不同版本的系统做兼容性测试，我们将基础测试用例在这些系统版本中过一遍。</span><br/><span>不做不同Android设备的兼容性测试，只有当出现问题的时候，我们会在不同型号相同Android版本的设备上测试，用来确定是定制系统引起的问题还是Android版本的问题。</span><br/><span>比如，禁用WiFi的策略在小米、三星等可以同时打开WiFi和WiFi热点的设备上没有效，在其他WiFi和WiFi热点只能开启一个的设备上有效。</span></p><h4><a name="sdk" class="md-header-anchor"></a><span>SDK</span></h4><p><span>SDK方便用户将自己的移动客户端接入到anyoffice系统中，其中用户用的最多的功能是，单点登录（任意APP登录后，其他SDK APP可直接登录）、文件加解密（对于office文档，需要和WPS合作）、安全隧道（连接AE服务器，访问公司内网资源）</span></p><h2><a name="软件测试流程" class="md-header-anchor"></a><span>软件测试流程</span></h2><ol start='' ><li><span>需求分派（开发责任人、测试责任人、需求完成时间）</span></li><li><span>需求串讲（开发人员，如何实现这个功能）</span></li><li><span>设计测试用例</span></li><li><span>需求反串讲，以及测试用例评审（测试人员，如何测试这个需求）</span></li><li><span>测试环境准备</span></li><li><span>测试用例执行</span></li><li><span>测试反馈问题，开发修改问题，之后回归测试</span></li><li><span>所有需求都验证通过后，发布第一个beta版本</span></li><li><span>测试beta版本的基本功能和原先做的需求，还有升级测试等，发现问题并回归</span></li><li><span>迭代3个beta版本，所有问题都回归后，发布正式版本</span></li></ol><h2><a name="一个系统测试到哪种程度可以发布了" class="md-header-anchor"></a><span>一个系统测试到哪种程度，可以发布了</span></h2><p><span>确保功能正常可用。</span><br/><span>确保非正常输入的情况下能返回预期的错误码，系统不崩溃，能继续正常运行。</span><br/><span>当系统负载到达比较大的一个值时，系统能良好运行，没有明显的卡顿。</span><br/><span>系统有一定的安全性，存储的用户数据不会被轻易盗取。</span><br/><span>系统UI设计符合UI设计师的要求。</span><br/><span>系统用户UI层面逻辑清晰，易懂，不会让用户在使用过程中产生困难。  </span></p><h2><a name="软件测试工程师需要掌握的基础" class="md-header-anchor"></a><span>软件测试工程师需要掌握的基础</span></h2><p><span>软件产品的业务功能。</span><br/><span>软件的测试流程。</span><br/><span>常用的测试用例设计方法。</span><br/><span>常见的缺陷管理工具和测试用例管理工具。</span><br/><span>常用的办公软件和文档编写能力。  </span></p><p><span>数据库、接口测试、自动化测试、安全测试、压力测试、基础的代码能力</span></p><h2><a name="如何确保测试用例覆盖全面" class="md-header-anchor"></a><span>如何确保测试用例覆盖全面</span></h2><p><span>根据需求文档编写预期结果成功的测试用例，然后编写预期结果失败的测试用例，然后思考一下用户的使用场景有没有特殊的需求，然后开会评审测试用例。</span></p><p><span>比如有一个上传图片的功能，可能我们需要考虑如下的一些情况：</span></p><ul><li><span>正常上传图片</span></li><li><span>上传的是非图片的文件</span></li><li><span>上传的是非图片的但是后缀名是图片的文件</span></li><li><span>上传的是图片但是后缀名是非图片的文件</span></li><li><span>上传的图片文件的大小超出了限制</span></li></ul><h2><a name="测试工作中有哪些风险应如何避免" class="md-header-anchor"></a><span>测试工作中有哪些风险，应如何避免？</span></h2><p><strong><span>需求风险</span></strong><span>：产品需求的不明确，对产品需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，测试用例维护成本增加，实时更新时存在误差。</span></p><p><strong><span>测试用例风险</span></strong><span>：测试用例设计不完整，忽视了边界条件、异常输入等情况，用例覆盖率没有做到足够覆盖，测试用例没有得到全部执行，有些用例被有意或者无意的漏测，需求变更导致的测试时间被压缩等情况。</span></p><p><strong><span>缺陷风险</span></strong><span>：某些缺陷偶发，难以重现，容易被遗漏；缺陷跟踪不够积极主动，没做好缺陷记录和及时更新，同样的缺陷，导致的原因可能不同，对这点没意识到导致的线上生产问题等。</span></p><p><strong><span>测试环境风险</span></strong><span>：测试环境和生产环境配置不同，测试环境交叉影响较大，测试环境数据量不足导致的测试结果误差等问题。</span></p><p><strong><span>回归测试风险</span></strong><span>：回归测试，一般时间相对来说较少，且大多只回归主要的功能点用例，可能造成漏测；另外还有回归验证缺陷时业务流走不通导致的打回修复再验证造成的时间延后问题。</span></p><p><strong><span>沟通协调风险</span></strong><span>：项目进行过程中需要多方沟通协调，不同部门，岗位之间的沟通、协作，难免存在误解、沟通不畅的情况，比如需求变更没有及时沟通，开发代码提交没有及时告知，测试结果的反馈不及时等问题。</span></p><h2><a name="你觉得当前工作中有什么不合理的你是怎么克服的" class="md-header-anchor"></a><span>你觉得当前工作中有什么不合理的，你是怎么克服的？</span></h2><p><span>我们当前做接口测试的方式是开发会写一个接口测试的小工具，就是一个jar包，然后它会读取一个或多个配置文件。我通过修改配置文件中的一些属性的值，来使用这个jar包的各种功能，达到接口测试的目的。测试不同的接口开发会写不同的jar包，配置文件也是没有规范的，怎么填写配置文件全靠开发告诉我。</span><br/><span>这带来几个问题，比如我需要学习各个jar包的配置文件怎么写，比如等我回过头来测试以前的接口的时候，很可能就忘记了那个配置文件怎么写。</span><br/><span>解决方法是我自学了jmeter，用jmeter做接口测试。不需要学习如何写配置文件，而且当我测以前的接口的时候，只需要导入以前的工程就行了。</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="测试工作以及对测试的理解" class="md-header-anchor"></a><span>测试工作以及对测试的理解</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n124"><a class="md-toc-inner" href="#测试工作以及对测试的理解">测试工作以及对测试的理解</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n127"><a class="md-toc-inner" href="#介绍一下anyoffice">介绍一下anyoffice</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n130"><a class="md-toc-inner" href="#后台">后台</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n132"><a class="md-toc-inner" href="#接口测试">接口测试</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n157"><a class="md-toc-inner" href="#接口测试中遇到的bug">接口测试中遇到的bug</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n159"><a class="md-toc-inner" href="#抓包">抓包</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n163"><a class="md-toc-inner" href="#自动化">自动化</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n166"><a class="md-toc-inner" href="#自动化测试中遇到的bug">自动化测试中遇到的bug</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n168"><a class="md-toc-inner" href="#为什么自己又搭建了一个新的自动化环境">为什么自己又搭建了一个新的自动化环境</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n170"><a class="md-toc-inner" href="#移动客户端">移动客户端</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n171"><a class="md-toc-inner" href="#兼容性测试">兼容性测试</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#sdk">SDK</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n175"><a class="md-toc-inner" href="#测试文档">测试文档</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n179"><a class="md-toc-inner" href="#软件测试流程">软件测试流程</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n201"><a class="md-toc-inner" href="#一个系统测试到哪种程度可以发布了">一个系统测试到哪种程度，可以发布了</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n203"><a class="md-toc-inner" href="#软件测试工程师需要掌握的基础">软件测试工程师需要掌握的基础</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n206"><a class="md-toc-inner" href="#如何确保测试用例覆盖全面">如何确保测试用例覆盖全面</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n220"><a class="md-toc-inner" href="#测试工作中有哪些风险应如何避免">测试工作中有哪些风险，应如何避免？</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n227"><a class="md-toc-inner" href="#你觉得当前工作中有什么不合理的你是怎么克服的">你觉得当前工作中有什么不合理的，你是怎么克服的？</a></span></p></div><h2><a name="介绍一下anyoffice" class="md-header-anchor"></a><span>介绍一下anyoffice</span></h2><p><span>这是一套面向企业的移动办公系统，后台服务支持Linux和windows，手机客户端支持Android和IOS。</span><br/><span>当员工不在公司办公，但又有访问公司内网的需要的时候，他可以通过anyoffice的客户端来访问公司的内网。按anyoffice对传输的数据和移动设备本地保存的数据做加密处理。同时可以通过anyoffice的后台来管理这些移动设备，保护信息安全，比如可以禁止手机的截屏、复制粘贴等功能，当手机丢失后，可以通过后台下发资料抹除指令。</span><br/><span>另外我们还提供邮箱的移动客户端，方便客户接入企业邮箱。以及移动端的SDK，方便用户集成到自己的APP中。</span><br/><span>eSDK提供的功能：1 通过Anyoffice后台（AE）接入企业内网、本地文件的加解密、防截屏、防复制粘贴、终端安全性检查（终端是否越狱/root，终端锁屏密码是否足够复杂、终端是否安装了禁止安装的APP等）</span></p><p><span>cope，企业购置设备给员工使用，可以购买华为的定制设备（Android），那些设备会集成anyoffice的MDM服务，在安装anyoffice客户端后可以提供更深度的管控策略，比如禁止某些APP运行、限制设备只能通过anyoffice的应用商店安装APP，禁用手机的电话、短信等功能。</span></p><h3><a name="后台" class="md-header-anchor"></a><span>后台</span></h3><p><span>功能测试、升级测试、文档测试</span></p><h4><a name="接口测试" class="md-header-anchor"></a><span>接口测试</span></h4><p><span>编写测试用例，然后根据接口文档，用Jmeter或postman实现测试用例，之后执行测试用例。如果没有接口的文档，则询问开发人员如何使用这些接口，并且自己抓包看看。</span></p><p><img src="images/测试工作以及对测试的理解_9d3eceeed64409868f71be69b11a0988.png" referrerpolicy="no-referrer" alt="测试工作以及对测试的理解_9d3eceeed64409868f71be69b11a0988"></p><p><span>使用jmeter或postman测试提供给客户用的接口，不测试系统内部的接口，也不做接口自动化。我自己编写过一个接口测试的自动化工具，因为公司不让使用jmeter了，后续该工具使用的比较少，因为我开始使用postman了。</span></p><p><span>为什么我一开始用jmeter，后来用postman？</span><br/><span>因为Jmeter可以使用beanshell，兼容Java。我们的接口的认证需要用到用户名和密码，需要用SHA512算法，postmam没办法用SHA512。另外Jmeter可以访问数据库，我希望再测试删除相关的接口时，输入要删除的资源的名字，然后Jmeter查询到要删除的资源的ID，再访问接口执行删除。查询企业应用商店的APP的ID时，我用了beanshell+JDBC，而不是JDBC取样器，因为我们的APP可以属于某个部门，故要查询APP的ID不能仅通过名字，还要查询时哪个部门下的，而多个部门是可以重名的，只要他们不在同一个父部门下面即可，所以要查询部门的ID，要从顶级部门一级一级往下查，比较复杂，所以我使用Java。</span><br/><span>后来使用postman，一方面是因为jmeter不能用了，另一方面是因为我觉得把测试数据（比如用户名和密码的密文、要删除的APP的ID）提前准备好，供测试工具读取，也是一种不错的方法。</span><br/><span>新建资源的接口可以返回新建的资源的ID，后续删除资源的接口，可以使用这个返回的ID，但是不能完全依赖他。我要有手动查询的方法，当新建资源的接口出问题的时候，需要手动新建资源，然后查询它的ID。</span></p><p><span>http api test的相关功能：  </span></p><ol start='' ><li><span>excel中编写测试用例</span></li><li><span>执行测试用例、验证测试结果，保存需要的变量</span></li><li><span>输出测试报告和log</span></li><li><span>邮件发送测试报告和log</span></li></ol><p><span>遇到的问题有：</span><br/><span>如何设计这个工程，包括测试用例保存在那里，应该包含哪些字段，程序执行的入口怎么设计什么的。</span></p><p><span>为什么要写http api test?</span><br/><span>因为贸易战的关系，华为清理涉A软件（即美国的一些可能会引发争端的软件），比如JDK、postman等，我希望找一个接口测试的工具作备胎。另一方面因为学习了python，我希望有一个项目练手。</span></p><p><span>postman和jmeter的区别：</span></p><ol start='' ><li><span>jmeter使用兼容Java的beanshell，postman使用JS</span></li><li><span>jmeter功能更强多，比如可以访问数据库</span></li><li><span>jmeter可以做压力测试，postman只做接口测试</span></li></ol><h4><a name="接口测试中遇到的bug" class="md-header-anchor"></a><span>接口测试中遇到的bug</span></h4><p><span>anyoffice后台提供一些接口给第三方客户端调用，让用户可以不登陆anyoffice的web页面，而是使用客户自己的客户端来使用相似的功能。</span><br/><span>web页面有修改上传的APP的名字的功能，但是APPupdate的接口没有这个功能。</span><br/><span>修改已经存在的APP的信息（比如APP名字、截图等），接口返回success、SM页面显示的信息为修改后的信息，然后anyoffice客户端推出后重新登陆，查看anyoffice客户端应用商店中的信息，整个应用商店无法显示信息，页面为空白。开发解释是组件之间的缓存没有同步。这也是我没做接口自动化的原因，接口返回success不能代表功能真的正常了。</span></p><h4><a name="抓包" class="md-header-anchor"></a><span>抓包</span></h4><p><span>当遇到问题的时候，用抓包工具查看发送的数据和返回的数据是不是有问题。比如Android10登录我们的一个老版本的anyoffice后台，不能通过anyoffice的应用商店下载APP，因为post请求的消息体传入了一个Android版本的参数，而后台该参数的类型是char，不是string，所以单个字符的1~9都没关系，10就出了问题。</span><br/><span>解决办法是，客户不会对anyoffice的后台做升级，故客户端修改该请求在Android版本高于9的设备上，请求中带的参数也写成Android9。</span></p><p><span>需要分析web接口的时候，会抓包看看。比如我将mock服务替换成moco的时候，需要抓包看看后台请求的数据是什么，原先的mock服务返回的数据是什么。</span></p><p><span>抓包使用fiddler或wireshark。</span></p><h4><a name="自动化" class="md-header-anchor"></a><span>自动化</span></h4><p><span>自动化测试使用华为自己的框架，关键字驱动，我们只是使用关键字，而不参与代码的编写。</span></p><p><span>我自己学过selenium、RF，并且用RF搭建了一个测试环境。</span><br/><span>目的：希望将回归测试用例表格中的部分测试用例自动化，提高效率。</span><br/><span>为什么不用华为的框架：华为的自动化代码版本库已经丢失，只有原先某个员工的本地代码，他的代码好像不够新，编译出来后测试用例跑不过。我Java编码能力不强，加上领导不重视这个，所以我并不像去使用华为的框架。</span></p><h3><a name="自动化测试中遇到的bug" class="md-header-anchor"></a><span>自动化测试中遇到的bug</span></h3><p><span>anyoffice后台服务的安装界面中的单选框，点击已经被选中的单选框，单选框会变成不被选中的状态。</span><br/><span>比如有一个询问用户是否要新建数据库的单选框，只有两个选项——【是】和【否】，点击【是】选中后，再次点击【是】，就变成不选中了。此时这个单选框既没选中【是】，也没选中【否】</span></p><h3><a name="为什么自己又搭建了一个新的自动化环境" class="md-header-anchor"></a><span>为什么自己又搭建了一个新的自动化环境</span></h3><p><span>原先的自动化环境的代码没人维护了，然后他们把代码库丢了，就剩下已经编译好的函数库，即我们只能使用已存在的关键字来编写测试用例，不能修改关键字也不能新增关键字。为了将来能对新的需求做自动化，我们决定搭建另一套环境作为原有自动化环境的补充。</span></p><h3><a name="移动客户端" class="md-header-anchor"></a><span>移动客户端</span></h3><h4><a name="兼容性测试" class="md-header-anchor"></a><span>兼容性测试</span></h4><p><span>对Android6、7、8、9，IOS9、10、11、12这种不同版本的系统做兼容性测试，我们将基础测试用例在这些系统版本中过一遍。</span><br/><span>不做不同Android设备的兼容性测试，只有当出现问题的时候，我们会在不同型号相同Android版本的设备上测试，用来确定是定制系统引起的问题还是Android版本的问题。</span><br/><span>比如，禁用WiFi的策略在小米、三星等可以同时打开WiFi和WiFi热点的设备上没有效，在其他WiFi和WiFi热点只能开启一个的设备上有效。</span></p><h4><a name="sdk" class="md-header-anchor"></a><span>SDK</span></h4><p><span>SDK方便用户将自己的移动客户端接入到anyoffice系统中，其中用户用的最多的功能是，单点登录（任意APP登录后，其他SDK APP可直接登录）、文件加解密（对于office文档，需要和WPS合作）、安全隧道（连接AE服务器，访问公司内网资源）</span></p><h2><a name="测试文档" class="md-header-anchor"></a><span>测试文档</span></h2><p><span>《补丁安装指导书》</span><br/><span>获取补丁包</span><br/><span>安装补丁包</span><br/><span>验证补丁包安装是否成功</span><br/><span>回退补丁包  </span></p><p><span>《补丁说明书》</span><br/><span>补丁适用于anyoffice的什么版本</span><br/><span>补丁的病毒扫描结果</span><br/><span>补丁新增了什么功能，修改了什么功能，删除了什么功能</span><br/><span>补丁解决了什么问题(对应的问题单号)，是否有遗留问题  </span></p><p><span>《补丁测试报告》</span><br/><span>测试环境</span><br/><span>测试用例</span><br/><span>补丁针对问题的验证结果</span><br/><span>补丁涉及模块的功能验证</span><br/><span>补丁兼容性测试，安全测试，资料测试</span></p><h2><a name="软件测试流程" class="md-header-anchor"></a><span>软件测试流程</span></h2><ol start='' ><li><span>需求分派（开发责任人、测试责任人、需求完成时间）</span></li><li><span>需求串讲（开发人员，如何实现这个功能）</span></li><li><span>设计测试用例</span></li><li><span>需求反串讲，以及测试用例评审（测试人员，如何测试这个需求）</span></li><li><span>测试环境准备</span></li><li><span>测试用例执行</span></li><li><span>测试反馈问题，开发修改问题，之后回归测试</span></li><li><span>所有需求都验证通过后，发布第一个beta版本</span></li><li><span>测试beta版本的基本功能和原先做的需求，还有升级测试等，发现问题并回归</span></li><li><span>迭代3个beta版本，所有问题都回归后，发布正式版本</span></li></ol><h2><a name="一个系统测试到哪种程度可以发布了" class="md-header-anchor"></a><span>一个系统测试到哪种程度，可以发布了</span></h2><p><span>确保功能正常可用。</span><br/><span>确保非正常输入的情况下能返回预期的错误码，系统不崩溃，能继续正常运行。</span><br/><span>当系统负载到达比较大的一个值时，系统能良好运行，没有明显的卡顿。</span><br/><span>系统有一定的安全性，存储的用户数据不会被轻易盗取。</span><br/><span>系统UI设计符合UI设计师的要求。</span><br/><span>系统用户UI层面逻辑清晰，易懂，不会让用户在使用过程中产生困难。  </span></p><h2><a name="软件测试工程师需要掌握的基础" class="md-header-anchor"></a><span>软件测试工程师需要掌握的基础</span></h2><p><span>软件产品的业务功能。</span><br/><span>软件的测试流程。</span><br/><span>常用的测试用例设计方法。</span><br/><span>常见的缺陷管理工具和测试用例管理工具。</span><br/><span>常用的办公软件和文档编写能力。  </span></p><p><span>数据库、接口测试、自动化测试、安全测试、压力测试、基础的代码能力</span></p><h2><a name="如何确保测试用例覆盖全面" class="md-header-anchor"></a><span>如何确保测试用例覆盖全面</span></h2><p><span>根据需求文档编写预期结果成功的测试用例，然后编写预期结果失败的测试用例，然后思考一下用户的使用场景有没有特殊的需求，然后开会评审测试用例。</span></p><p><span>比如有一个上传图片的功能，可能我们需要考虑如下的一些情况：</span></p><ul><li><span>正常上传图片</span></li><li><span>上传的是非图片的文件</span></li><li><span>上传的是非图片的但是后缀名是图片的文件</span></li><li><span>上传的是图片但是后缀名是非图片的文件</span></li><li><span>上传的图片文件的大小超出了限制</span></li></ul><h2><a name="测试工作中有哪些风险应如何避免" class="md-header-anchor"></a><span>测试工作中有哪些风险，应如何避免？</span></h2><p><strong><span>需求风险</span></strong><span>：产品需求的不明确，对产品需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，测试用例维护成本增加，实时更新时存在误差。</span></p><p><strong><span>测试用例风险</span></strong><span>：测试用例设计不完整，忽视了边界条件、异常输入等情况，用例覆盖率没有做到足够覆盖，测试用例没有得到全部执行，有些用例被有意或者无意的漏测，需求变更导致的测试时间被压缩等情况。</span></p><p><strong><span>缺陷风险</span></strong><span>：某些缺陷偶发，难以重现，容易被遗漏；缺陷跟踪不够积极主动，没做好缺陷记录和及时更新，同样的缺陷，导致的原因可能不同，对这点没意识到导致的线上生产问题等。</span></p><p><strong><span>测试环境风险</span></strong><span>：测试环境和生产环境配置不同，测试环境交叉影响较大，测试环境数据量不足导致的测试结果误差等问题。</span></p><p><strong><span>回归测试风险</span></strong><span>：回归测试，一般时间相对来说较少，且大多只回归主要的功能点用例，可能造成漏测；另外还有回归验证缺陷时业务流走不通导致的打回修复再验证造成的时间延后问题。</span></p><p><strong><span>沟通协调风险</span></strong><span>：项目进行过程中需要多方沟通协调，不同部门，岗位之间的沟通、协作，难免存在误解、沟通不畅的情况，比如需求变更没有及时沟通，开发代码提交没有及时告知，测试结果的反馈不及时等问题。</span></p><h2><a name="你觉得当前工作中有什么不合理的你是怎么克服的" class="md-header-anchor"></a><span>你觉得当前工作中有什么不合理的，你是怎么克服的？</span></h2><p><span>我们当前做接口测试的方式是开发会写一个接口测试的小工具，就是一个jar包，然后它会读取一个或多个配置文件。我通过修改配置文件中的一些属性的值，来使用这个jar包的各种功能，达到接口测试的目的。测试不同的接口开发会写不同的jar包，配置文件也是没有规范的，怎么填写配置文件全靠开发告诉我。</span><br/><span>这带来几个问题，比如我需要学习各个jar包的配置文件怎么写，比如等我回过头来测试以前的接口的时候，很可能就忘记了那个配置文件怎么写。</span><br/><span>解决方法是我自学了jmeter，用jmeter做接口测试。不需要学习如何写配置文件，而且当我测以前的接口的时候，只需要导入以前的工程就行了。</span></p></div>
 </body>
 </html>
