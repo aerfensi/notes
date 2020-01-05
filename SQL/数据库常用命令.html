@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>数据库常用命令</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>数据库常用命令</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,84 +147,363 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-html { font-size: 16px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
-#write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
-a { color: rgb(65, 131, 196); }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
-p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
-li > ol, li > ul { margin: 0px; }
-hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
-li p.first { display: inline-block; }
-ul, ol { padding-left: 30px; }
-ul:first-child, ol:first-child { margin-top: 0px; }
-ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
-table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
-table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(223, 226, 229); margin: 0px; padding: 6px 13px; }
-table tr th:first-child, table tr td:first-child { margin-top: 0px; }
-table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-lines { padding-left: 4px; }
-.code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
-.md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
-code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
-.md-task-list-item > input { margin-left: -1.3em; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-.md-fences { background-color: rgb(248, 248, 248); }
-#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
-.mathjax-block > .code-tooltip { bottom: 0.375rem; }
-.md-mathjax-midline { background: rgb(250, 250, 250); }
-#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
-#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
-.md-tag { color: rgb(167, 167, 167); opacity: 1; }
-.md-toc { margin-top: 20px; padding-bottom: 20px; }
-.sidebar-tabs { border-bottom: none; }
-#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
-#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
-.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
-header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
-.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
-.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
-.md-lang { color: rgb(180, 101, 77); }
-.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
-#md-notification .btn { border: 0px; }
-.dropdown-menu .divider { border-color: rgb(229, 229, 229); }
-.ty-preferences .window-content { background-color: rgb(250, 250, 250); }
-.ty-preferences .nav-group-item.active { color: white; background: rgb(153, 153, 153); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="数据库常用命令" class="md-header-anchor"></a><span>数据库常用命令</span></h1><h2><a name="mysql" class="md-header-anchor"></a><span>MySQL</span></h2><h3><a name="常用命令" class="md-header-anchor"></a><span>常用命令</span></h3><ul><li><code>?</code><span>：显示MySQL支持的所有命令。  </span></li><li><code>status</code><span>：显示当前connection的状态。  </span></li><li><code>use db_name</code><span>：切换数据库。  </span></li><li><code>? contents</code><span>：显示所有帮助文档，以目录分类。并不是所有内容都有帮助文档，比如clear命令就没有（? clear 输出为空）。  </span></li><li><code>system ! shell_command</code><span>：调用shell命令，比如 system ! reset 清屏。  </span></li><li><code>SELECT database();</code><span>：查看当前数据库，用status命令也能查看。  </span></li><li><code>CREATE DATABASE IF NOT EXISTS dbname;</code><span>：创建数据库。  </span></li><li><code>DROP DATABASE dbname;</code><span>：删除数据库，直接删除当前数据库也不会有问题。  </span></li><li><code>ALTER DATABASE dbname CHARACTER SET utf8;</code><span>：修改数据库编码，一定要用utf8，而不能是utf-8。  </span></li><li><code>CREATE DATABASE dbname CHARACTER SET utf8;</code><span>：创建时指定编码。  </span></li><li><code>show global variables like &quot;%datadir%&quot;;</code><span>：查询数据库文件存放位置。并不像SQLite一样，一个数据库就是一个文件。MySQL一个数据库对应一个文件夹，文件夹中会有多个文件。  </span></li></ul><h3><a name="show" class="md-header-anchor"></a><span>show</span></h3><p><span>show是MySQL的SQL语句，故必须用分号结尾。</span></p><ul><li><code>show databases;</code><span>：显示所有数据库</span></li><li><code>show tables;</code><span>：显示当前数据库中的表格</span></li><li><code>show columns from tbl [FROM db_name] [like_or_where];</code><span>：显示表格中所有列</span></li><li><code>show create table tb1;</code><span>：显示创建表格的SQL语句</span></li><li><code>show create database db1;</code><span>：显示创建数据库的SQL语句</span></li><li><code>SHOW [GLOBAL | SESSION] VARIABLES [like_or_where];</code><span>：查询全局或当前会话的变量</span></li><li><code>set [global|session] variable = expr;</code><span>：设置全局或当前会话的变量</span></li></ul><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><ul><li><code>desc</code><span>：查看表格字段及其类型</span></li><li><code>show user</code><span>：查看当前用户名</span></li><li><code>show con_name</code><span>：查看当前实例名</span></li><li><code>show parameters parameter_name</code><span>：查看v$parameter视图中的属性值，比如nls_lang</span></li><li><code>host command</code><span>：执行外部shell的命令</span></li><li><code>password [username]</code><span>：修改自己活着某个用户的登陆密码</span></li><li><code>disc/disconnect</code><span>：断开接连，不连接到任何用户</span></li><li><code>exit</code><span>：退出</span></li></ul><h3><a name="常用的系统视图表格" class="md-header-anchor"></a><span>常用的系统视图/表格</span></h3><p><span>dba、all、user前缀的意思是dba用户能访问的、当前用户能访问的、当前用户拥有的。</span></p><ul><li><span>dba_tables、all_tables、user_tables</span></li><li><span>dba_views、all_views、user_views</span></li><li><span>dba_indexes、all_indexes、user_indexes</span></li><li><span>dba_users、all_users（当前用户能看到其他用户的摘要信息）、user_users（当前用户的信息）</span></li><li><span>v$database、v$instance、v$session</span></li><li><span>v$parameter：instance初始化的参数，仅dba能访问。常用参数有db_name、db_unique_name（主备数据库有相同的db_name，故需要该变量以作区分）、instance_name</span></li><li><span>session_roles、session_privs</span></li><li><span>dba_role_privs：所有用户，以及授予给他的角色</span></li><li><span>user_role_privs：当前用户，以及授予给他的角色</span></li></ul><h2><a name="sqlite" class="md-header-anchor"></a><span>sqlite</span></h2><ul><li><code>.help</code><span>：和MySQL不同的是，SQLite不仅列出可用的命令，还列出命令的具体用法</span></li><li><code>.open db</code><span>：打开或是创建一个数据库</span></li><li><code>.exit/.quit</code></li><li><code>.databases</code><span>：当前的数据库</span></li><li><code>.show</code><span>：列出SQLite的所有设置，这些设置会影响所有SQLite数据库</span></li><li><code>.tables [tbl]</code><span>：列出当前数据库中的所有表格/视图，或者仅列出用LIKE模式匹配到表名的表格，LIKE模式就是指可以使用LIKE语句中的通配符，比如%</span></li><li><code>.schema [tbl]</code><span>：列出LIKE匹配的表格/视图（或者是当前数据库的所有表格/视图）创建时的SQL语句</span></li><li><code>.mode MODE</code><span>：SELECT语句输出表格时的格式化样式，默认使用列分隔符分隔各个列数据，而默认的列分隔符是【|】</span></li></ul><p><code>PRAGMA</code><span>：SQLite上的扩展SQL语句，用来读取和设置一些环境变量 ——</span><a href='http://iihero.iteye.com/blog/1189633'><span>PRAGMA命令用法</span></a><span>。</span></p><p><code>PRAGMA encoding;</code><span> 读取当前数据库的字符编码。</span><br/><code>PRAGMA encoding = &#39;UTF-8&#39;;</code><span> 设置当前数据库的字符编码。</span><br/><code>PRAGMA table_info(tbl);</code><span> 查询表格所有列的列名及其数据类型。  </span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="数据库常用命令" class="md-header-anchor"></a><span>数据库常用命令</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#数据库常用命令">数据库常用命令</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#mysql">MySQL</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4"><a class="md-toc-inner" href="#常用命令">常用命令</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n28"><a class="md-toc-inner" href="#show">show</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n45"><a class="md-toc-inner" href="#oracle">Oracle</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n63"><a class="md-toc-inner" href="#常用的系统视图表格">常用的系统视图/表格</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n84"><a class="md-toc-inner" href="#sqlite">sqlite</a></span></p></div><h2><a name="mysql" class="md-header-anchor"></a><span>MySQL</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#数据库常用命令">数据库常用命令</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#mysql">MySQL</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4"><a class="md-toc-inner" href="#常用命令">常用命令</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n28"><a class="md-toc-inner" href="#show">show</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n45"><a class="md-toc-inner" href="#oracle">Oracle</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n63"><a class="md-toc-inner" href="#常用的系统视图表格">常用的系统视图/表格</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n84"><a class="md-toc-inner" href="#sqlite">sqlite</a></span></p></div><h3><a name="常用命令" class="md-header-anchor"></a><span>常用命令</span></h3><ul><li><code>?</code><span>：显示MySQL支持的所有命令。  </span></li><li><code>status</code><span>：显示当前connection的状态。  </span></li><li><code>use db_name</code><span>：切换数据库。  </span></li><li><code>? contents</code><span>：显示所有帮助文档，以目录分类。并不是所有内容都有帮助文档，比如clear命令就没有（? clear 输出为空）。  </span></li><li><code>system ! shell_command</code><span>：调用shell命令，比如 system ! reset 清屏。  </span></li><li><code>SELECT database();</code><span>：查看当前数据库，用status命令也能查看。  </span></li><li><code>CREATE DATABASE IF NOT EXISTS dbname;</code><span>：创建数据库。  </span></li><li><code>DROP DATABASE dbname;</code><span>：删除数据库，直接删除当前数据库也不会有问题。  </span></li><li><code>ALTER DATABASE dbname CHARACTER SET utf8;</code><span>：修改数据库编码，一定要用utf8，而不能是utf-8。  </span></li><li><code>CREATE DATABASE dbname CHARACTER SET utf8;</code><span>：创建时指定编码。  </span></li><li><code>show global variables like &quot;%datadir%&quot;;</code><span>：查询数据库文件存放位置。并不像SQLite一样，一个数据库就是一个文件。MySQL一个数据库对应一个文件夹，文件夹中会有多个文件。  </span></li></ul><h3><a name="show" class="md-header-anchor"></a><span>show</span></h3><p><span>show是MySQL的SQL语句，故必须用分号结尾。</span></p><ul><li><code>show databases;</code><span>：显示所有数据库</span></li><li><code>show tables;</code><span>：显示当前数据库中的表格</span></li><li><code>show columns from tbl [FROM db_name] [like_or_where];</code><span>：显示表格中所有列</span></li><li><code>show create table tb1;</code><span>：显示创建表格的SQL语句</span></li><li><code>show create database db1;</code><span>：显示创建数据库的SQL语句</span></li><li><code>SHOW [GLOBAL | SESSION] VARIABLES [like_or_where];</code><span>：查询全局或当前会话的变量</span></li><li><code>set [global|session] variable = expr;</code><span>：设置全局或当前会话的变量</span></li></ul><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><ul><li><code>desc</code><span>：查看表格字段及其类型</span></li><li><code>show user</code><span>：查看当前用户名</span></li><li><code>show con_name</code><span>：查看当前实例名</span></li><li><code>show parameters parameter_name</code><span>：查看v$parameter视图中的属性值，比如nls_lang</span></li><li><code>host command</code><span>：执行外部shell的命令</span></li><li><code>password [username]</code><span>：修改自己活着某个用户的登陆密码</span></li><li><code>disc/disconnect</code><span>：断开接连，不连接到任何用户</span></li><li><code>exit</code><span>：退出</span></li></ul><h3><a name="常用的系统视图表格" class="md-header-anchor"></a><span>常用的系统视图/表格</span></h3><p><span>dba、all、user前缀的意思是dba用户能访问的、当前用户能访问的、当前用户拥有的。</span></p><ul><li><span>dba_tables、all_tables、user_tables</span></li><li><span>dba_views、all_views、user_views</span></li><li><span>dba_indexes、all_indexes、user_indexes</span></li><li><span>dba_users、all_users（当前用户能看到其他用户的摘要信息）、user_users（当前用户的信息）</span></li><li><span>v$database、v$instance、v$session</span></li><li><span>v$parameter：instance初始化的参数，仅dba能访问。常用参数有db_name、db_unique_name（主备数据库有相同的db_name，故需要该变量以作区分）、instance_name</span></li><li><span>session_roles、session_privs</span></li><li><span>dba_role_privs：所有用户，以及授予给他的角色</span></li><li><span>user_role_privs：当前用户，以及授予给他的角色</span></li></ul><h2><a name="sqlite" class="md-header-anchor"></a><span>sqlite</span></h2><ul><li><code>.help</code><span>：和MySQL不同的是，SQLite不仅列出可用的命令，还列出命令的具体用法</span></li><li><code>.open db</code><span>：打开或是创建一个数据库</span></li><li><code>.exit/.quit</code></li><li><code>.databases</code><span>：当前的数据库</span></li><li><code>.show</code><span>：列出SQLite的所有设置，这些设置会影响所有SQLite数据库</span></li><li><code>.tables [tbl]</code><span>：列出当前数据库中的所有表格/视图，或者仅列出用LIKE模式匹配到表名的表格，LIKE模式就是指可以使用LIKE语句中的通配符，比如%</span></li><li><code>.schema [tbl]</code><span>：列出LIKE匹配的表格/视图（或者是当前数据库的所有表格/视图）创建时的SQL语句</span></li><li><code>.mode MODE</code><span>：SELECT语句输出表格时的格式化样式，默认使用列分隔符分隔各个列数据，而默认的列分隔符是【|】</span></li></ul><p><code>PRAGMA</code><span>：SQLite上的扩展SQL语句，用来读取和设置一些环境变量 ——</span><a href='http://iihero.iteye.com/blog/1189633'><span>PRAGMA命令用法</span></a><span>。</span></p><p><code>PRAGMA encoding;</code><span> 读取当前数据库的字符编码。</span><br/><code>PRAGMA encoding = &#39;UTF-8&#39;;</code><span> 设置当前数据库的字符编码。</span><br/><code>PRAGMA table_info(tbl);</code><span> 查询表格所有列的列名及其数据类型。  </span></p></div>
 </body>
 </html>

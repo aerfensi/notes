@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>数据库安装，启动，配置</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>数据库安装，启动，配置</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,6 +147,10 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
 .CodeMirror { height: auto; }
@@ -222,109 +226,358 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E8%A3%85%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%8C%E9%85%8D%E7%BD%AE" class="md-header-anchor"></a><span>数据库安装，启动，配置</span></h1><h2><a name="mysql%EF%BC%88ubuntu%EF%BC%89" class="md-header-anchor"></a><span>MySQL（Ubuntu）</span></h2><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># mysql-workbench是一个可视化的mysql工具</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt install mysql-server mysql-workbench</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 为root用户创建密码，同时删除匿名用户和测试用的数据库</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> mysql_secure_installation</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 这里必须要使用root登陆，用sudo</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 如果不指定用户名，就是使用当前linux账户的用户名登陆</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> mysql <span class="cm-attribute">-u</span> root <span class="cm-attribute">-p</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 查看mysql的版本号，确保安装了</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">mysql <span class="cm-attribute">--version</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 启动与停止mysql服务</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl status mysqld.service</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">start</span> mysqld.service</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">restart</span> mysqld.service</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">stop</span> mysqld.service</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 设置mysql服务开机自启</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl enable mysqld.service</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl disable mysqld.service</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 440px;"></div><div class="CodeMirror-gutters" style="height: 440px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><p><span>mysql默认会有一个名为mysql的数据库，里面的user表格就保存了用户的数据。</span><br/><span>所以对用户的操作就是操作这张表格，比如要查看有多少用户。  </span></p><p><code>SELECT user FROM mysql.user;</code></p><h3><a name="mysql%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>MySQL创建用户</span></h3><p><span>host：指定该用户在哪个主机上可以登陆，如果是本地用户可用。  localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符 %。</span><br/><code>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;;</code></p><h3><a name="mysql%E4%B8%BA%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83" class="md-header-anchor"></a><span>MySQL为用户授权</span></h3><p><span>privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL。</span><br/><span>如果希望把所有数据库和表格的权限都授予，可以使用通配符</span><code>*.*</code><span>。</span><br/><code>GRANT privileges ON databasename.tablename TO &#39;username&#39;@&#39;host&#39;;</code></p><h3><a name="mysql%E4%BF%AE%E6%94%B9/%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81" class="md-header-anchor"></a><span>MySQL修改/设置用户密码</span></h3><p><code>SET PASSWORD FOR &#39;username&#39;@&#39;host&#39; = PASSWORD(&#39;newpassword&#39;);</code><span></span><br/><span>如果需要修改当前用户的密码。</span><br/><code>SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</code></p><h3><a name="mysql%E6%92%A4%E9%94%80%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90" class="md-header-anchor"></a><span>MySQL撤销用户权限</span></h3><p><code>REVOKE privilege ON databasename.tablename FROM &#39;username&#39;@&#39;host&#39;;</code></p><h3><a name="mysql%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>MySQL删除用户</span></h3><p><code>DROP USER &#39;username&#39;@&#39;host&#39;;</code></p><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><h3><a name="%E7%9B%91%E5%90%AC%E6%9C%8D%E5%8A%A1" class="md-header-anchor"></a><span>监听服务</span></h3><p><span>当用户登录数据库时，用户进程发送请求，服务器端的监听程序监听到用户进程的请求，使用listener.ora核对用户连接信息，如果正确，则启动一个服务器进程，然后把用户进程直接或者间接交付给服务器进程。</span><br/><span>上面讲的是专用服务器模式，对于共享服务器连接模式，则是将监听到的用户请求转发调度器，再由调试器调度共享服务器进程处理。</span><br/><strong><span>如果是访问本地的数据库实例，不需要启动监听服务，仅需要启动</span><code>OracleService&lt;instance_name&gt;</code><span>。比如实例名为orcl，则这个服务是OracleServiceORCL。</span></strong></p><h4><a name="lsnrctl" class="md-header-anchor"></a><span>lsnrctl</span></h4><p><span>该命令用来管理 Oracle 的监听服务（前提是该服务不能被禁用），用的最多的就是 start、stop、status。</span><br/><span>该命令应该是 listener control 的简写。  </span></p><h3><a name="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%85%B3%E9%97%AD" class="md-header-anchor"></a><span>数据库的启动与关闭</span></h3><p><span>默认情况下数据库是随着数据库服务一同启动的，Windows可以在注册表中更改，</span><code>HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDb10g_home1\ORA_ORCL_AUTOSTART</code></p><p><span>数据库有四种状态：shutdown、nomount（实例启动）、mount（打开控制文件）、open（所有文件都按照控制文件的描述打开）。</span><br/><span>在nomount状态，也有部分视图已经打开了，比如v$instance。</span><br/><code>startup [open/mout/nomount]</code><span>：默认是open</span><br/><code>shutdown [normal/transactional/immediate/abort]</code><span>：默认是normal，shutdown后，不能让有新用户连接，但是对已有的连接的处理方式因选项而异。</span><br/><span>normal：等待其他用户主动断开。</span><br/><span>transactional：等待正在处理的事务完成后，断开用户连接。</span><br/><span>immediate：打断正在处理的事务并回滚，断开用户连接。</span><br/><span>abort：直接打断正在处理的事务，断开用户连接。  </span></p><p><code>select status from v$instance;</code><span> 可以查看当前实例的状态，分为started、mounted、open。</span><br/><span>实例一旦被启动，如果希望改变其状态，不能直接使用startup命令，必须先shutdown。</span>
-<span>或者手动改变其状态，</span><code>alter database mount/open;</code></p><h3><a name="oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E4%B8%8E%E6%8E%88%E6%9D%83" class="md-header-anchor"></a><span>Oracle创建用户与授权</span></h3><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>14</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 创建用户</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">create</span> user username identified <span class="cm-keyword">by</span> password;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 将某个表格的某个权限赋予给某个用户</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">grant privilege <span class="cm-keyword">on</span> tablename to username;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 将某个角色赋予给某个用户，可以仅赋予dba，或者赋予connect和resource，仅赋予resource的话，用户没有连接数据库的权限的</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">grant connect,resource,dba to username;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 取消权限</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">revoke privilege <span class="cm-keyword">on</span> tablename <span class="cm-keyword">from</span> username;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 取消角色</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">revoke connect <span class="cm-keyword">from</span> username;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 300px;"></div><div class="CodeMirror-gutters" style="height: 300px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h3><a name="oracle%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>Oracle删除用户</span></h3><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 38px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>11</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -34px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 删除用户</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- cascade不仅会删除用户，还会删除该用户的模式，但是不会删除该用户的表空间。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span> user username cascade;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 如果该用户有独立使用的表空间，并且希望删除的话。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 先查看该用户使用的表空间（知道表空间的名字后，可以在dba_users中查找那些用户也在使用该表空间）</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">select</span> default_tablespace,temporary_tablespace <span class="cm-keyword">from</span> user_users;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 26px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 删除表空间和临时表空间</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span>  tablespace name including contents <span class="cm-keyword">and</span> datafiles;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 26px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span> temporary tablespace name including contents <span class="cm-keyword">and</span> datafiles;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 240px;"></div><div class="CodeMirror-gutters" style="height: 240px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div></div></div></div></pre><h3><a name="%E7%94%A8%E6%88%B7%E9%94%81%E5%AE%9A" class="md-header-anchor"></a><span>用户锁定</span></h3><p><span>用户有三种状态open、locked、expired（过期）。</span><br/><span>用户多次输错密码会导致locked，密码期限到后会导致expired。</span><br/><span>user_users表格中有账户的锁定的信息，dba_users表格中则包含其他用户的锁定信息。</span><br/><code>select username,account_status,lock_date from user_users;</code><span></span><br/><code>alter user username account unlock/lock;</code><span> 解锁或锁定账户。</span><br/><span>到期的账户再次登录的时候会要求更改密码，更改之后就可以正常登录了。</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="数据库安装启动配置" class="md-header-anchor"></a><span>数据库安装，启动，配置</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#数据库安装启动配置">数据库安装，启动，配置</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#mysqlubuntu）">MySQL（Ubuntu）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#mysql创建用户">MySQL创建用户</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n8"><a class="md-toc-inner" href="#mysql为用户授权">MySQL为用户授权</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n10"><a class="md-toc-inner" href="#mysql修改设置用户密码">MySQL修改/设置用户密码</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n12"><a class="md-toc-inner" href="#mysql撤销用户权限">MySQL撤销用户权限</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n14"><a class="md-toc-inner" href="#mysql删除用户">MySQL删除用户</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner" href="#oracle">Oracle</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n17"><a class="md-toc-inner" href="#监听服务">监听服务</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n19"><a class="md-toc-inner" href="#lsnrctl">lsnrctl</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n21"><a class="md-toc-inner" href="#数据库的启动与关闭">数据库的启动与关闭</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n25"><a class="md-toc-inner" href="#oracle创建用户与授权">Oracle创建用户与授权</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n27"><a class="md-toc-inner" href="#oracle删除用户">Oracle删除用户</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n29"><a class="md-toc-inner" href="#用户锁定">用户锁定</a></span></p></div><h2><a name="mysqlubuntu）" class="md-header-anchor"></a><span>MySQL（Ubuntu）</span></h2><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="bash" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># mysql-workbench是一个可视化的mysql工具</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt install mysql-server mysql-workbench</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 为root用户创建密码，同时删除匿名用户和测试用的数据库</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> mysql_secure_installation</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 这里必须要使用root登陆，用sudo</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 如果不指定用户名，就是使用当前linux账户的用户名登陆</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> mysql <span class="cm-attribute">-u</span> root <span class="cm-attribute">-p</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 查看mysql的版本号，确保安装了</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">mysql <span class="cm-attribute">--version</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 启动与停止mysql服务</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl status mysqld.service</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">start</span> mysqld.service</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">restart</span> mysqld.service</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl <span class="cm-builtin">stop</span> mysqld.service</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 设置mysql服务开机自启</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl enable mysqld.service</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">systemctl disable mysqld.service</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 506px;"></div><div class="CodeMirror-gutters" style="display: none; height: 506px;"></div></div></div></pre><p><span>mysql默认会有一个名为mysql的数据库，里面的user表格就保存了用户的数据。</span><br/><span>所以对用户的操作就是操作这张表格，比如要查看有多少用户。  </span></p><p><code>SELECT user FROM mysql.user;</code></p><h3><a name="mysql创建用户" class="md-header-anchor"></a><span>MySQL创建用户</span></h3><p><span>host：指定该用户在哪个主机上可以登陆，如果是本地用户可用。  localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符 %。</span><br/><code>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;;</code></p><h3><a name="mysql为用户授权" class="md-header-anchor"></a><span>MySQL为用户授权</span></h3><p><span>privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL。</span><br/><span>如果希望把所有数据库和表格的权限都授予，可以使用通配符</span><code>*.*</code><span>。</span><br/><code>GRANT privileges ON databasename.tablename TO &#39;username&#39;@&#39;host&#39;;</code></p><h3><a name="mysql修改设置用户密码" class="md-header-anchor"></a><span>MySQL修改/设置用户密码</span></h3><p><code>SET PASSWORD FOR &#39;username&#39;@&#39;host&#39; = PASSWORD(&#39;newpassword&#39;);</code><span></span><br/><span>如果需要修改当前用户的密码。</span><br/><code>SET PASSWORD = PASSWORD(&quot;newpassword&quot;);</code></p><h3><a name="mysql撤销用户权限" class="md-header-anchor"></a><span>MySQL撤销用户权限</span></h3><p><code>REVOKE privilege ON databasename.tablename FROM &#39;username&#39;@&#39;host&#39;;</code></p><h3><a name="mysql删除用户" class="md-header-anchor"></a><span>MySQL删除用户</span></h3><p><code>DROP USER &#39;username&#39;@&#39;host&#39;;</code></p><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><h3><a name="监听服务" class="md-header-anchor"></a><span>监听服务</span></h3><p><span>当用户登录数据库时，用户进程发送请求，服务器端的监听程序监听到用户进程的请求，使用listener.ora核对用户连接信息，如果正确，则启动一个服务器进程，然后把用户进程直接或者间接交付给服务器进程。</span><br/><span>上面讲的是专用服务器模式，对于共享服务器连接模式，则是将监听到的用户请求转发调度器，再由调试器调度共享服务器进程处理。</span><br/><strong><span>如果是访问本地的数据库实例，不需要启动监听服务，仅需要启动</span><code>OracleService&lt;instance_name&gt;</code><span>。比如实例名为orcl，则这个服务是OracleServiceORCL。</span></strong></p><h4><a name="lsnrctl" class="md-header-anchor"></a><span>lsnrctl</span></h4><p><span>该命令用来管理 Oracle 的监听服务（前提是该服务不能被禁用），用的最多的就是 start、stop、status。</span><br/><span>该命令应该是 listener control 的简写。  </span></p><h3><a name="数据库的启动与关闭" class="md-header-anchor"></a><span>数据库的启动与关闭</span></h3><p><span>默认情况下数据库是随着数据库服务一同启动的，Windows可以在注册表中更改，</span><code>HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDb10g_home1\ORA_ORCL_AUTOSTART</code></p><p><span>数据库有四种状态：shutdown、nomount（实例启动）、mount（打开控制文件）、open（所有文件都按照控制文件的描述打开）。</span><br/><span>在nomount状态，也有部分视图已经打开了，比如v$instance。</span><br/><code>startup [open/mout/nomount]</code><span>：默认是open</span><br/><code>shutdown [normal/transactional/immediate/abort]</code><span>：默认是normal，shutdown后，不能让有新用户连接，但是对已有的连接的处理方式因选项而异。</span><br/><span>normal：等待其他用户主动断开。</span><br/><span>transactional：等待正在处理的事务完成后，断开用户连接。</span><br/><span>immediate：打断正在处理的事务并回滚，断开用户连接。</span><br/><span>abort：直接打断正在处理的事务，断开用户连接。  </span></p><p><code>select status from v$instance;</code><span> 可以查看当前实例的状态，分为started、mounted、open。</span><br/><span>实例一旦被启动，如果希望改变其状态，不能直接使用startup命令，必须先shutdown。</span>
+<span>或者手动改变其状态，</span><code>alter database mount/open;</code></p><h3><a name="oracle创建用户与授权" class="md-header-anchor"></a><span>Oracle创建用户与授权</span></h3><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 创建用户</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">create</span> user username identified <span class="cm-keyword">by</span> password;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 将某个表格的某个权限赋予给某个用户</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">grant privilege <span class="cm-keyword">on</span> tablename to username;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 将某个角色赋予给某个用户，可以仅赋予dba，或者赋予connect和resource，仅赋予resource的话，用户没有连接数据库的权限的</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">grant connect,resource,dba to username;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 取消权限</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">revoke privilege <span class="cm-keyword">on</span> tablename <span class="cm-keyword">from</span> username;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 取消角色</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">revoke connect <span class="cm-keyword">from</span> username;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 345px;"></div><div class="CodeMirror-gutters" style="display: none; height: 345px;"></div></div></div></pre><h3><a name="oracle删除用户" class="md-header-anchor"></a><span>Oracle删除用户</span></h3><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 删除用户</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- cascade不仅会删除用户，还会删除该用户的模式，但是不会删除该用户的表空间。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span> user username cascade;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 如果该用户有独立使用的表空间，并且希望删除的话。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 先查看该用户使用的表空间（知道表空间的名字后，可以在dba_users中查找那些用户也在使用该表空间）</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">select</span> default_tablespace,temporary_tablespace <span class="cm-keyword">from</span> user_users;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 删除表空间和临时表空间</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span>  tablespace name including contents <span class="cm-keyword">and</span> datafiles;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">drop</span> temporary tablespace name including contents <span class="cm-keyword">and</span> datafiles;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 253px;"></div><div class="CodeMirror-gutters" style="display: none; height: 253px;"></div></div></div></pre><h3><a name="用户锁定" class="md-header-anchor"></a><span>用户锁定</span></h3><p><span>用户有三种状态open、locked、expired（过期）。</span><br/><span>用户多次输错密码会导致locked，密码期限到后会导致expired。</span><br/><span>user_users表格中有账户的锁定的信息，dba_users表格中则包含其他用户的锁定信息。</span><br/><code>select username,account_status,lock_date from user_users;</code><span></span><br/><code>alter user username account unlock/lock;</code><span> 解锁或锁定账户。</span><br/><span>到期的账户再次登录的时候会要求更改密码，更改之后就可以正常登录了。</span></p></div>
 </body>
 </html>
