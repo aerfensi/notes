@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>oracle</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>oracle</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,110 +147,363 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h1><h2><a name="oracle%E4%B8%BB%E7%9B%AE%E5%BD%95%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>Oracle主目录用户</span></h2><p><span>Oracle数据库在安装的时候会要求指定一个非管理员的普通系统账户作为主目录用户，用来安装和配置Oracle主目录，运行Oracle主目录的服务。</span><br/><span>在Linux环境中，必须切换到主目录用户才能调用sqlplus命令（大概是因为我的环境是将Oracle安装给主目录用户，而不是所有用户），在Windows环境则没有这个限制。  </span></p><h2><a name="%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%92%8C%E4%B8%BB%E7%9B%AE%E5%BD%95" class="md-header-anchor"></a><span>根目录和主目录 </span></h2><p><span>Oracle根目录（或者说基目录 ORACLE_BASE）是Oracle产品的顶级目录，所有产品或者是不同版本的数据库软件都会安装到这里。</span><br/><span>主目录（ORACLE_HOME）是每一个Oracle产品自身的安装目录，该目录为Oracle根目录的子孙目录。</span></p><p><span>在Oracle database 12c（Windows环境）中，根目录是C:\app\oracle，主目录是</span><code>C:\app\oracle\product\12.2.0\dbhome_1</code></p><h2><a name="%60sql*plus%60" class="md-header-anchor"></a><code>SQL*Plus</code><span> </span></h2><p><code>SQL*Plus</code><span>是Oracle数据库最基本的管理工具，它可以执行</span><code>SQL*Plus</code><span>的内置命令、SQL语句、PL/SQL代码块、外部shell的命令。 </span><br/><span>就像是MySQL登陆后可以执行help等非SQL语句一样。 </span><br/><span>sqlplus命令可以用来启动</span><code>SQL*Plus</code><span>，或者是启动</span><code>SQL*Plus</code><span>并连接到特定数据库。   </span></p><h3><a name="%60sql*plus%60%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE" class="md-header-anchor"></a><code>SQL*Plus</code><span>环境配置 </span></h3><p><code>$ORACLE_HOME/sqlplus/admin/glogin.sql</code><span>，这个文件类似于bash的 .bash_profile，在用户登录的时候被执行。 </span><br/><span>添加这一行将sqlplus的提示符修改为 user@instance 这种形式。 </span><br/><code>set sqlprompt &quot;_user&#39;@&#39;_connect_identifier SQL&gt; &quot;</code></p><h2><a name="%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E5%AE%9E%E4%BE%8B" class="md-header-anchor"></a><span>数据库与实例 </span></h2><p><span>数据库就是硬盘上存储的数据库相关的文件的集合；实例是操作数据库的进程、内存空间的集合。</span><br/><span>一个实例一生只能装载一个数据库，一个数据库可以被多个实例装载。</span><br/><span>目前我遇到的情况都是一个数据库对应一个实例，所以对我而言，数据库和实例这两个词是可以互换的。</span><br/><span>12c版本中的新特性CDB与PDB可以实现一个实例对应多个数据库的情况，详见网友博客。 </span></p><h2><a name="%E7%94%A8%E6%88%B7%E3%80%81%E6%9D%83%E9%99%90%E3%80%81%E8%A7%92%E8%89%B2" class="md-header-anchor"></a><span>用户、权限、角色 </span></h2><p><span>角色就是多个权限的集合，可以直接给用户授权，或者是把角色赋予给用户。</span><br/><span>系统默认提供三个数据库管理相关的角色——connect、resource、dba。 </span></p><ol start='' ><li><span>Connect 角色，是授予最终用户的典型权利，最基本的权利，能够连接到ORACLE数据库中，并在对其他用户的表有访问权限时，做SELECT、UPDATE、INSERTT等操作。</span></li><li><span>Resource 角色，是授予开发人员的，能在自己的方案中创建表、序列、视图等。 </span></li><li><span>DBA角色，是授予数据库管理员的。</span></li></ol><p><span>另外还有两个拥有系统权限的角色——sysdba、sysoper。   </span></p><p><span>sysdba与sysoper拥有数据库系统管理的权限，比如打开/关闭/创建/删除/备份/恢复数据库。 </span><br/><span>sysdba的权限比sysoper还要高，且只有sys账户拥有sysdba角色，任何账户以sysdba角色登陆后都会自动转成sys账户。 </span><br/><span>登陆时不指定系统管理角色，就是以normal角色登陆。   </span></p><p><span>sysdba、sysoper与connect、resource、dba并不冲突，也没交集。 </span><br/><span>用户以sysdba角色登陆是为了管理数据库，如果该用户同时具备dba权限，那他还可以操作数据库中的数据。 </span></p><p><span>system账户和sys账户：</span></p><p><span>sys账户拥有dba，sysdba，sysoper角色，是数据库实例的最高权限账户。</span><br/><span>system拥有dba角色，且只能使用normal身份登录。</span><br/><span>system账户我一般用不到，sys账户的话，一般使用它的sysdba身份登录来管理数据库。</span></p><h2><a name="%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%B8%8E%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>表空间与用户 </span></h2><p><span>表空间是一种逻辑上的概念，数据实际存储再数据文件中，多个数据文件可以组织成一个表空间。 </span><br/><span>一个表空间只能属于一个数据库，一个表空间可以供多个用户使用，一个用户也可以使用多个表空间。 </span></p><p><span>如果不手动指定用户的默认表空间和临时表空间，用户就会使用数据库的默认表空间和默认的临时表空间。 </span><br/><span>临时表空间主要用途是在数据库进行排序运算、管理索引、访问视图等操作时提供临时的运算空间，当运算完成之后系统会自动清理。 </span></p><p><span>默认的用户表空间是USERS，默认的临时表空间是TEMP 。</span></p><p><span>可以在 dba_free_space 和 dba_data_files 这两张表格中查到表空间的总大小和剩余大小。</span><br/><code>select tablespace_name,sum(BYTES)/(1024*1024) as &quot;ts_size（M）&quot; from dba_data_files group by tablespace_name;</code></p><p><span>查看表空间的数据文件的路径。</span><br/><code>select file_name from dba_data_files where tablespace_name=&#39;USERS&#39;;</code><span> </span></p><p><span>修改表空间的大小可以修改其中一个数据文件的大小，或者给表空间添加/删除数据文件。 </span><br/><code>alter database datafile &#39;F:\ORACLE\PRODUCT\10.2.0\ORADATA\ORCL\xxx.DBF&#39; resize 1024m;</code></p><h2><a name="%E6%A8%A1%E5%BC%8F%E4%B8%8E%E7%94%A8%E6%88%B7" class="md-header-anchor"></a><span>模式与用户 </span></h2><p><span>模式与用户是一一对应的关系，模式名默认就是用户名，模式是存放数据库对象的地方。 </span><br/><span>模式不能被单独创建，要创建模式必须创建用户。 </span><br/><span>用户不仅能访问自己模式中的数据库对象，也能访问其他用户的模式中的数据库对象。 </span><br/><span>模式是逻辑数据结构，并不是实际的数据存储文件。 </span></p><h2><a name="oracle%E5%92%8Cmysql%E7%9A%84%E3%80%90%E7%94%A8%E6%88%B7%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%85%B3%E7%B3%BB%E3%80%91%E7%9A%84%E5%8C%BA%E5%88%AB" class="md-header-anchor"></a><span>oracle和MySQL的【用户与数据库的关系】的区别 </span></h2><p><span>oracle是用户属于数据库，多个数据库之间是独立的，每个数据库都有自己的管理员账户，虽然名字都是sys和system这两个。用户可以访问自己的模式下的数据库对象，也可以授予其他用户访问自己模式下的数据库对象的权限。dba角色的用户可以访问该数据库中任意模式中的数据库对象。 </span></p><p><span>MySQL中的用户属于默认的名为mysql的数据库。root用户是MySQL的管理员，管理所有的数据库。仅有root用户可以创建其他用户，并把操作数据库或表格的权限授予给他。 </span></p><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#oracle">Oracle</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#oracle主目录用户">Oracle主目录用户</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#根目录和主目录">根目录和主目录 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n7"><a class="md-toc-inner" href="#sqlplus"><code>SQL*Plus</code> </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n9"><a class="md-toc-inner" href="#sqlplus环境配置"><code>SQL*Plus</code>环境配置 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n11"><a class="md-toc-inner" href="#数据库与实例">数据库与实例 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n13"><a class="md-toc-inner" href="#用户权限角色">用户、权限、角色 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n27"><a class="md-toc-inner" href="#表空间与用户">表空间与用户 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n34"><a class="md-toc-inner" href="#模式与用户">模式与用户 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n36"><a class="md-toc-inner" href="#oracle和mysql的用户与数据库的关系的区别">oracle和MySQL的【用户与数据库的关系】的区别 </a></span></p></div><h2><a name="oracle主目录用户" class="md-header-anchor"></a><span>Oracle主目录用户</span></h2><p><span>Oracle数据库在安装的时候会要求指定一个非管理员的普通系统账户作为主目录用户，用来安装和配置Oracle主目录，运行Oracle主目录的服务。</span><br/><span>在Linux环境中，必须切换到主目录用户才能调用sqlplus命令（大概是因为我的环境是将Oracle安装给主目录用户，而不是所有用户），在Windows环境则没有这个限制。  </span></p><h2><a name="根目录和主目录" class="md-header-anchor"></a><span>根目录和主目录 </span></h2><p><span>Oracle根目录（或者说基目录 ORACLE_BASE）是Oracle产品的顶级目录，所有产品或者是不同版本的数据库软件都会安装到这里。</span><br/><span>主目录（ORACLE_HOME）是每一个Oracle产品自身的安装目录，该目录为Oracle根目录的子孙目录。</span></p><p><span>在Oracle database 12c（Windows环境）中，根目录是C:\app\oracle，主目录是</span><code>C:\app\oracle\product\12.2.0\dbhome_1</code></p><h2><a name="sqlplus" class="md-header-anchor"></a><code>SQL*Plus</code><span> </span></h2><p><code>SQL*Plus</code><span>是Oracle数据库最基本的管理工具，它可以执行</span><code>SQL*Plus</code><span>的内置命令、SQL语句、PL/SQL代码块、外部shell的命令。 </span><br/><span>就像是MySQL登陆后可以执行help等非SQL语句一样。 </span><br/><span>sqlplus命令可以用来启动</span><code>SQL*Plus</code><span>，或者是启动</span><code>SQL*Plus</code><span>并连接到特定数据库。   </span></p><h3><a name="sqlplus环境配置" class="md-header-anchor"></a><code>SQL*Plus</code><span>环境配置 </span></h3><p><code>$ORACLE_HOME/sqlplus/admin/glogin.sql</code><span>，这个文件类似于bash的 .bash_profile，在用户登录的时候被执行。 </span><br/><span>添加这一行将sqlplus的提示符修改为 user@instance 这种形式。 </span><br/><code>set sqlprompt &quot;_user&#39;@&#39;_connect_identifier SQL&gt; &quot;</code></p><h2><a name="数据库与实例" class="md-header-anchor"></a><span>数据库与实例 </span></h2><p><span>数据库就是硬盘上存储的数据库相关的文件的集合；实例是操作数据库的进程、内存空间的集合。</span><br/><span>一个实例一生只能装载一个数据库，一个数据库可以被多个实例装载。</span><br/><span>目前我遇到的情况都是一个数据库对应一个实例，所以对我而言，数据库和实例这两个词是可以互换的。</span><br/><span>12c版本中的新特性CDB与PDB可以实现一个实例对应多个数据库的情况，详见网友博客。 </span></p><h2><a name="用户权限角色" class="md-header-anchor"></a><span>用户、权限、角色 </span></h2><p><span>角色就是多个权限的集合，可以直接给用户授权，或者是把角色赋予给用户。</span><br/><span>系统默认提供三个数据库管理相关的角色——connect、resource、dba。 </span></p><ol start='' ><li><span>Connect 角色，是授予最终用户的典型权利，最基本的权利，能够连接到ORACLE数据库中，并在对其他用户的表有访问权限时，做SELECT、UPDATE、INSERTT等操作。</span></li><li><span>Resource 角色，是授予开发人员的，能在自己的方案中创建表、序列、视图等。 </span></li><li><span>DBA角色，是授予数据库管理员的。</span></li></ol><p><span>另外还有两个拥有系统权限的角色——sysdba、sysoper。   </span></p><p><span>sysdba与sysoper拥有数据库系统管理的权限，比如打开/关闭/创建/删除/备份/恢复数据库。 </span><br/><span>sysdba的权限比sysoper还要高，且只有sys账户拥有sysdba角色，任何账户以sysdba角色登陆后都会自动转成sys账户。 </span><br/><span>登陆时不指定系统管理角色，就是以normal角色登陆。   </span></p><p><span>sysdba、sysoper与connect、resource、dba并不冲突，也没交集。 </span><br/><span>用户以sysdba角色登陆是为了管理数据库，如果该用户同时具备dba权限，那他还可以操作数据库中的数据。 </span></p><p><span>system账户和sys账户：</span></p><p><span>sys账户拥有dba，sysdba，sysoper角色，是数据库实例的最高权限账户。</span><br/><span>system拥有dba角色，且只能使用normal身份登录。</span><br/><span>system账户我一般用不到，sys账户的话，一般使用它的sysdba身份登录来管理数据库。</span></p><h2><a name="表空间与用户" class="md-header-anchor"></a><span>表空间与用户 </span></h2><p><span>表空间是一种逻辑上的概念，数据实际存储再数据文件中，多个数据文件可以组织成一个表空间。 </span><br/><span>一个表空间只能属于一个数据库，一个表空间可以供多个用户使用，一个用户也可以使用多个表空间。 </span></p><p><span>如果不手动指定用户的默认表空间和临时表空间，用户就会使用数据库的默认表空间和默认的临时表空间。 </span><br/><span>临时表空间主要用途是在数据库进行排序运算、管理索引、访问视图等操作时提供临时的运算空间，当运算完成之后系统会自动清理。 </span></p><p><span>默认的用户表空间是USERS，默认的临时表空间是TEMP 。</span></p><p><span>可以在 dba_free_space 和 dba_data_files 这两张表格中查到表空间的总大小和剩余大小。</span><br/><code>select tablespace_name,sum(BYTES)/(1024*1024) as &quot;ts_size（M）&quot; from dba_data_files group by tablespace_name;</code></p><p><span>查看表空间的数据文件的路径。</span><br/><code>select file_name from dba_data_files where tablespace_name=&#39;USERS&#39;;</code><span> </span></p><p><span>修改表空间的大小可以修改其中一个数据文件的大小，或者给表空间添加/删除数据文件。 </span><br/><code>alter database datafile &#39;F:\ORACLE\PRODUCT\10.2.0\ORADATA\ORCL\xxx.DBF&#39; resize 1024m;</code></p><h2><a name="模式与用户" class="md-header-anchor"></a><span>模式与用户 </span></h2><p><span>模式与用户是一一对应的关系，模式名默认就是用户名，模式是存放数据库对象的地方。 </span><br/><span>模式不能被单独创建，要创建模式必须创建用户。 </span><br/><span>用户不仅能访问自己模式中的数据库对象，也能访问其他用户的模式中的数据库对象。 </span><br/><span>模式是逻辑数据结构，并不是实际的数据存储文件。 </span></p><h2><a name="oracle和mysql的用户与数据库的关系的区别" class="md-header-anchor"></a><span>oracle和MySQL的【用户与数据库的关系】的区别 </span></h2><p><span>oracle是用户属于数据库，多个数据库之间是独立的，每个数据库都有自己的管理员账户，虽然名字都是sys和system这两个。用户可以访问自己的模式下的数据库对象，也可以授予其他用户访问自己模式下的数据库对象的权限。dba角色的用户可以访问该数据库中任意模式中的数据库对象。 </span></p><p><span>MySQL中的用户属于默认的名为mysql的数据库。root用户是MySQL的管理员，管理所有的数据库。仅有root用户可以创建其他用户，并把操作数据库或表格的权限授予给他。 </span></p><p>&nbsp;</p></div>
 </body>
 </html>

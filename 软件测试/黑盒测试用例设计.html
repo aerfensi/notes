@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>黑盒测试用例设计</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>黑盒测试用例设计</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,110 +147,363 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="黑盒测试用例设计" class="md-header-anchor"></a><span>黑盒测试用例设计</span></h1><p><span>黑盒测试仅关心系统的输入与输出，不关注系统的内部实现。常见的黑盒测试方法有：</span><br/><span>边界值、等价类、错误推测法、场景法、因果图法、判定表组成法、功能图、正交实验设计。</span></p><p><span>在笔试题的选择或填空中可能出现黑盒测试有哪些方法的题目，而笔试题的解答题中出现的测试用例设计题，多是采用等价类或边界值法。测试用例的设计应该要覆盖完全，同时避免冗余。</span></p><h2><a name="等价类划分法" class="md-header-anchor"></a><span>等价类划分法</span></h2><p><span>该方法是将输入划分为多个子集，从每个子集中取出一个值作为测试输入。划分的子集应该满足如下要求：</span></p><ol start='' ><li><span>单个子集内部的所有数据都是等价的</span></li><li><span>子集之间无交集</span></li><li><span>所有子集的并集为整个输入集合</span></li></ol><p><span>等价类划分法将测试用例划分为有效等价类和无效等价类（不需要考虑边界值的情况），做法是将输入条件拆解，每个条件划分有效子集和无效子集，有效等价类就是所有条件的有效子集的笛卡尔积，无效等价类则是将一个条件取无效值，其他条件为各种有效值的组合。</span></p><p><span>题：网站注册用户名的时候，输入框要求“用户名由字母开头，后跟字母或数字的任意组合，且长度&lt;=8”。</span></p><p><span>条件有3个：字母开头、后跟字母或数字的任意组合、长度&lt;=8  </span></p><figure><table><thead><tr><th>&nbsp;</th><th><span>字母开头</span></th><th><span>后跟字母或数字的任意组合</span></th><th><span>长度&lt;=8</span></th></tr></thead><tbody><tr><td><span>有效</span></td><td><span>字母开头</span></td><td><span>纯数字、纯字母、字母数字组合、空（即没字母也没数字）</span></td><td><span>长度&lt;=8</span></td></tr><tr><td><span>无效</span></td><td><span>非字母开头</span></td><td><span>纯特殊字符、特殊字符+数字、特殊字符+字母</span></td><td><span>长度&gt;8</span></td></tr></tbody></table></figure><p><span>有效测试用例：</span></p><ul><li><span>a1111111</span></li><li><span>aaaaaaaa</span></li><li><span>a123aaaa</span></li><li><span>a</span></li></ul><p><span>无效测试用例：</span></p><p><span>长度大于8</span></p><ul><li><span>a11111111</span></li><li><span>aaaaaaaaa</span></li><li><span>a123aaaaa</span></li></ul><p><span>非字母开头</span></p><ul><li><span>11111111</span></li><li><span>1aaaaaaa</span></li><li><span>1123aaaa</span></li><li><span>1</span></li></ul><p><span>非字母与数字任意组合</span></p><ul><li><span>a&amp;</span></li><li><span>a1&amp;</span></li><li><span>aa&amp;</span></li></ul><p><strong><span>这个测试用例设计的有冗余</span></strong><span>，题中的“后跟字母或数字的任意组合”，让我以为程序设计中是将输入字符串切成了两段，分别检查【首字母】与【后面跟的字符串】。虽然我觉得这题的表述有问题，但我应该根据实际工作经验来判断。一般用户名的要求是“用户名只能输入数字或字母的任意组合”，即整个用户名为数字和字母的任意组合，其中包含首字母，故有效等价类中【a】和【aaaaaaaa】是重复的，【a1111111】和【a123aaaa】也是重复的，同理，无效等价类中也有冗余。</span></p><h2><a name="边界值分析法" class="md-header-anchor"></a><span>边界值分析法</span></h2><p><span>该方法是取输入集合的边界值、略效于边界值、略大于边界值，作为测试数据。对于一个有上下边界的参数，会产生6个测试用例，如果有两个参数，则一个参数取正常值，另一个参数取边界值做测试。如果需要更全面的测试，则还需要考虑两个参数都取边界值的情况。笔试的时候一般不会出现这种情况，都是单个参数的。</span></p><h2><a name="测试用例设计面试题" class="md-header-anchor"></a><span>测试用例设计面试题</span></h2><p><span>一般测试用例设计的面试题，面试官想要考察的是面试者的功能测试用例设计能力，不需要去考虑界面测试、压力测试、安全测试等。</span></p><h3><a name="网站登录页面" class="md-header-anchor"></a><span>网站登录页面</span></h3><ul><li><span>输入为空的情况下点击登陆按钮，登陆失败</span></li><li><span>输入正确的账号密码，登陆成功，并跳转到预期的页面</span></li><li><span>输入错误的账号或密码，登陆失败</span></li><li><span>登录失败的时候是否会清空输入的密码，保留输入的用户名</span></li><li><span>测试账号和用户名对特殊字符和字符串长度的支持情况</span></li><li><span>输入的密码是不是明文显示</span></li><li><span>登陆失败次数有没有上限</span></li><li><span>输入密码的时候，大写键盘开启的时候要有提示信息</span></li><li><span>登出后再次登录，是否能记住原先的登录名</span></li></ul><h3><a name="网站注册" class="md-header-anchor"></a><span>网站注册</span></h3><ul><li><span>用户名被占用</span></li><li><span>合法的用户名（字符合法，长度合法）</span></li><li><span>不合法的用户名（特殊字符，长度不合法等）</span></li><li><span>空的用户名</span></li><li><span>合法的密码</span></li><li><span>不合法的密码（包括密码的长度、密码的强度、以及支持的字符）</span></li><li><span>空的密码</span></li><li><span>密码和确认密码输入的不同</span></li><li><span>密码输入时是否会变成小圆点</span></li><li><span>输入密码的时候，大写键盘开启的时候要有提示信息。</span></li></ul><h3><a name="收藏按钮" class="md-header-anchor"></a><span>收藏按钮</span></h3><p><span>如果有一个按钮，点击一下收藏，再点击一下取消</span></p><ul><li><span>点击，关注，再点击，取消。检查功能是否正常</span></li><li><span>再点击，关注，再点击，取消。检查多次使用这个功能，功能是否正常</span></li><li><span>点击，关注，APP退出，再次打开APP，按钮为收藏状态。检查按钮的状态能否正常保存</span></li></ul><h3><a name="银行转账" class="md-header-anchor"></a><span>银行转账</span></h3><ul><li><span>收款卡号、收款人姓名、付款卡号、转账金额等信息能否正常填写</span></li><li><span>付款卡必须是借记卡或者活期存储</span></li><li><span>收款账号、收款人姓名、开户行需要全部对应，有一个错误就转账失败</span></li><li><span>转账金额必须小于等于卡内余额</span></li><li><span>转账时的密码或指纹或人脸识别验证必须通过</span></li></ul></div>
+<div  id='write'  class = 'is-node'><h1><a name="黑盒测试用例设计" class="md-header-anchor"></a><span>黑盒测试用例设计</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#黑盒测试用例设计">黑盒测试用例设计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#等价类划分法">等价类划分法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n70"><a class="md-toc-inner" href="#边界值分析法">边界值分析法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n137"><a class="md-toc-inner" href="#场景法">场景法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n143"><a class="md-toc-inner" href="#错误猜测法">错误猜测法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n153"><a class="md-toc-inner" href="#因果图法">因果图法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n72"><a class="md-toc-inner" href="#测试用例设计面试题">测试用例设计面试题</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n74"><a class="md-toc-inner" href="#网站登录页面">网站登录页面</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n94"><a class="md-toc-inner" href="#网站注册">网站注册</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n116"><a class="md-toc-inner" href="#收藏按钮">收藏按钮</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a class="md-toc-inner" href="#银行转账">银行转账</a></span></p></div><p><span>黑盒测试仅关心系统的输入与输出，不关注系统的内部实现。常见的黑盒测试方法有：</span><br/><span>边界值、等价类、错误推测法、场景法、因果图法、判定表组成法、功能图、正交实验设计。</span></p><p><span>在笔试题的选择或填空中可能出现黑盒测试有哪些方法的题目，而笔试题的解答题中出现的测试用例设计题，多是采用等价类或边界值法。测试用例的设计应该要覆盖完全，同时避免冗余。</span></p><h2><a name="等价类划分法" class="md-header-anchor"></a><span>等价类划分法</span></h2><p><span>该方法是将输入划分为多个子集，从每个子集中取出一个值作为测试输入。划分的子集应该满足如下要求：</span></p><ol start='' ><li><span>单个子集内部的所有数据都是等价的</span></li><li><span>子集之间无交集</span></li><li><span>所有子集的并集为整个输入集合</span></li></ol><p><span>等价类划分法将测试用例划分为有效等价类和无效等价类（不需要考虑边界值的情况），做法是将输入条件拆解，每个条件划分有效子集和无效子集，有效等价类就是所有条件的有效子集的笛卡尔积，无效等价类则是将一个条件取无效值，其他条件为各种有效值的组合。</span></p><p><span>题：网站注册用户名的时候，输入框要求“用户名由字母开头，后跟字母或数字的任意组合，且长度&lt;=8”。</span></p><p><span>条件有3个：字母开头、后跟字母或数字的任意组合、长度&lt;=8  </span></p><figure><table><thead><tr><th>&nbsp;</th><th><span>字母开头</span></th><th><span>后跟字母或数字的任意组合</span></th><th><span>长度&lt;=8</span></th></tr></thead><tbody><tr><td><span>有效</span></td><td><span>字母开头</span></td><td><span>纯数字、纯字母、字母数字组合、空（即没字母也没数字）</span></td><td><span>长度&lt;=8</span></td></tr><tr><td><span>无效</span></td><td><span>非字母开头</span></td><td><span>纯特殊字符、特殊字符+数字、特殊字符+字母</span></td><td><span>长度&gt;8</span></td></tr></tbody></table></figure><p><span>有效测试用例：</span></p><ul><li><span>a1111111</span></li><li><span>aaaaaaaa</span></li><li><span>a123aaaa</span></li><li><span>a</span></li></ul><p><span>无效测试用例：</span></p><p><span>长度大于8</span></p><ul><li><span>a11111111</span></li><li><span>aaaaaaaaa</span></li><li><span>a123aaaaa</span></li></ul><p><span>非字母开头</span></p><ul><li><span>11111111</span></li><li><span>1aaaaaaa</span></li><li><span>1123aaaa</span></li><li><span>1</span></li></ul><p><span>非字母与数字任意组合</span></p><ul><li><span>a&amp;</span></li><li><span>a1&amp;</span></li><li><span>aa&amp;</span></li></ul><p><strong><span>这个测试用例设计的有冗余</span></strong><span>，题中的“后跟字母或数字的任意组合”，让我以为程序设计中是将输入字符串切成了两段，分别检查【首字母】与【后面跟的字符串】。虽然我觉得这题的表述有问题，但我应该根据实际工作经验来判断。一般用户名的要求是“用户名只能输入数字或字母的任意组合”，即整个用户名为数字和字母的任意组合，其中包含首字母，故有效等价类中【a】和【aaaaaaaa】是重复的，【a1111111】和【a123aaaa】也是重复的，同理，无效等价类中也有冗余。</span></p><h2><a name="边界值分析法" class="md-header-anchor"></a><span>边界值分析法</span></h2><p><span>该方法是取输入集合的边界值、略效于边界值、略大于边界值，作为测试数据。对于一个有上下边界的参数，会产生6个测试用例，如果有两个参数，则一个参数取正常值，另一个参数取边界值做测试。如果需要更全面的测试，则还需要考虑两个参数都取边界值的情况。笔试的时候一般不会出现这种情况，都是单个参数的。</span></p><h2><a name="场景法" class="md-header-anchor"></a><span>场景法</span></h2><p><a href='https://www.cnblogs.com/yusijie/p/6690795.html'><span>黑盒测试--场景法</span></a></p><h2><a name="错误猜测法" class="md-header-anchor"></a><span>错误猜测法</span></h2><p><a href='https://www.cnblogs.com/linyfeng/p/9211662.html'><span>【黑盒测试方法】错误猜测法</span></a></p><h2><a name="因果图法" class="md-header-anchor"></a><span>因果图法</span></h2><p><a href='https://blog.csdn.net/qwert443122162/article/details/51355726'><span>因果图，图形含义</span></a><span>  </span></p><h2><a name="测试用例设计面试题" class="md-header-anchor"></a><span>测试用例设计面试题</span></h2><p><span>一般测试用例设计的面试题，面试官想要考察的是面试者的功能测试用例设计能力，不需要去考虑界面测试、压力测试、安全测试等。</span></p><h3><a name="网站登录页面" class="md-header-anchor"></a><span>网站登录页面</span></h3><ul><li><span>输入为空的情况下点击登陆按钮，登陆失败</span></li><li><span>输入正确的账号密码，登陆成功，并跳转到预期的页面</span></li><li><span>输入错误的账号或密码，登陆失败</span></li><li><span>登录失败的时候是否会清空输入的密码，保留输入的用户名</span></li><li><span>测试账号和用户名对特殊字符和字符串长度的支持情况</span></li><li><span>输入的密码是不是明文显示</span></li><li><span>登陆失败次数有没有上限</span></li><li><span>输入密码的时候，大写键盘开启的时候要有提示信息</span></li><li><span>登出后再次登录，是否能记住原先的登录名</span></li></ul><h3><a name="网站注册" class="md-header-anchor"></a><span>网站注册</span></h3><ul><li><span>用户名被占用</span></li><li><span>合法的用户名（字符合法，长度合法）</span></li><li><span>不合法的用户名（特殊字符，长度不合法等）</span></li><li><span>空的用户名</span></li><li><span>合法的密码</span></li><li><span>不合法的密码（包括密码的长度、密码的强度、以及支持的字符）</span></li><li><span>空的密码</span></li><li><span>密码和确认密码输入的不同</span></li><li><span>密码输入时是否会变成小圆点</span></li><li><span>输入密码的时候，大写键盘开启的时候要有提示信息。</span></li></ul><h3><a name="收藏按钮" class="md-header-anchor"></a><span>收藏按钮</span></h3><p><span>如果有一个按钮，点击一下收藏，再点击一下取消</span></p><ul><li><span>点击，关注，再点击，取消。检查功能是否正常</span></li><li><span>再点击，关注，再点击，取消。检查多次使用这个功能，功能是否正常</span></li><li><span>点击，关注，APP退出，再次打开APP，按钮为收藏状态。检查按钮的状态能否正常保存</span></li></ul><h3><a name="银行转账" class="md-header-anchor"></a><span>银行转账</span></h3><ul><li><span>收款卡号、收款人姓名、付款卡号、转账金额等信息能否正常填写</span></li><li><span>付款卡必须是借记卡或者活期存储</span></li><li><span>收款账号、收款人姓名、开户行需要全部对应，有一个错误就转账失败</span></li><li><span>转账金额必须小于等于卡内余额</span></li><li><span>转账时的密码或指纹或人脸识别验证必须通过</span></li></ul></div>
 </body>
 </html>

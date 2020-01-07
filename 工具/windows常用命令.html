@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>windows常用命令</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>windows常用命令</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,110 +147,363 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="windows%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" class="md-header-anchor"></a><span>windows常用命令</span></h1><h2><a name="netstat" class="md-header-anchor"></a><span>netstat</span></h2><p><span>显示计算机中的网络连接，默认只显示活动的连接，并且会一直监听，当有连接状态发生变化时，也会把新的信息打印出来。</span></p><p><span>输出内容如下：</span></p><p><span>协议   本地地址         外部地址           状态</span><br/><span>TCP    127.0.0.1:1626   127.0.0.1:1628     ESTABLISHED</span><br/><span>TCP    127.0.0.1:1628   127.0.0.1:1626     ESTABLISHED</span></p><p><span>外部地址：程序连接的远程计算机的地址与端口，有的程序是连接127.0.0.1，也就是本机。  </span></p><p><span>状态：常见的TCP状态有如下几种：</span><br/><span>LISTENING   侦听来自远方的TCP端口的连接请求。</span><br/><span>ESTABLISHED 连接已建立。</span><br/><span>CLOSE-WAIT  等待从本地用户发来的连接中断请求。</span><br/><span>TIME-WAIT   等待足够的时间以确保远程TCP接收到连接中断请求的确认。  </span></p><p><code>-a</code><span>：显示所有活动的连接，和正在监听的连接。默认不显示listening状态的连接，-a能使他们显示出来。</span><br/><code>-n</code><span>：以数字的形式显示地址和端口号，而不是主机名，并且一次显示当前所有活动的连接，而不是等待连接状态发生变化刷新输出的信息。</span><br/><code>-o</code><span>：显示占用该端口的进程的pid。  </span></p><h2><a name="findstr" class="md-header-anchor"></a><span>findstr</span></h2><p><span>查找文件中的字符串，该命令支持管道。</span><br/><span>findstr支持</span><strong><span>通配符</span></strong><span>，具体可以用 findstr /? 查看。  </span></p><ul><li><code>/i</code><span>：不区分大小写</span></li><li><code>/n</code><span>：打印行号</span></li><li><code>/v</code><span>：反向，显示不匹配的行</span></li><li><code>/s</code><span>：在当前目录及所有子目录中搜索</span></li></ul><p><span>举例：【</span><code>findstr /ins oracle *</code><span>】在当前目录及子目录所有文件中搜索oracle字符串，不区分大小写，且打印行号。</span></p><h2><a name="taskkill" class="md-header-anchor"></a><span>taskkill</span></h2><p><span>终止进程，也能够连接远程计算机，终止远程计算机上的进程。</span></p><ul><li><code>/f</code><span>：强制终止</span></li><li><code>/t</code><span>：终止进程及其启动的子进程</span></li><li><code>/pid</code><span>：指定进程IP</span></li></ul><h2><a name="tasklist" class="md-header-anchor"></a><span>tasklist</span></h2><p><span>列出所有进程。</span></p><p><code>/fi</code><span>：筛选器，具体看帮助文档，比如查询PID为1796的进程，【</span><code>tasklist /fi &quot;pid eq 1796&quot;</code><span>】</span></p><h2><a name="telnet" class="md-header-anchor"></a><span>telnet</span></h2><p><span>命令行形式连接远程Windows，本机需要在控制面板的程序与功能中开启【telnet 客户端功能】。  </span></p><p><code>telnet ip</code><span>：如果网络通的话就可以输入账号密码登陆了，如果远程Windows的图形界面卡死了，可以用它来登陆并重启远程window。  </span></p><p><code>telent ip port</code><span>：可以用来测试远程Windows的某个端口是否开启，只要不打印连接失败，就表示端口是开启的。</span></p><h2><a name="route" class="md-header-anchor"></a><span>route</span></h2><p><span>可用来清楚，添加，查看路由表。</span><br/><code>route print</code><span>：查看路由表。</span></p><h2><a name="powershell" class="md-header-anchor"></a><span>powershell</span></h2><h3><a name="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" class="md-header-anchor"></a><span>环境变量</span></h3><p><span>power shell在变量设置是也要加$，比如</span><code>$a=1</code><span>；查看变量直接输入 </span><code>$a</code><span>。</span><br/><span>power shell的变量是有类型的，</span><code>$a=1</code><span>（整型），</span><code>$a=&quot;hello&quot;</code><span>（字符串），</span><code>$a=hello</code><span>（hello必须是函数、脚本或可执行程序）。</span></p><p><span>环境变量存储在虚拟驱动器</span><strong><span>env</span></strong><span>中。</span><br/><code>ls env</code><span>:  查看所有环境变量，对比真实驱动器C盘，ls c:  查看C盘根目录中的文件。</span><br/><code>$env:hello=&quot;hello&quot;</code><span>：设置环境变量。这里设置的环境变量不会添加到Windows控制面板中，也就是说该环境变量仅对powershell有效，且power shell重启后就没了。</span><br/><code>del env:hello</code><span>：删除环境变量。  </span></p><h3><a name="%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" class="md-header-anchor"></a><span>常用命令</span></h3><p><code>ls -force</code><span>：显示所有文件。</span><br/><code>attrib -h/+h</code><span>：给文件删除/增加隐藏属性。</span><br/><code>Get-FileHash file -Algorithm MD5 | Format-List</code><span>：计算file的MD5值。  </span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="windows常用命令" class="md-header-anchor"></a><span>windows常用命令</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#windows常用命令">windows常用命令</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#netstat">netstat</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#findstr">findstr</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n21"><a class="md-toc-inner" href="#taskkill">taskkill</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n30"><a class="md-toc-inner" href="#tasklist">tasklist</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n33"><a class="md-toc-inner" href="#telnet">telnet</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n37"><a class="md-toc-inner" href="#route">route</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n39"><a class="md-toc-inner" href="#powershell">powershell</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n40"><a class="md-toc-inner" href="#环境变量">环境变量</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n43"><a class="md-toc-inner" href="#常用命令">常用命令</a></span></p></div><h2><a name="netstat" class="md-header-anchor"></a><span>netstat</span></h2><p><span>显示计算机中的网络连接，默认只显示活动的连接，并且会一直监听，当有连接状态发生变化时，也会把新的信息打印出来。</span></p><p><span>输出内容如下：</span></p><p><span>协议   本地地址         外部地址           状态</span><br/><span>TCP    127.0.0.1:1626   127.0.0.1:1628     ESTABLISHED</span><br/><span>TCP    127.0.0.1:1628   127.0.0.1:1626     ESTABLISHED</span></p><p><span>外部地址：程序连接的远程计算机的地址与端口，有的程序是连接127.0.0.1，也就是本机。  </span></p><p><span>状态：常见的TCP状态有如下几种：</span><br/><span>LISTENING   侦听来自远方的TCP端口的连接请求。</span><br/><span>ESTABLISHED 连接已建立。</span><br/><span>CLOSE-WAIT  等待从本地用户发来的连接中断请求。</span><br/><span>TIME-WAIT   等待足够的时间以确保远程TCP接收到连接中断请求的确认。  </span></p><p><code>-a</code><span>：显示所有活动的连接，和正在监听的连接。默认不显示listening状态的连接，-a能使他们显示出来。</span><br/><code>-n</code><span>：以数字的形式显示地址和端口号，而不是主机名，并且一次显示当前所有活动的连接，而不是等待连接状态发生变化刷新输出的信息。</span><br/><code>-o</code><span>：显示占用该端口的进程的pid。  </span></p><h2><a name="findstr" class="md-header-anchor"></a><span>findstr</span></h2><p><span>查找文件中的字符串，该命令支持管道。</span><br/><span>findstr支持</span><strong><span>通配符</span></strong><span>，具体可以用 findstr /? 查看。  </span></p><ul><li><code>/i</code><span>：不区分大小写</span></li><li><code>/n</code><span>：打印行号</span></li><li><code>/v</code><span>：反向，显示不匹配的行</span></li><li><code>/s</code><span>：在当前目录及所有子目录中搜索</span></li></ul><p><span>举例：【</span><code>findstr /ins oracle *</code><span>】在当前目录及子目录所有文件中搜索oracle字符串，不区分大小写，且打印行号。</span></p><h2><a name="taskkill" class="md-header-anchor"></a><span>taskkill</span></h2><p><span>终止进程，也能够连接远程计算机，终止远程计算机上的进程。</span></p><ul><li><code>/f</code><span>：强制终止</span></li><li><code>/t</code><span>：终止进程及其启动的子进程</span></li><li><code>/pid</code><span>：指定进程IP</span></li></ul><h2><a name="tasklist" class="md-header-anchor"></a><span>tasklist</span></h2><p><span>列出所有进程。</span></p><p><code>/fi</code><span>：筛选器，具体看帮助文档，比如查询PID为1796的进程，【</span><code>tasklist /fi &quot;pid eq 1796&quot;</code><span>】</span></p><h2><a name="telnet" class="md-header-anchor"></a><span>telnet</span></h2><p><span>命令行形式连接远程Windows，本机需要在控制面板的程序与功能中开启【telnet 客户端功能】。  </span></p><p><code>telnet ip</code><span>：如果网络通的话就可以输入账号密码登陆了，如果远程Windows的图形界面卡死了，可以用它来登陆并重启远程window。  </span></p><p><code>telent ip port</code><span>：可以用来测试远程Windows的某个端口是否开启，只要不打印连接失败，就表示端口是开启的。</span></p><h2><a name="route" class="md-header-anchor"></a><span>route</span></h2><p><span>可用来清楚，添加，查看路由表。</span><br/><code>route print</code><span>：查看路由表。</span></p><h2><a name="powershell" class="md-header-anchor"></a><span>powershell</span></h2><h3><a name="环境变量" class="md-header-anchor"></a><span>环境变量</span></h3><p><span>power shell在变量设置是也要加$，比如</span><code>$a=1</code><span>；查看变量直接输入 </span><code>$a</code><span>。</span><br/><span>power shell的变量是有类型的，</span><code>$a=1</code><span>（整型），</span><code>$a=&quot;hello&quot;</code><span>（字符串），</span><code>$a=hello</code><span>（hello必须是函数、脚本或可执行程序）。</span></p><p><span>环境变量存储在虚拟驱动器</span><strong><span>env</span></strong><span>中。</span><br/><code>ls env</code><span>:  查看所有环境变量，对比真实驱动器C盘，ls c:  查看C盘根目录中的文件。</span><br/><code>$env:hello=&quot;hello&quot;</code><span>：设置环境变量。这里设置的环境变量不会添加到Windows控制面板中，也就是说该环境变量仅对powershell有效，且power shell重启后就没了。</span><br/><code>del env:hello</code><span>：删除环境变量。  </span></p><h3><a name="常用命令" class="md-header-anchor"></a><span>常用命令</span></h3><p><code>ls -force</code><span>：显示所有文件。</span><br/><code>attrib -h/+h</code><span>：给文件删除/增加隐藏属性。</span><br/><code>Get-FileHash file -Algorithm MD5 | Format-List</code><span>：计算file的MD5值。  </span></p></div>
 </body>
 </html>

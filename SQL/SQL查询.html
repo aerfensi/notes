@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>SQL查询</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>SQL查询</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,6 +147,10 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
 .CodeMirror { height: auto; }
@@ -222,108 +226,357 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
 }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="sql-%E6%9F%A5%E8%AF%A2" class="md-header-anchor"></a><span>SQL 查询</span></h1><h2><a name="select" class="md-header-anchor"></a><span>select</span></h2><p><code>SELECT col FROM tbl;</code><span></span><br/><strong><span>mysql</span></strong><span>可以直接使用select输出结果，比如：</span><code>select abs(-11);</code><span>  输出-11是绝对值。</span><br/><span>而</span><strong><span>Oracle</span></strong><span>的select必须跟from，比如：</span><code>select abs(-11) from 【随便哪一个表格】</code><span>。  </span></p><h2><a name="distinct" class="md-header-anchor"></a><span>DISTINCT</span></h2><p><span>去除查询结果中相同的行（每个字段都相同才可以）</span><br/><code>SELECT DISTINCT col FROM tbl;</code></p><h2><a name="as" class="md-header-anchor"></a><span>AS</span></h2><p><span>SELECT语句中可以给字段或者表格取别名，使用关键字AS，不过这个AS是可选的，在【原名】和【别名】之间直接用空格隔开，效果一样。</span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 字段的别名必须是一个字符串（但是定义的时候不加引号也是可以的），作用于查询结果。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 也就是说查询结果中id列的列名会显示为【序号】，而不是【id】。</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> id <span class="cm-keyword">AS</span> <span class="cm-string">'序号'</span> <span class="cm-keyword">FROM</span> people <span class="cm-keyword">as</span> p <span class="cm-keyword">where</span> p<span class="cm-variable-2">.id</span>=<span class="cm-number">1</span>;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 60px;"></div><div class="CodeMirror-gutters" style="height: 60px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h2><a name="limit" class="md-header-anchor"></a><span>LIMIT</span></h2><p><span>限制SELECT查询输出的行数。</span><br/><strong><span>用LIMIT可以方便的输出表格的前几行，但是要输出倒数几行的话，目前我只知道需要表格有一个id列，然后根据id列倒序排列再用LIMIT子句。</span></strong><span>  </span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>4</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 读取n行数据</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> n;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 从第m行开始，读取n行数据</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> m,n;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 80px;"></div><div class="CodeMirror-gutters" style="height: 80px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><h3><a name="offset" class="md-header-anchor"></a><span>OFFSET</span></h3><p><span>设置SELECT语句从第几行开始查询。</span><br/><strong><span>mysql表格的行数的下标也是从0开始的。</span></strong><span>  </span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 这两行代码效果相同</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> n,m;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> m OFFSET n;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 60px;"></div><div class="CodeMirror-gutters" style="height: 60px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><strong><span>oracle</span></strong><span>不能使用limit offset关键字，而是使用rownum。</span><br/><span>rownum是oracle中的一个伪列，表示行号，和mysql的offset不同，他是从1开始的。</span><br/><code>select * from tbl where rownum &lt;= 10;</code><span></span><br/><span>rownum只能使用&lt;、&lt;=、!=，具体原因可参考</span><a href='https://www.cnblogs.com/szlbm/p/5806070.html'><span>ORACLE中ROWNUM用法总结！</span></a></p><h2><a name="order-by-...-%5Bdesc%5D" class="md-header-anchor"></a><span>ORDER BY ... [DESC]</span></h2><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> * <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> col [<span class="cm-keyword">DESC</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 根据多个条件排列结果，当前一个条件相等时，再使用后一个条件</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 如果条件都是升序，那可以不加[DESC/ASC]，否则多个条件都加上[DESC/ASC]</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> * <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> col1 [<span class="cm-keyword">DESC</span>/ASC], col2 [<span class="cm-keyword">DESC</span>/ASC];</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 100px;"></div><div class="CodeMirror-gutters" style="height: 100px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>oracle还支持</span><code>nulls first/last</code><span>关键字，自由选择null值排在最前面还是最后面。</span><br/><code>select * from tbl order by col desc nulls first;</code></p><h2><a name="union-%E5%92%8C-union-all" class="md-header-anchor"></a><span>UNION 和 UNION ALL</span></h2><p><span>UNION和UNION ALL都是纵向连接多条SELECT语句的结果。</span><br/><span>举个例子，以下为表1，表2，以及用UNION连接的查询结果。  </span></p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 30px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 26px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -26px; width: 26px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col1 <span class="cm-keyword">FROM</span> tbl1 <span class="cm-keyword">UNION</span> <span class="cm-keyword">SELECT</span> col2 <span class="cm-keyword">FROM</span> tbl2;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">表1  | 表2 | 查询结果</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">id &nbsp; | id &nbsp; |  id</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">1 &nbsp; | 2 &nbsp; |  1</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">|  2</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -26px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">*/</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 160px;"></div><div class="CodeMirror-gutters" style="height: 160px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 26px;"></div></div></div></div></pre><p><span>所以UNION和UNION ALL对多条SELECT语句的查询结果有如下要求：  </span></p><ol start='' ><li><span>必须有相同数量的列</span></li><li><span>对应列（第一列对应第一列，第二列对应第二列）的列名和数据类型必须一样</span></li></ol><p><span>UNION和UNION ALL的区别是UNION会删除结果中相同的行，而UNION ALL不会。</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="sql-查询" class="md-header-anchor"></a><span>SQL 查询</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#sql-查询">SQL 查询</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#select">select</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#distinct">DISTINCT</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n6"><a class="md-toc-inner" href="#as">AS</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#limit">LIMIT</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n12"><a class="md-toc-inner" href="#offset">OFFSET</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner" href="#order-by--desc">ORDER BY ... [DESC]</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n19"><a class="md-toc-inner" href="#union-和-union-all">UNION 和 UNION ALL</a></span></p></div><h2><a name="select" class="md-header-anchor"></a><span>select</span></h2><p><code>SELECT col FROM tbl;</code><span></span><br/><strong><span>mysql</span></strong><span>可以直接使用select输出结果，比如：</span><code>select abs(-11);</code><span>  输出-11是绝对值。</span><br/><span>而</span><strong><span>Oracle</span></strong><span>的select必须跟from，比如：</span><code>select abs(-11) from 【随便哪一个表格】</code><span>。  </span></p><h2><a name="distinct" class="md-header-anchor"></a><span>DISTINCT</span></h2><p><span>去除查询结果中相同的行（每个字段都相同才可以）</span><br/><code>SELECT DISTINCT col FROM tbl;</code></p><h2><a name="as" class="md-header-anchor"></a><span>AS</span></h2><p><span>SELECT语句中可以给字段或者表格取别名，使用关键字AS，不过这个AS是可选的，在【原名】和【别名】之间直接用空格隔开，效果一样。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 字段的别名必须是一个字符串（但是定义的时候不加引号也是可以的），作用于查询结果。</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 也就是说查询结果中id列的列名会显示为【序号】，而不是【id】。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> id <span class="cm-keyword">AS</span> <span class="cm-string">'序号'</span> <span class="cm-keyword">FROM</span> people <span class="cm-keyword">as</span> p <span class="cm-keyword">where</span> p<span class="cm-variable-2">.id</span>=<span class="cm-number">1</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><h2><a name="limit" class="md-header-anchor"></a><span>LIMIT</span></h2><p><span>限制SELECT查询输出的行数。</span><br/><strong><span>用LIMIT可以方便的输出表格的前几行，但是要输出倒数几行的话，目前我只知道需要表格有一个id列，然后根据id列倒序排列再用LIMIT子句。</span></strong><span>  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 读取n行数据</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> n;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 从第m行开始，读取n行数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> m,n;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre><h3><a name="offset" class="md-header-anchor"></a><span>OFFSET</span></h3><p><span>设置SELECT语句从第几行开始查询。</span><br/><strong><span>mysql表格的行数的下标也是从0开始的。</span></strong><span>  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 这两行代码效果相同</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> n,m;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">LIMIT</span> m OFFSET n;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><strong><span>oracle</span></strong><span>不能使用limit offset关键字，而是使用rownum。</span><br/><span>rownum是oracle中的一个伪列，表示行号，和mysql的offset不同，他是从1开始的。</span><br/><code>select * from tbl where rownum &lt;= 10;</code><span></span><br/><span>rownum只能使用&lt;、&lt;=、!=，具体原因可参考</span><a href='https://www.cnblogs.com/szlbm/p/5806070.html'><span>ORACLE中ROWNUM用法总结！</span></a></p><h2><a name="order-by--desc" class="md-header-anchor"></a><span>ORDER BY ... [DESC]</span></h2><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> * <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> col [<span class="cm-keyword">DESC</span>];</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 根据多个条件排列结果，当前一个条件相等时，再使用后一个条件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">-- 如果条件都是升序，那可以不加[DESC/ASC]，否则多个条件都加上[DESC/ASC]</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> * <span class="cm-keyword">FROM</span> tbl <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> col1 [<span class="cm-keyword">DESC</span>/ASC], col2 [<span class="cm-keyword">DESC</span>/ASC];</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>oracle还支持</span><code>nulls first/last</code><span>关键字，自由选择null值排在最前面还是最后面。</span><br/><code>select * from tbl order by col desc nulls first;</code></p><h2><a name="union-和-union-all" class="md-header-anchor"></a><span>UNION 和 UNION ALL</span></h2><p><span>UNION和UNION ALL都是纵向连接多条SELECT语句的结果。</span><br/><span>举个例子，以下为表1，表2，以及用UNION连接的查询结果。  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="sql"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> col1 <span class="cm-keyword">FROM</span> tbl1 <span class="cm-keyword">UNION</span> <span class="cm-keyword">SELECT</span> col2 <span class="cm-keyword">FROM</span> tbl2;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">表1  | 表2 | 查询结果</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">id &nbsp; | id &nbsp; |  id</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">1 &nbsp; | 2 &nbsp; |  1</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">|  2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">*/</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 184px;"></div><div class="CodeMirror-gutters" style="display: none; height: 184px;"></div></div></div></pre><p><span>所以UNION和UNION ALL对多条SELECT语句的查询结果有如下要求：  </span></p><ol start='' ><li><span>必须有相同数量的列</span></li><li><span>对应列（第一列对应第一列，第二列对应第二列）的列名和数据类型必须一样</span></li></ol><p><span>UNION和UNION ALL的区别是UNION会删除结果中相同的行，而UNION ALL不会。</span></p></div>
 </body>
 </html>

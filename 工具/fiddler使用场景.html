@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>fiddler使用场景</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>fiddler使用场景</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,111 +147,364 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="fiddler%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" class="md-header-anchor"></a><span>fiddler使用场景</span></h1><h2><a name="%E6%8A%93%E5%8F%96https" class="md-header-anchor"></a><span>抓取https</span></h2><p><img src='images/fiddler_5F89FFEF454DF3BD393B6D33619F025B.jpg' alt='fiddler_5F89FFEF454DF3BD393B6D33619F025B' referrerPolicy='no-referrer' /></p><p><span>开启https抓取的选项，如果希望其他软件导入fiddler的CA证书，可以使用红框中的选项，将证书先导出到桌面。</span></p><h2><a name="%E6%8A%93%E5%8F%96%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85" class="md-header-anchor"></a><span>抓取手机数据包</span></h2><p><img src='images/fiddler_6DD3367C6D5440CE965333731C0755C8.jpg' alt='fiddler_6DD3367C6D5440CE965333731C0755C8' referrerPolicy='no-referrer' /></p><ol start='' ><li><span>fiddler代理服务监听端口</span></li><li><span>fiddler启动后立即开启系统代理（默认开启）</span></li><li><span>允许远程设备连接fiddler代理</span></li></ol><p><span>如果fiddler不开启系统代理，那就要在需要抓取的软件中设置代理，比如火狐，chrome中则可以使用SwitchyOmega。  </span></p><p><span>fiddler打开允许远程设备连接的选项后，手机访问fiddler代理地址（比如：</span><code>http://192.168.111.109:8888</code><span>）以下载CA证书，最后在手机连接的WiFi中设置代理地址和端口，就可以给手机抓包了。</span></p><h2><a name="%E6%8A%93%E5%8F%96windows%E6%B2%89%E6%B5%B8%E5%BC%8Fapp%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85" class="md-header-anchor"></a><span>抓取Windows沉浸式APP的数据包</span></h2><p><img src='images/fiddler_68B128D6A37C0E0F4AB9937AB2D2B05E.jpg' alt='fiddler_68B128D6A37C0E0F4AB9937AB2D2B05E' referrerPolicy='no-referrer' /></p><p><span>一些Windows app无法被抓包，需要点winconfig设置一下。勾选要抓包的app，点击保存即可。</span></p><p><img src='images/fiddler_D3714944DC88C276766D090C080DA93A.jpg' alt='fiddler_D3714944DC88C276766D090C080DA93A' referrerPolicy='no-referrer' /></p><h2><a name="autoresponder" class="md-header-anchor"></a><span>AutoResponder</span></h2><p><span>AutoResponder可以在收到http请求后，返回一个自定义的响应，而不是去请求服务器真实的响应，也就是mock。</span><br/><span>对于开发人员来说，当修改html/css/js等文件，或图片什么的资源后，可以用AutoResponder先在本地做测试，然后在上传到线上环境中。</span><br/><span>对于测试人员来说，AutoResponder可以用来做客户端的测试。比如客户端访问一个接口，然后我需要测试当接口返回错误信息的时候，客户端能否正确展示错误，我可以不修改后台，直接使用AutoResponder给客户端一个错误的response。  </span></p><p><img src='images/fiddler使用场景_98ab033686355e8a73924dc3d1cfc253.png' alt='fiddler使用场景_98ab033686355e8a73924dc3d1cfc253' referrerPolicy='no-referrer' /></p><p><span>使用AutoResponder需要开启Enable rules（开启AutoResponder）和unmatched requests passthrough（不符合AutoResponder规则的请求，直接放行），Enable Latency是响应的延迟时间，开启后，可以在每个rule上右击，set Latency，单位是毫秒。</span></p><p><span>地下的Rule Editor，上面的一个文本框时匹配的URL，下面的一个是需要返回的响应。可以直接使用fiddler预置的404等响应，或者是find a file返回一个指定文件。也可以右击rule列表中的rule，edit response。直接在raw标签总编辑，然后点击save。</span></p><p><img src='images/fiddler使用场景_594194cf121a0b06f7da14e7104c6ced.png' alt='fiddler使用场景_594194cf121a0b06f7da14e7104c6ced' referrerPolicy='no-referrer' /></p><p><span>【test...】按钮可以用来测试某个URL是否符合指定的规则。</span></p><p><img src='images/fiddler使用场景_125f4e71b51a601c1c084c4db2ab05a8.png' alt='fiddler使用场景_125f4e71b51a601c1c084c4db2ab05a8' referrerPolicy='no-referrer' /></p><p><span>除了手动点击【Add Rule】外，还可以直接从会话列表拖一个请求过来。</span></p><h2><a name="composer" class="md-header-anchor"></a><span>Composer</span></h2><p><img src='images/fiddler使用场景_16d4cce1cffbb28c31ff014df4a5ea2e.png' alt='fiddler使用场景_16d4cce1cffbb28c31ff014df4a5ea2e' referrerPolicy='no-referrer' /></p><p><span>发送http请求用的，在这里编辑后，点击execute发送即可。也可以直接从会话列表拖一个请求过来。</span><br/><span>可以在会话列表选中多个请求，然后拖到scratchpad标签中，但是不能一次发送多个请求，还是只能在scratchpad中选中某一个请求后发送。</span></p><h2><a name="fiddler%E6%96%AD%E7%82%B9" class="md-header-anchor"></a><span>fiddler断点</span></h2><p><img src='images/fiddler_C4867DC5289378FA29409DDA3134889D.jpg' alt='fiddler_C4867DC5289378FA29409DDA3134889D' referrerPolicy='no-referrer' /></p><p><span>回放请求的时候，选择reissue and edit会在请求之前暂停，此时可以编辑请求，其实就是给这个请求打了一个断点，可以看到请求的编辑界面如下：</span></p><p><img src='images/fiddler_570F021F56A5F4FD2389D9D2FBF770CD.jpg' alt='fiddler_570F021F56A5F4FD2389D9D2FBF770CD' referrerPolicy='no-referrer' /></p><p><span>可以让fiddler为所有请求自动添加断点</span></p><p><img src='images/fiddler_80B99DAA73A5AED2DE7837068BC0E4D0.jpg' alt='fiddler_80B99DAA73A5AED2DE7837068BC0E4D0' referrerPolicy='no-referrer' /></p><p><span>可以让fiddler自动给某个host的请求自动添加断点，在命令行面板（左下角）输入如下命令即可。</span><br/><span>拦截所有URL中带某个字符串的请求：bpu misc.kimiss.com </span><br/><span>清除断点拦截：bpu</span><br/><span>拦截所有URL中带某个字符串的响应：bpafter misc.kimiss.com</span><br/><span>清除断点拦截：bpafter  </span></p><p><img src='images/fiddler_A9DF599FE8056D0D6D2661378011027B.jpg' alt='fiddler_A9DF599FE8056D0D6D2661378011027B' referrerPolicy='no-referrer' /></p><h2><a name="filters" class="md-header-anchor"></a><span>Filters</span></h2><p><img src='images/fiddler_8D3790A9E681BF6A8C71CFAE3C7C62DC.jpg' alt='fiddler_8D3790A9E681BF6A8C71CFAE3C7C62DC' referrerPolicy='no-referrer' /></p><p><span>设置完filter后，一定要点击【run filterset now】来时使新的filter设置生效。</span><br/><span>上图中【host】下面的两个红框，第一个是指根据内网/外网来过滤，第二个是指根据下面文本框中填写的host来过滤。</span><br/><span>过滤面板中还有其他功能，包括根据请求头中的url过滤，根据响应码过滤，根据响应的文件类型过滤，自动添加断点等。</span><br/><span>一眼看不出什么功能的有：  </span></p><p><img src='images/fiddler_2780526B3480863AB956747A5EBAB70D.jpg' alt='fiddler_2780526B3480863AB956747A5EBAB70D' referrerPolicy='no-referrer' /></p><p><span>这三个是针对请求头中的属性，比如</span><strong><span>【将所有请求头中带有cookie属性的请求标粗】</span></strong></p><h2><a name="%E7%BD%91%E8%B7%AF%E5%BB%B6%E8%BF%9F" class="md-header-anchor"></a><span>网路延迟</span></h2><p><span>开启Rule-&gt;Performance-&gt;simulate moderm speeds，可惜在fiddler的界面上不能设置延迟的速度，必须在Rule-&gt;Customize Rule中，搜索m_SimulateModem，可以看到默认请求中每KB延迟300毫秒，响应中每KB延迟150毫秒。手动修改后，重启fiddler生效。</span>
-<span>可以使用Rule-&gt;reset script重置这个脚本。</span></p><p><img src='images/fiddler使用场景_845dadaf8e22cb2d280b527bc8d765b3.png' alt='fiddler使用场景_845dadaf8e22cb2d280b527bc8d765b3' referrerPolicy='no-referrer' /></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="fiddler使用场景" class="md-header-anchor"></a><span>fiddler使用场景</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#fiddler使用场景">fiddler使用场景</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#抓取https">抓取https</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#抓取手机数据包">抓取手机数据包</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner" href="#抓取windows沉浸式app的数据包">抓取Windows沉浸式APP的数据包</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n20"><a class="md-toc-inner" href="#autoresponder">AutoResponder</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n29"><a class="md-toc-inner" href="#composer">Composer</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n32"><a class="md-toc-inner" href="#fiddler断点">fiddler断点</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n40"><a class="md-toc-inner" href="#filters">Filters</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n45"><a class="md-toc-inner" href="#网路延迟">网路延迟</a></span></p></div><h2><a name="抓取https" class="md-header-anchor"></a><span>抓取https</span></h2><p><img src="images/fiddler_5F89FFEF454DF3BD393B6D33619F025B.jpg" referrerpolicy="no-referrer" alt="fiddler_5F89FFEF454DF3BD393B6D33619F025B"></p><p><span>开启https抓取的选项，如果希望其他软件导入fiddler的CA证书，可以使用红框中的选项，将证书先导出到桌面。</span></p><h2><a name="抓取手机数据包" class="md-header-anchor"></a><span>抓取手机数据包</span></h2><p><img src="images/fiddler_6DD3367C6D5440CE965333731C0755C8.jpg" referrerpolicy="no-referrer" alt="fiddler_6DD3367C6D5440CE965333731C0755C8"></p><ol start='' ><li><span>fiddler代理服务监听端口</span></li><li><span>fiddler启动后立即开启系统代理（默认开启）</span></li><li><span>允许远程设备连接fiddler代理</span></li></ol><p><span>如果fiddler不开启系统代理，那就要在需要抓取的软件中设置代理，比如火狐，chrome中则可以使用SwitchyOmega。  </span></p><p><span>fiddler打开允许远程设备连接的选项后，手机访问fiddler代理地址（比如：</span><code>http://192.168.111.109:8888</code><span>）以下载CA证书，最后在手机连接的WiFi中设置代理地址和端口，就可以给手机抓包了。</span></p><h2><a name="抓取windows沉浸式app的数据包" class="md-header-anchor"></a><span>抓取Windows沉浸式APP的数据包</span></h2><p><img src="images/fiddler_68B128D6A37C0E0F4AB9937AB2D2B05E.jpg" referrerpolicy="no-referrer" alt="fiddler_68B128D6A37C0E0F4AB9937AB2D2B05E"></p><p><span>一些Windows app无法被抓包，需要点winconfig设置一下。勾选要抓包的app，点击保存即可。</span></p><p><img src="images/fiddler_D3714944DC88C276766D090C080DA93A.jpg" referrerpolicy="no-referrer" alt="fiddler_D3714944DC88C276766D090C080DA93A"></p><h2><a name="autoresponder" class="md-header-anchor"></a><span>AutoResponder</span></h2><p><span>AutoResponder可以在收到http请求后，返回一个自定义的响应，而不是去请求服务器真实的响应，也就是mock。</span><br/><span>对于开发人员来说，当修改html/css/js等文件，或图片什么的资源后，可以用AutoResponder先在本地做测试，然后在上传到线上环境中。</span><br/><span>对于测试人员来说，AutoResponder可以用来做客户端的测试。比如客户端访问一个接口，然后我需要测试当接口返回错误信息的时候，客户端能否正确展示错误，我可以不修改后台，直接使用AutoResponder给客户端一个错误的response。  </span></p><p><img src="images/fiddler使用场景_98ab033686355e8a73924dc3d1cfc253.png" referrerpolicy="no-referrer" alt="fiddler使用场景_98ab033686355e8a73924dc3d1cfc253"></p><p><span>使用AutoResponder需要开启Enable rules（开启AutoResponder）和unmatched requests passthrough（不符合AutoResponder规则的请求，直接放行），Enable Latency是响应的延迟时间，开启后，可以在每个rule上右击，set Latency，单位是毫秒。</span></p><p><span>地下的Rule Editor，上面的一个文本框时匹配的URL，下面的一个是需要返回的响应。可以直接使用fiddler预置的404等响应，或者是find a file返回一个指定文件。也可以右击rule列表中的rule，edit response。直接在raw标签总编辑，然后点击save。</span></p><p><img src="images/fiddler使用场景_594194cf121a0b06f7da14e7104c6ced.png" referrerpolicy="no-referrer" alt="fiddler使用场景_594194cf121a0b06f7da14e7104c6ced"></p><p><span>【test...】按钮可以用来测试某个URL是否符合指定的规则。</span></p><p><img src="images/fiddler使用场景_125f4e71b51a601c1c084c4db2ab05a8.png" referrerpolicy="no-referrer" alt="fiddler使用场景_125f4e71b51a601c1c084c4db2ab05a8"></p><p><span>除了手动点击【Add Rule】外，还可以直接从会话列表拖一个请求过来。</span></p><h2><a name="composer" class="md-header-anchor"></a><span>Composer</span></h2><p><img src="images/fiddler使用场景_16d4cce1cffbb28c31ff014df4a5ea2e.png" referrerpolicy="no-referrer" alt="fiddler使用场景_16d4cce1cffbb28c31ff014df4a5ea2e"></p><p><span>发送http请求用的，在这里编辑后，点击execute发送即可。也可以直接从会话列表拖一个请求过来。</span><br/><span>可以在会话列表选中多个请求，然后拖到scratchpad标签中，但是不能一次发送多个请求，还是只能在scratchpad中选中某一个请求后发送。</span></p><h2><a name="fiddler断点" class="md-header-anchor"></a><span>fiddler断点</span></h2><p><img src="images/fiddler_C4867DC5289378FA29409DDA3134889D.jpg" referrerpolicy="no-referrer" alt="fiddler_C4867DC5289378FA29409DDA3134889D"></p><p><span>回放请求的时候，选择reissue and edit会在请求之前暂停，此时可以编辑请求，其实就是给这个请求打了一个断点，可以看到请求的编辑界面如下：</span></p><p><img src="images/fiddler_570F021F56A5F4FD2389D9D2FBF770CD.jpg" referrerpolicy="no-referrer" alt="fiddler_570F021F56A5F4FD2389D9D2FBF770CD"></p><p><span>可以让fiddler为所有请求自动添加断点</span></p><p><img src="images/fiddler_80B99DAA73A5AED2DE7837068BC0E4D0.jpg" referrerpolicy="no-referrer" alt="fiddler_80B99DAA73A5AED2DE7837068BC0E4D0"></p><p><span>可以让fiddler自动给某个host的请求自动添加断点，在命令行面板（左下角）输入如下命令即可。</span><br/><span>拦截所有URL中带某个字符串的请求：bpu misc.kimiss.com </span><br/><span>清除断点拦截：bpu</span><br/><span>拦截所有URL中带某个字符串的响应：bpafter misc.kimiss.com</span><br/><span>清除断点拦截：bpafter  </span></p><p><img src="images/fiddler_A9DF599FE8056D0D6D2661378011027B.jpg" referrerpolicy="no-referrer" alt="fiddler_A9DF599FE8056D0D6D2661378011027B"></p><h2><a name="filters" class="md-header-anchor"></a><span>Filters</span></h2><p><img src="images/fiddler_8D3790A9E681BF6A8C71CFAE3C7C62DC.jpg" referrerpolicy="no-referrer" alt="fiddler_8D3790A9E681BF6A8C71CFAE3C7C62DC"></p><p><span>设置完filter后，一定要点击【run filterset now】来时使新的filter设置生效。</span><br/><span>上图中【host】下面的两个红框，第一个是指根据内网/外网来过滤，第二个是指根据下面文本框中填写的host来过滤。</span><br/><span>过滤面板中还有其他功能，包括根据请求头中的url过滤，根据响应码过滤，根据响应的文件类型过滤，自动添加断点等。</span><br/><span>一眼看不出什么功能的有：  </span></p><p><img src="images/fiddler_2780526B3480863AB956747A5EBAB70D.jpg" referrerpolicy="no-referrer" alt="fiddler_2780526B3480863AB956747A5EBAB70D"></p><p><span>这三个是针对请求头中的属性，比如</span><strong><span>【将所有请求头中带有cookie属性的请求标粗】</span></strong></p><h2><a name="网路延迟" class="md-header-anchor"></a><span>网路延迟</span></h2><p><span>开启Rule-&gt;Performance-&gt;simulate moderm speeds，可惜在fiddler的界面上不能设置延迟的速度，必须在Rule-&gt;Customize Rule中，搜索m_SimulateModem，可以看到默认请求中每KB延迟300毫秒，响应中每KB延迟150毫秒。手动修改后，重启fiddler生效。</span>
+<span>可以使用Rule-&gt;reset script重置这个脚本。</span></p><p><img src="images/fiddler使用场景_845dadaf8e22cb2d280b527bc8d765b3.png" referrerpolicy="no-referrer" alt="fiddler使用场景_845dadaf8e22cb2d280b527bc8d765b3"></p></div>
 </body>
 </html>

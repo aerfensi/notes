@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>数据库支持的数据类型</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>数据库支持的数据类型</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -147,111 +147,364 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
-html { font-size: 16px; }
-body { background: rgb(255, 255, 255); font-family: "Source Han Sans SC", sans-serif; color: rgb(85, 85, 85); }
-#write { max-width: 60em; margin: 0px auto; padding: 20px 30px 50px; }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 1em; font-weight: bold; line-height: 1.4em; }
-h1 { font-size: 2em; line-height: 1.2em; }
-h2 { font-size: 1.5em; line-height: 1.225em; }
-h3 { font-size: 1.3em; line-height: 1.43em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(153, 153, 153); }
-hr { border: 1px solid rgb(221, 221, 221); }
-a { text-decoration: none; color: rgb(37, 143, 184); }
-a:hover, a:active { text-decoration: underline; }
-ul, ol { padding-left: 2em; }
-.task-list { padding-left: 2em; }
-.task-list-item { padding-left: 1.6em; }
-.task-list-item input { top: 3px; left: 8px; }
-table { width: 100%; border-collapse: collapse; border-spacing: 0px; }
-table th { font-weight: bold; border-bottom: 3px solid rgb(221, 221, 221); padding-bottom: 0.5em; }
-table td { border-bottom: 1px solid rgb(221, 221, 221); padding: 10px 0px; }
-blockquote { border-left: 5px solid rgb(221, 221, 221); padding-left: 0.5em; font-family: "Source Han Serif SC", serif; color: rgb(85, 85, 85); }
-blockquote blockquote { padding-right: 0px; }
-.md-fences, code, tt { margin: 0px 0.3em; padding: 0px 0.3em; background: rgb(238, 238, 238); font-family: mononoki, monospace; text-shadow: rgb(255, 255, 255) 0px 1px; }
-.md-fences { margin: 15px auto; padding: 0.7em 1em; text-shadow: none; }
-.cm-s-inner.CodeMirror { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-inner .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-inner .CodeMirror-guttermarker, .cm-s-inner .CodeMirror-guttermarker-subtle, .cm-s-inner .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-inner .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-inner div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-inner.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line > span::selection, .cm-s-inner .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-inner .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-inner .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-inner .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-number { color: rgb(247, 118, 105); }
-.cm-s-inner .cm-def { color: rgb(233, 237, 237); }
-.cm-s-inner .cm-string { color: rgb(195, 232, 141); }
-.cm-s-inner .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-inner .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-inner .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-inner .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-inner .cm-property { color: rgb(128, 203, 174); }
-.cm-s-inner .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-variable-3, .cm-s-inner .cm-type { color: rgb(222, 203, 107); }
-.cm-s-inner .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-inner .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.cm-s-typora-default { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); }
-.cm-s-typora-default .CodeMirror-gutters { background: rgb(38, 50, 56); color: rgb(83, 127, 126); border: none; }
-.cm-s-typora-default .CodeMirror-guttermarker, .cm-s-typora-default .CodeMirror-guttermarker-subtle, .cm-s-typora-default .CodeMirror-linenumber { color: rgb(83, 127, 126); }
-.cm-s-typora-default .CodeMirror-cursor { border-left: 1px solid rgb(248, 248, 240); }
-.cm-s-typora-default div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
-.cm-s-typora-default.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-line::selection, .cm-s-typora-default .CodeMirror-line > span::selection, .cm-s-typora-default .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.1); }
-.cm-s-typora-default .CodeMirror-activeline-background { background: rgba(0, 0, 0, 0); }
-.cm-s-typora-default .cm-keyword { color: rgb(199, 146, 234); }
-.cm-s-typora-default .cm-operator { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-variable-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-builtin { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-atom { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-number { color: rgb(247, 118, 105); }
-.cm-s-typora-default .cm-def { color: rgb(233, 237, 237); }
-.cm-s-typora-default .cm-string { color: rgb(195, 232, 141); }
-.cm-s-typora-default .cm-string-2 { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-comment { color: rgb(84, 110, 122); }
-.cm-s-typora-default .cm-variable { color: rgb(130, 177, 255); }
-.cm-s-typora-default .cm-tag { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-meta { color: rgb(128, 203, 196); }
-.cm-s-typora-default .cm-attribute { color: rgb(255, 203, 107); }
-.cm-s-typora-default .cm-property { color: rgb(128, 203, 174); }
-.cm-s-typora-default .cm-qualifier { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-variable-3 { color: rgb(222, 203, 107); }
-.cm-s-typora-default .cm-tag { color: rgb(255, 83, 112); }
-.cm-s-typora-default .cm-error { color: rgb(255, 255, 255); background-color: rgb(236, 95, 103); }
-.cm-s-typora-default .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
-.md-fences { background-color: rgb(38, 50, 56); color: rgb(233, 237, 237); border: none; }
-.md-fences .code-tooltip { background-color: rgb(38, 50, 56); }
-.CodeMirror div.CodeMirror-cursor { border-left: 1px solid rgb(228, 98, 154); }
-#write pre.md-meta-block { padding: 1em; background-color: rgb(255, 255, 255); border-bottom: 1px dashed rgb(221, 221, 221); color: rgb(128, 203, 196); margin-top: 0px !important; }
-.md-image > .md-meta { color: inherit; }
-header, .context-menu, .megamenu-content, footer { font-family: "Source Han Sans SC", sans-serif; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { overflow-wrap: break-word; }
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
 }
-header, .context-menu, .megamenu-content, footer { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif; }
-.md-diagram-panel-preview { color: rgb(38, 50, 56); }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="%E6%95%B0%E6%8D%AE%E5%BA%93%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>数据库支持的数据类型</span></h1><h2><a name="mysql" class="md-header-anchor"></a><span>MySQL</span></h2><p><span>mysql的数据类型太多了，只记录一些常用的。</span></p><h3><a name="%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>数值类型</span></h3><p><span>int：同integer，4字节</span><br/><span>float：4字节</span><br/><span>double：8字节  </span></p><p><span>数值类型可以有UNSIGNED约束，插入负数将报错。</span><br/><span>整型还可以有ZEROFILL约束，比如 id INT(5) ZEROFILL，这里的5不会影响id的表示范围，只是说当插入的数值的长度小于5时，前面将有0补全，如果没有ZEROFILL，则这个5不起作用。  </span></p><h3><a name="%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>字符串类型</span></h3><ul><li><span>char：255个字节，定长，有默认值，长度不足用空格补足</span></li><li><span>varchar：65535个字节，开头1到2个字节保存字符串长度，变长，有默认值</span></li><li><span>text：65535个字节，用额外的字节保存字符串长度，没有默认值</span></li><li><span>blob：65535字节，二进制长文本</span></li><li><span>enum：单选类型，比如 gender enum(&#39;male&#39;,&#39;female&#39;)，gender列只能被赋值成&#39;male&#39;或&#39;female&#39;</span></li><li><span>set：多选类型，比如 hobby set(&#39;music&#39;,&#39;movie&#39;,&#39;swimming&#39;,&#39;footbal&#39;)，hobby可以被赋值成多个字符串组成的一个长字符串，中间用逗号隔开，比如&#39;music,movie&#39;</span></li></ul><h3><a name="%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>时间日期类型</span></h3><p><span>时间日期类型就是特定格式的字符串，只要符合这种格式，任意字符串都可以插入到类型为时间日期的列中。</span></p><ul><li><span>DATE：YYYY-MM-DD</span></li><li><span>TIME：HH:MM:SS</span></li><li><span>DATETIME：YYYY-MM-DD HH:MM:SS</span></li><li><span>YEAR：YYYY</span></li><li><span>TIMESTAMP：时间戳，YYYYMMDDHHMMSS，不是Unix时间戳</span></li></ul><h3><a name="null" class="md-header-anchor"></a><span>NULL</span></h3><p><span>任何字段，不管其数据类型是什么，都可以存入NULL值，除非该字段有NOT NULL约束。</span>
-<span>NULL的判断不能用【=】，而要用</span><code>IS [NOT]</code><span>。</span></p><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><figure><table><thead><tr><th><span>char</span></th><th><span>定长字符串</span></th></tr></thead><tbody><tr><td><span>varchar2</span></td><td><span>变长字符串</span></td></tr><tr><td><span>varchar</span></td><td><span>varchar2的同义词</span></td></tr><tr><td>&nbsp;</td><td><span>但未来Oracle有可能将其作为一种新的类型，故建议使用varchar2</span></td></tr><tr><td><span>number</span></td><td><span>数字，可定义精度和尺度number(p,s)</span></td></tr><tr><td><span>date</span></td><td><span>秒分时、年月日、世纪等时间日期</span></td></tr><tr><td>&nbsp;</td><td><span>插入时使用date关键字，活着to_date()函数，才能将字符串作为date插入</span></td></tr><tr><td><span>TIMESTAMP</span></td><td><span>不同于Linux的时间戳，oracle的格式是 YYYY-MM-DD HH24:MI:SS.FF</span></td></tr><tr><td>&nbsp;</td><td><span>TIMESTAMP &#39;YYYY-MM-DD HH24:MI:SS.FF&#39;：插入时，指定字符串为时间戳类型</span></td></tr></tbody></table></figure><p><span>oracle的数据类型的文档中没有写NULL，但其实oracle的字段是可以为NULL值的。</span></p><h2><a name="sqlite" class="md-header-anchor"></a><span>sqlite</span></h2><h3><a name="%E5%AD%98%E5%82%A8%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>存储类型</span></h3><p><span>总共五种存储类型：NULL、INTEGER、REAL、TEXT、BLOB。</span><br/><span>没有MySQL的那种日期类型，可以用INTEGER、REAL或TEXT来存储日期。</span></p><h3><a name="%E4%BA%B2%E5%92%8C%E7%B1%BB%E5%9E%8B" class="md-header-anchor"></a><span>亲和类型</span></h3><p><span>SQLite不强制数据类型约束，任何数据都可以插入任何列。</span><br/><strong><span>有一个列外，INTEGER PRIMARY KEY 的列只能存储64位整数。</span></strong><span></span><br/><span>可以把列的数据类型设置为亲和类型，这样数据在插入时，会按照规则转换为适合的类型，如果转换不了，就按原类型存储。</span><br/><span>在创建表格时也可以定义列的数据类型为sqlite不支持的类型，比如varchar，反正都会被转成亲和类型。</span><br/><span>亲和类型有如下五种：NONE、INTEGER、REAL、TEXT、NUMERIC。</span></p><p><span>存储类型设置为blob表示用原类型存储，不转换。</span><br/><span>亲和类型感觉像是数据类型转化的一种规则，实际使用中，建表时还是使用存储类型，不要使用亲和类型。</span></p></div>
+<div  id='write'  class = 'is-node'><h1><a name="数据库支持的数据类型" class="md-header-anchor"></a><span>数据库支持的数据类型</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#数据库支持的数据类型">数据库支持的数据类型</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#mysql">MySQL</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4"><a class="md-toc-inner" href="#数值类型">数值类型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n7"><a class="md-toc-inner" href="#字符串类型">字符串类型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n21"><a class="md-toc-inner" href="#时间日期类型">时间日期类型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n34"><a class="md-toc-inner" href="#null">NULL</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n36"><a class="md-toc-inner" href="#oracle">Oracle</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n66"><a class="md-toc-inner" href="#sqlite">sqlite</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n67"><a class="md-toc-inner" href="#存储类型">存储类型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n69"><a class="md-toc-inner" href="#亲和类型">亲和类型</a></span></p></div><h2><a name="mysql" class="md-header-anchor"></a><span>MySQL</span></h2><p><span>mysql的数据类型太多了，只记录一些常用的。</span></p><h3><a name="数值类型" class="md-header-anchor"></a><span>数值类型</span></h3><p><span>int：同integer，4字节</span><br/><span>float：4字节</span><br/><span>double：8字节  </span></p><p><span>数值类型可以有UNSIGNED约束，插入负数将报错。</span><br/><span>整型还可以有ZEROFILL约束，比如 id INT(5) ZEROFILL，这里的5不会影响id的表示范围，只是说当插入的数值的长度小于5时，前面将有0补全，如果没有ZEROFILL，则这个5不起作用。  </span></p><h3><a name="字符串类型" class="md-header-anchor"></a><span>字符串类型</span></h3><ul><li><span>char：255个字节，定长，有默认值，长度不足用空格补足</span></li><li><span>varchar：65535个字节，开头1到2个字节保存字符串长度，变长，有默认值</span></li><li><span>text：65535个字节，用额外的字节保存字符串长度，没有默认值</span></li><li><span>blob：65535字节，二进制长文本</span></li><li><span>enum：单选类型，比如 gender enum(&#39;male&#39;,&#39;female&#39;)，gender列只能被赋值成&#39;male&#39;或&#39;female&#39;</span></li><li><span>set：多选类型，比如 hobby set(&#39;music&#39;,&#39;movie&#39;,&#39;swimming&#39;,&#39;footbal&#39;)，hobby可以被赋值成多个字符串组成的一个长字符串，中间用逗号隔开，比如&#39;music,movie&#39;</span></li></ul><h3><a name="时间日期类型" class="md-header-anchor"></a><span>时间日期类型</span></h3><p><span>时间日期类型就是特定格式的字符串，只要符合这种格式，任意字符串都可以插入到类型为时间日期的列中。</span></p><ul><li><span>DATE：YYYY-MM-DD</span></li><li><span>TIME：HH:MM:SS</span></li><li><span>DATETIME：YYYY-MM-DD HH:MM:SS</span></li><li><span>YEAR：YYYY</span></li><li><span>TIMESTAMP：时间戳，YYYYMMDDHHMMSS，不是Unix时间戳</span></li></ul><h3><a name="null" class="md-header-anchor"></a><span>NULL</span></h3><p><span>任何字段，不管其数据类型是什么，都可以存入NULL值，除非该字段有NOT NULL约束。</span>
+<span>NULL的判断不能用【=】，而要用</span><code>IS [NOT]</code><span>。</span></p><h2><a name="oracle" class="md-header-anchor"></a><span>Oracle</span></h2><figure><table><thead><tr><th><span>char</span></th><th><span>定长字符串</span></th></tr></thead><tbody><tr><td><span>varchar2</span></td><td><span>变长字符串</span></td></tr><tr><td><span>varchar</span></td><td><span>varchar2的同义词</span></td></tr><tr><td>&nbsp;</td><td><span>但未来Oracle有可能将其作为一种新的类型，故建议使用varchar2</span></td></tr><tr><td><span>number</span></td><td><span>数字，可定义精度和尺度number(p,s)</span></td></tr><tr><td><span>date</span></td><td><span>秒分时、年月日、世纪等时间日期</span></td></tr><tr><td>&nbsp;</td><td><span>插入时使用date关键字，活着to_date()函数，才能将字符串作为date插入</span></td></tr><tr><td><span>TIMESTAMP</span></td><td><span>不同于Linux的时间戳，oracle的格式是 YYYY-MM-DD HH24:MI:SS.FF</span></td></tr><tr><td>&nbsp;</td><td><span>TIMESTAMP &#39;YYYY-MM-DD HH24:MI:SS.FF&#39;：插入时，指定字符串为时间戳类型</span></td></tr></tbody></table></figure><p><span>oracle的数据类型的文档中没有写NULL，但其实oracle的字段是可以为NULL值的。</span></p><h2><a name="sqlite" class="md-header-anchor"></a><span>sqlite</span></h2><h3><a name="存储类型" class="md-header-anchor"></a><span>存储类型</span></h3><p><span>总共五种存储类型：NULL、INTEGER、REAL、TEXT、BLOB。</span><br/><span>没有MySQL的那种日期类型，可以用INTEGER、REAL或TEXT来存储日期。</span></p><h3><a name="亲和类型" class="md-header-anchor"></a><span>亲和类型</span></h3><p><span>SQLite不强制数据类型约束，任何数据都可以插入任何列。</span><br/><strong><span>有一个列外，INTEGER PRIMARY KEY 的列只能存储64位整数。</span></strong><span></span><br/><span>可以把列的数据类型设置为亲和类型，这样数据在插入时，会按照规则转换为适合的类型，如果转换不了，就按原类型存储。</span><br/><span>在创建表格时也可以定义列的数据类型为sqlite不支持的类型，比如varchar，反正都会被转成亲和类型。</span><br/><span>亲和类型有如下五种：NONE、INTEGER、REAL、TEXT、NUMERIC。</span></p><p><span>存储类型设置为blob表示用原类型存储，不转换。</span><br/><span>亲和类型感觉像是数据类型转化的一种规则，实际使用中，建表时还是使用存储类型，不要使用亲和类型。</span></p></div>
 </body>
 </html>
